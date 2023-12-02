@@ -1,0 +1,315 @@
+.loginPage {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: url(./images/galaxysone/bgimg.jpg) no-repeat 50%/100%;
+}
+
+.andount[data-v-380ab766] {
+    font-size: 4.266667vw;
+    color: #fff;
+    font-weight: 600;
+    transform: skew(-10deg);
+}
+
+.andount span[data-v-380ab766] {
+    color: #ffad00;
+    font-size: 4.266667vw;
+    font-weight: 900;
+}
+
+.imgriti[data-v-380ab766] {
+    width: 30.4vw;
+    height: 29.466667vw;
+    position: absolute;
+    right: -3.333333vw;
+    top: 0;
+}
+
+.numberi[data-v-380ab766] {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.666667vw;
+}
+
+.numberi img[data-v-380ab766] {
+    width: 6.4vw;
+    height: auto;
+    margin-right: 2vw;
+}
+
+.numberi p[data-v-380ab766] {
+    font-size: 4.266667vw;
+    font-weight: 600;
+    color: #fff;
+}
+
+.van-cell {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 16px;
+    overflow: hidden;
+    color: #323233;
+    font-size: 14px;
+    line-height: 24px;
+    background: #fff;
+}
+
+.van-field {
+    flex-wrap: wrap;
+}
+
+.input-box {
+    background: none;
+    height: 13.066667vw;
+    padding: 3.333333vw 4vw 1.333333vw;
+    margin-bottom: 5.333333vw;
+    border-radius: 1.066667vw;
+    border: 0.266667vw solid hsla(0, 0%, 100%, .5);
+}
+
+.input-box .van-field__left-icon {
+    margin-right: 2.666667vw;
+}
+
+.input-box .van-field__left-icon .phonen {
+    display: flex;
+    align-items: center;
+}
+
+.input-box .van-field__left-icon .phonen img {
+    width: 6.4vw;
+    height: auto;
+    margin-right: 2vw;
+}
+
+.input-box .van-field__left-icon .phonen p {
+    color: #00ebff;
+    font-size: 4.266667vw;
+    font-weight: 500;
+}
+
+.input-box .van-field__left-icon .phonen span {
+    width: 0.2vw;
+    height: 5.333333vw;
+    background: #999;
+    display: block;
+    margin-left: 1.333333vw;
+}
+
+.van-cell__value {
+    position: relative;
+    overflow: visible;
+    color: #969799;
+    text-align: right;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+
+.van-field__body {
+    display: flex;
+    align-items: center;
+}
+
+.van-field__control {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    color: #323233;
+    line-height: inherit;
+    text-align: left;
+    background-color: transparent;
+    border: 0;
+    resize: none;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    user-select: auto;
+}
+
+.input-box input {
+    font-size: 3.5vw;
+    font-weight: 500;
+    color: #fff;
+}
+
+.input-box.btnbox {
+    padding: 2vw 4vw 1.333333vw;
+}
+
+.btnbox {
+    padding: 2vw 4vw 1.333333vw;
+}
+
+.van-field__right-icon {
+    color: #969799;
+}
+
+.van-field__clear,
+.van-field__right-icon {
+    margin-right: calc(8px*-1);
+    padding: 0 8px;
+    line-height: inherit;
+}
+
+.van-field__button,
+.van-field__clear,
+.van-field__icon,
+.van-field__right-icon {
+    flex-shrink: 0;
+}
+
+.van-button {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: auto;
+}
+
+.van-button:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border: inherit;
+    border-color: #000;
+    border-radius: inherit;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    content: " ";
+}
+
+.van-button--default {
+    color: #323233;
+    background: #fff;
+    border: 1px solid #dcdee0;
+}
+
+.van-button--normal {
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+.input-box.btnbox .van-field__right-icon .senduis {
+    padding: 0.666667vw 2.666667vw;
+    height: 8vw;
+    border: 0;
+    background: #00ebff;
+}
+
+.van-button__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.van-button__content:before {
+    content: " ";
+}
+
+.input-box.btnbox .van-field__right-icon .senduis span {
+    font-size: 3.466667vw;
+    font-weight: 600;
+}
+
+.van-cell__title,
+.van-cell__value {
+    flex: 1;
+}
+
+.input-box .van-field__right-icon .eyeimg {
+    width: 5.066667vw;
+    height: auto;
+}
+
+.van-toast {
+    font-size: 2.8rem !important;
+    word-wrap: break-word !important;
+    word-break: normal !important;
+    padding: 1.6rem 2.2rem !important;
+    border-radius: 1.333333vw !important;
+    top: 45% !important;
+    background: linear-gradient(270deg, #ffe1e8, #ff8ca9) !important;
+    color: #000 !important;
+    border: none !important;
+    box-shadow: .666667vw .666667vw 1px 1px rgba(162, 27, 27, .4) !important
+}
+
+.van-toast.loadingcss {
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    overflow: hidden;
+    top: 50% !important;
+    width: 20rem !important;
+    height: 20rem !important;
+    box-shadow: none !important
+}
+
+.van-toast.loadingcss .van-icon img {
+    width: 18rem !important;
+    height: 18rem !important
+}
+
+.navbg {
+    background: url(./images/galaxysone/navbg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.inverted_radius::before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    right: -6px;
+    height: 50px;
+    width: 12px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: -1;
+}
+
+.inverted_radius::after {
+    content: "";
+    position: absolute;
+    background-color: #009fe9;
+    right: 5px;
+    height: 50px;
+    width: 12px;
+    /* border-top-left-radius: 8px; */
+    border-bottom-right-radius: 8px;
+    z-index: -1;
+    bottom: 0px;
+}
+
+.sidebarBG {
+    background: url(./images/galaxysone/bgimg.jpg);
+    background-position: 50% 50%;
+}
+
+.ptoductBG {
+    background: url(./images/galaxysone/cardimg.jpg);
+    background-position: center;
+    background-size: cover;
+}
