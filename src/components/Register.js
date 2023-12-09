@@ -11,13 +11,16 @@ import { ContextApi } from '../App';
 import logo from '../images/galaxysone/logo.jpg'
 import imgriti from '../images/galaxysone/imgriti.png'
 import phone from '../images/galaxysone/phone.png'
-import sms from '../images/galaxysone/sms.png'
+import sms from '../images/btc/verify.png'
 import indian from '../images/galaxysone/indianFlag.png'
-import password from '../images/galaxysone/password.png'
-import eyeclosed from '../images/galaxysone/eyeclosed.png'
-import eyeopened from '../images/galaxysone/eyeopened.png'
+import password from '../images/btc/lock.png'
+import eyeclosed from '../images/btc/eyeclosed.png'
+import eyeopened from '../images/btc/eyeopend.png'
 // import ReCAPTCHA from "react-google-recaptcha";
 import RCG from 'react-captcha-generator';
+import loginimg from '../images/btc/login.png'
+import phoneimg from '../images/btc/phone.png'
+
 
 const Register = () => {
 
@@ -170,210 +173,168 @@ const Register = () => {
     return (
         <>
 
-            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] bg-[#003136] overflow-y-scroll">
-                <div className="px-[8vw] text-left ">
+            <div className="text-base en h-screen w-screen overflow-hidden bg-[#ffeee4] px-5">
 
-                    <div className="mb-[6vw] relative">
+                <div className="isPc h-full flex flex-col w-full text-[#2c3e50] overflow-hidden">
 
-                        <img src={logo} alt="logo" className='w-[23vw] h-auto mb-[2.5vw] ' />
+                    <div className="van_nav_pd hidden"></div>
 
-                        <p className="andount" data-v-380ab766="">Register to receive free </p>
-                        <p className="andount" data-v-380ab766="">equipment and total</p>
-                        <p className="andount" data-v-380ab766="">revenue is <span data-v-380ab766="">₹11988</span></p>
-                        {/* <img className="imgriti" src={imgriti} alt="" data-v-380ab766=""></img> */}
+                    <div className="login">
 
-                    </div>
+                        <div className="login-head flex items-center justify-between">
 
-                    <form>
+                            <div className="l-left">
 
-                        <div className="numberi" data-v-380ab766="">
-                            <img src={phone} alt="" data-v-380ab766="" />
-                            <p data-v-380ab766="">Phone number</p>
-                        </div>
+                                <div className="l-title font-bold text-[#333333] text-3xl">Hello!</div>
 
-                        <div className="van-cell van-field input-box" data-v-380ab766="">
-
-                            <div className="van-field__left-icon">
-                                <div className="phonen" data-v-380ab766="">
-                                    <img src={indian} alt="" data-v-380ab766="" />
-                                    <p data-v-380ab766="">+91</p>
-                                    <span data-v-380ab766=""></span>
-                                </div>
-                            </div>
-
-                            <div className="van-cell__value van-field__value flex-1 ">
-
-                                <div className="van-field__body">
-
-                                    <input onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
-                                        type="tel"
-                                        inputMode="numeric"
-                                        id="van-field-1-input"
-                                        className="van-field__control inline-block"
-                                        placeholder="Please enter phone number"
-
-                                    />
-
-
-                                </div>
+                                <div className="l-desc text-[10px] font-semibold whitespace-nowrap text-[#666]">Welcome to the waho!</div>
 
                             </div>
+
+                            <div className="l-right">
+
+                                <img className='h-full max-h-72 relative -top-14' src={loginimg} alt="" />
+
+                            </div>
+
                         </div>
 
-                        <div className="numberi" data-v-380ab766="">
-                            <img src={password} alt="" data-v-380ab766="" />
-                            <p data-v-380ab766="">Login password</p>
-                        </div>
+                        <div className="content relative z-[1] ">
 
-                        <div className="van-cell van-field input-box" data-v-380ab766="">
-                            <div className="van-cell__value van-field__value">
-                                <div className="van-field__body">
-                                    <input onChange={e => setPwd(e.target.value)}
-                                        type={loginpwd}
-                                        id="van-field-3-input"
-                                        className="van-field__control"
-                                        placeholder="Please enter login password"
-                                    />
-                                    <div onClick={() => secrethandel('loginpwd')} className="van-field__right-icon">
-                                        {loginpwd === 'password' ?
-                                            <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
-                                            :
-                                            <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
-                                        }
+                            <div className="lg-t text-lg font-bold">Create an account to earn money</div>
+
+                            <div className="sign_login sign_login2 relative z-[2] mt-4">
+
+                                <div className="uilist bg-transparent rounded-lg overflow-hidden">
+
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+
+                                        <img className='w-[19px]' src={phoneimg} alt="" />
+
+                                        <span className="pre text-xs ml-1 font-medium ">+91</span>
+
+                                        <input
+                                            onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
+                                            type="tel"
+                                            placeholder="Phone Number"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+
+                                        />
+
                                     </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div className="numberi" data-v-380ab766="">
-                            <img src={password} alt="" data-v-380ab766="" />
-                            <p data-v-380ab766="">Enter password again</p>
-                        </div>
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
 
-                        <div className="van-cell van-field input-box" data-v-380ab766="">
-                            <div className="van-cell__value van-field__value">
-                                <div className="van-field__body">
-                                    <input onChange={e => setPwd2(e.target.value)}
-                                        type={loginpwd2}
-                                        id="van-field-4-input"
-                                        className="van-field__control"
-                                        placeholder="Please enter login password again"
-                                    />
-                                    <div onClick={() => secrethandel('loginpwd2')} className="van-field__right-icon">
-                                        {loginpwd2 === 'password' ?
-                                            <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
-                                            :
-                                            <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
-                                        }
+                                        <img className='w-[19px]' src={password} alt="" />
+
+                                        <input
+                                            onChange={e => setPwd(e.target.value)}
+                                            type={loginpwd}
+                                            placeholder="Password"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+
+                                        />
+
+                                        <div onClick={() => secrethandel('loginpwd')} className="">
+                                            {loginpwd === 'password' ?
+                                                <img className="eyeimg w-3" src={eyeclosed} alt="" data-v-380ab766="" />
+                                                :
+                                                <img className="eyeimg w-3" src={eyeopened} alt="" data-v-380ab766="" />
+                                            }
+                                        </div>
+
                                     </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div className="numberi" data-v-380ab766="">
-                            <img src={password} alt="" data-v-380ab766="" />
-                            <p data-v-380ab766="">Invitation code（Optional）</p>
-                        </div>
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
 
-                        <div className="van-cell van-field input-box" data-v-380ab766="">
+                                        <img className='w-[19px]' src={password} alt="" />
 
-                            <div className="van-cell__value van-field__value">
-                                <div className="van-field__body">
-                                    <input onChange={e => setInvt(e.target.value)}
-                                        type="text"
-                                        id="van-field-5-input"
-                                        className="van-field__control"
-                                        placeholder="Please enter the invitation code"
-                                        value={invt}
-                                    />
-                                </div>
+                                        <input
+                                            onChange={e => setPwd2(e.target.value)}
+                                            type={loginpwd2}
+                                            placeholder="Confirm New Password"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
 
-                            </div>
+                                        />
 
-                        </div>
+                                        <div onClick={() => secrethandel('loginpwd2')} className="">
+                                            {loginpwd2 === 'password' ?
+                                                <img className="eyeimg w-3" src={eyeclosed} alt="" data-v-380ab766="" />
+                                                :
+                                                <img className="eyeimg w-3" src={eyeopened} alt="" data-v-380ab766="" />
+                                            }
+                                        </div>
 
-                        {/* <div className="my-5">
+                                    </div>
 
-                            <div className="container">
-                                <div className="wrapper bg-white flex justify-between rounded-lg px-5 items-center">
-                                    <canvas ref={canvasRef}
-                                        width="200"
-                                        height="70">
+                                    {/* <div className="uilist_div verfy_code">
+                                        <img src="" alt="" />
+                                        <input placeholder="Verification" autoComplete="off" name="pattern" type="text" style={{ flexGrow: 1 }} />
+                                        <button className="verfy_title"> Get Code </button>
+                                    </div> */}
 
-                                    </canvas>
-                                    <button
-                                        id="reload-button"
-                                        type='button'
-                                        className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'
-                                        onClick={() => initializeCaptcha(canvasRef.current.getContext('2d'))}>
-                                        Reload
-                                    </button>
-                                </div>
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
 
-                            </div>
-                        </div>
+                                        <img className='w-[19px]' src={sms} alt="" />
 
-                        <div className="van-cell van-field input-box" data-v-380ab766="">
+                                        <input
+                                            onChange={(e) => setOtp(e.target.value)}
+                                            type={'text'}
+                                            placeholder="Verification"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
 
-                            <div className="van-cell__value van-field__value">
-                                <div className="van-field__body">
-                                    <input onChange={handleUserInputChange}
-                                        type="text"
-                                        id="van-field-5-input"
-                                        className="van-field__control"
-                                        placeholder="Enter reCaptcha"
-                                        value={userInput}
-                                    />
-                                </div>
+                                        />
 
-                            </div>
 
-                        </div> */}
+                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} type="button" className="verfy_title">
 
-                        <div className="numberi" data-v-380ab766="">
-                            <img src={sms} alt="" data-v-380ab766="" />
-                            <p data-v-380ab766="">SMS verification code</p>
-                        </div>
-                        <div className="van-cell van-field input-box btnbox" data-v-380ab766="">
-                            <div className="van-cell__value van-field__value flex-1">
-                                <div className="van-field__body">
-                                    <input
-                                        onChange={(e) => setOtp(e.target.value)}
-                                        type="tel"
-                                        inputMode="numeric"
-                                        id="van-field-2-input"
-                                        className="van-field__control"
-                                        placeholder="Enter SMS verification code"
-                                    />
-                                    <div className="van-field__right-icon shrink-0">
-                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} type="button" className="van-button van-button--default van-button--normal senduis" data-v-380ab766="">
-                                            <div className="van-button__content">
-                                                <span className="van-button__text">
-                                                    {seconds > 0 || minutes > 0 ?
-                                                        <>
-                                                            {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-                                                        </>
-                                                        :
-                                                        'send'}
-                                                </span>
-                                            </div>
+                                            {seconds > 0 || minutes > 0 ?
+                                                <>
+                                                    {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                                                </>
+                                                :
+                                                'Get Code'}
                                         </button>
+
                                     </div>
+
+                                    <div className="tcode text-center text-[#ff5801] text-[8px]"> Invitation code:{invt}</div>
+
+                                    <div className="tcode tcode2 text-center text-[#ff5801] text-[10px] font-bold mt-1 leading-none"> If you haven't received the email in your inbox, please check your spam folder. </div>
+
                                 </div>
+
+                                <p className="btn text-center mt-[14px]">
+
+                                    <button onClick={handleRegister} className='inline-block w-11/12 leading-3 rounded-full h-9 text-white text-center font-bold px-5' >Sign Up</button>
+
+                                </p>
+
                             </div>
                         </div>
 
-                        <div className="flex justify-between items-center space-x-3 text-[4vw]">
-                            <Link to={'/login'} className='h-[13vw] w-full'>
-                                <button className='btnbox h-[13vw] w-full bg-[#2b2b2b] rounded-sm text-[#6e6e6e] font-bold' >Login</button>
-                            </Link>
-                            <button type='button' onClick={handleRegister} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Register</button>
+                        <div style={{ textAlign: "center" }}>
                         </div>
 
-                    </form>
+                        <p className="footer2">
+                            <span >Already have an account ? </span>
+                            <Link to={'/login'} >logn in</Link>
+                        </p>
 
+                        <div style={{ height: "200px" }}>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </>
     )
 }
