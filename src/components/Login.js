@@ -119,7 +119,7 @@ const Login = () => {
 
                                 <div className="l-title font-bold text-[#333333] text-3xl">Hello!</div>
 
-                                <div className="l-desc text-[10px] font-semibold whitespace-nowrap text-[#666]">Welcome to the waho!</div>
+                                <div className="l-desc text-[10px] font-semibold whitespace-nowrap text-[#666]">Welcome to the Dnex!</div>
 
                             </div>
 

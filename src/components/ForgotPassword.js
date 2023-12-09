@@ -1,10 +1,25 @@
-import React, { useContext, useState } from 'react'
-import { LiaAngleLeftSolid } from 'react-icons/lia';
-import { Link, useNavigate } from 'react-router-dom';
-import { ContextApi } from '../App';
-import axios from 'axios';
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import axios from 'axios'
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import BASE_URL from '../api_url';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { ContextApi } from '../App';
+// import logo from '../images/logo (1).svg'
+// import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+// import applogo from '../images/appLogo.png'
+// import tradelogo from '../images/logo_g.svg'
+// import Tradmark from './Tradmark';
+import logo from '../images/galaxysone/logo.jpg'
+import imgriti from '../images/galaxysone/imgriti.png'
+import phone from '../images/galaxysone/phone.png'
+import sms from '../images/btc/verify.png'
+import indian from '../images/galaxysone/indianFlag.png'
+import password from '../images/btc/lock.png'
+import eyeclosed from '../images/btc/eyeclosed.png'
+import eyeopened from '../images/btc/eyeopend.png'
+// import ReCAPTCHA from "react-google-recaptcha";
+import RCG from 'react-captcha-generator';
+import loginimg from '../images/btc/login.png'
+import phoneimg from '../images/btc/phone.png'
 
 const ForgotPassword = () => {
 
@@ -19,44 +34,68 @@ const ForgotPassword = () => {
     } = useContext(ContextApi);
 
     const [secret, setSecret] = useState('password')
-    // const [pwd, setPwd] = useState('')
+    const [pwd, setPwd] = useState('')
     const [newPwd, setNewPwd] = useState('')
     const [otpfield, setOTPfield] = useState('');
     const [otp, setOtp] = useState('');
     const [mobno, setMobno] = useState('')
+    const [loginpwd, setLoginpwd] = useState('password')
+    const [loginpwd2, setLoginpwd2] = useState('password')
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
 
-    const secrethandel = () => {
-        if (secret === 'password') {
-            setSecret('text')
+    const secrethandel = type => {
+
+        console.log(type);
+
+        if (type === 'loginpwd') {
+            if (loginpwd === 'password') {
+                setLoginpwd('text')
+            }
+            else {
+                setLoginpwd('password')
+            }
         }
-        else {
-            setSecret('password')
+        else if (type === 'loginpwd2') {
+            if (loginpwd2 === 'password') {
+                setLoginpwd2('text')
+            }
+            else {
+                setLoginpwd2('password')
+            }
         }
     }
 
     const handleMessage = () => {
-        // if (mobno.length !== 10) {
-        //     toaster('Invalid Mobile No, please enter a valid number');
-        //     return;
-        // }
-        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=27b58V4YOqBDMgWvNjapz1k9IHlrJfynC6w0hceRAZGoLimK3PuJC7OoiV4N2B6DjfwWKzb0lhgEetPH&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
+        if (mobno.length !== 10) {
+            toaster('Invalid Mobile No, please enter a valid number');
+            return;
+        }
+        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=nei0bPwRvpzKaX362T718yGVN5ICgskMEmfdUxOBYWLhrZH9cSyZHdTi1PEt7cl0LwroKYCS89x6kApQ&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
             .then((response) => {
                 console.log(response);
+                setSeconds(59)
                 toaster('OTP sent successfully');
             })
             .catch(error => toaster('Something went wrong'));
+        // console.log(otpfield, "otpfield");
     }
 
     const validatePassword = password => /[a-zA-Z]/.test(password) && /[0-9!@#$%^&*(),.?":{}|<>]/.test(password);
 
     const handleRegister = async () => {
 
-        // if (otp !== otpfield) {
-        //     toaster('Otp does not match')
-        // }
+        if (otp !== otpfield) {
+            toaster('Otp does not match')
+        }
 
-        if (newPwd.length < 6) {
+        if (pwd.length < 6) {
             toaster('Password must contain at least 6 characters!');
+            return;
+        }
+
+        if (pwd !== newPwd) {
+            toaster('password does not match')
             return;
         }
 
@@ -85,108 +124,182 @@ const ForgotPassword = () => {
 
     }
 
-    console.log(otpfield);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (seconds > 0) {
+                setSeconds(seconds - 1);
+            }
+
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(interval);
+                } else {
+                    setSeconds(59);
+                    setMinutes(minutes - 1);
+                }
+            }
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [seconds]);
 
     return (
         <>
-            <div className="bg-white  after:contents-[' '] after:fixed h-screen ">
-                <div className="w-full mx-auto max-w-[800px]">
+        
+            <div className="text-base en h-screen w-screen overflow-hidden bg-[#ffeee4] px-5">
 
-                    <header className="h-[50px] leading-[50px] block mb-[10px]">
-                        <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed bg-[rgb(1,77,173)] z-[9999] flex flex-wrap items-center  ">
+                <div className="isPc h-full flex flex-col w-full text-[#2c3e50] overflow-hidden">
 
-                            <Link to={'/login'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                <LiaAngleLeftSolid size={22} />
-                            </Link>
+                    <div className="van_nav_pd hidden"></div>
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Change Login Password</h2>
+                    <div className="login">
+
+                        <div className="login-head flex items-center justify-between">
+
+                            <div className="l-left">
+
+                                <div className="l-title font-bold text-[#333333] text-3xl">Hello!</div>
+
+                                <div className="l-desc text-[10px] font-semibold whitespace-nowrap text-[#666]">Welcome to the Dnex!</div>
+
+                            </div>
+
+                            <div className="l-right">
+
+                                <img className='h-full max-h-72 relative -top-14' src={loginimg} alt="" />
+
+                            </div>
 
                         </div>
-                    </header>
 
-                    <div className="m-[10px] p-[10px] relative">
+                        <div className="content relative z-[1] ">
 
-                        <div className="mb-5 relative">
+                            <div className="lg-t text-lg font-bold">Find the password</div>
 
-                            <div className="px-[10px] relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                <div className="flex items-center flex-wrap h-full text-center z-10">
-                                    <p className='text-sm text-[#818393] mr-1'>+91</p>
+                            <div className="sign_login sign_login2 relative z-[2] mt-4">
+
+                                <div className="uilist bg-transparent rounded-lg overflow-hidden">
+
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+
+                                        <img className='w-[19px]' src={phoneimg} alt="" />
+
+                                        <span className="pre text-xs ml-1 font-medium ">+91</span>
+
+                                        <input
+                                            onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
+                                            type="tel"
+                                            placeholder="Phone Number"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+
+                                        />
+
+                                    </div>
+
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+
+                                        <img className='w-[19px]' src={sms} alt="" />
+
+                                        <input
+                                            onChange={(e) => setOtp(e.target.value)}
+                                            type={'text'}
+                                            placeholder="Verification"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+
+                                        />
+
+
+                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} type="button" className="verfy_title">
+
+                                            {seconds > 0 || minutes > 0 ?
+                                                <>
+                                                    {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                                                </>
+                                                :
+                                                'Get Code'}
+                                        </button>
+
+                                    </div>
+
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+
+                                        <img className='w-[19px]' src={password} alt="" />
+
+                                        <input
+                                            onChange={e => setPwd(e.target.value)}
+                                            type={loginpwd}
+                                            placeholder="Password"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+
+                                        />
+
+                                        <div onClick={() => secrethandel('loginpwd')} className="">
+                                            {loginpwd === 'password' ?
+                                                <img className="eyeimg w-3" src={eyeclosed} alt="" data-v-380ab766="" />
+                                                :
+                                                <img className="eyeimg w-3" src={eyeopened} alt="" data-v-380ab766="" />
+                                            }
+                                        </div>
+
+                                    </div>
+
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+
+                                        <img className='w-[19px]' src={password} alt="" />
+
+                                        <input
+                                            onChange={e => setNewPwd(e.target.value)}
+                                            type={loginpwd2}
+                                            placeholder="Confirm New Password"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+
+                                        />
+
+                                        <div onClick={() => secrethandel('loginpwd2')} className="">
+                                            {loginpwd2 === 'password' ?
+                                                <img className="eyeimg w-3" src={eyeclosed} alt="" data-v-380ab766="" />
+                                                :
+                                                <img className="eyeimg w-3" src={eyeopened} alt="" data-v-380ab766="" />
+                                            }
+                                        </div>
+
+                                    </div>
+
                                 </div>
-                                <div className="flex items-center relative flex-1">
-                                    <input onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
-                                        type="number"
-                                        name="mobno"
-                                        id="mobno"
-                                        className=' fillArea w-full h-[50px] text-base px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent '
-                                        maxLength={11}
-                                        size={11}
-                                        placeholder=''
-                                    />
-                                    <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                    <label className='placeholder text-[#818393] text-sm left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>TEL</label>
 
-                                </div>
+                                <p className="btn text-center mt-[14px]">
+
+                                    <button onClick={handleRegister} className='inline-block w-11/12 leading-3 rounded-full h-9 text-white text-center font-bold px-5' >Submit</button>
+
+                                </p>
+
                             </div>
                         </div>
 
-                        <div className="mb-5 relative">
-
-                            <div className="px-[10px] relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                <input onChange={e => { setNewPwd(e.target.value) }}
-                                    type={secret}
-                                    name="new password"
-                                    id="new password"
-                                    className='flex-1 fillArea w-full h-[50px] text-base px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent '
-                                    placeholder=''
-
-                                />
-                                <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                <label className='placeholder text-[#818393] text-sm left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>New Password</label>
-                                <div className={` right-[10px] h-full text-center bg-no-repeat bg-[center_center]  bg-[length:30px] z-10 `} onClick={secrethandel}>
-                                    {
-                                        secret === 'password' ?
-                                            <AiFillEyeInvisible size={22} />
-                                            :
-                                            <AiFillEye size={22} />
-                                    }
-                                </div>
-
-                            </div>
+                        <div style={{ textAlign: "center" }}>
                         </div>
 
-                        {/* <div className="mb-5 relative">
+                        <p className="footer2">
+                            <span >Already have an account ? </span>
+                            <Link to={'/login'} >logn in</Link>
+                        </p>
 
-                            <div className="px-[10px] relative border-0 border-solid border-[rgba(215,215,215,0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                <input onChange={e => setOtp(e.target.value)}
-                                    type="text"
-                                    name="otp"
-                                    id="otp"
-                                    className='flex-1 fillArea w-full h-[50px] text-base px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent '
-                                    placeholder=''
-
-                                />
-                                <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                <label className='placeholder text-[#818393] text-sm left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>Verification code (OTP)</label>
-                                <div className={` right-[10px] h-full text-center bg-no-repeat bg-[center_center]  bg-[length:30px] z-10 `} onClick={handleMessage}>
-                                    <p className='text-sm text-[rgba(52,86,255,0.9)]'>Send</p>
-                                </div>
-
-                            </div>
-                        </div> */}
-
-                        <div className="flex flex-wrap items-center my-10 w-full justify-end ">
-
-                            <Link to={`/login`} className='text-[#1f3d70] bg-white border-[1px] border-[#1f3d70] h-11 leading-10 px-5 text-center text-base block border-solid rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative '>SIGN IN</Link>
-
-                            <button className='ml-[10px] flex-1 text-white bg-[#00aa75] border-0 border-[rgba(215,215,215,0.6)] h-11 leading-10 px-5 text-center text-base block border-solid rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative ' onClick={handleRegister}>
-                                Reset Password
-                            </button>
+                        <div style={{ height: "200px" }}>
                         </div>
-
                     </div>
-
                 </div>
             </div>
+
         </>
     )
 }

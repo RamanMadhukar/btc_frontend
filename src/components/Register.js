@@ -94,6 +94,7 @@ const Register = () => {
 
         else if (pwd !== pwd2) {
             toaster('password does not match')
+            return;
         }
 
         setLoading(true);
@@ -143,7 +144,7 @@ const Register = () => {
                 toaster('OTP sent successfully');
             })
             .catch(error => toaster('Something went wrong'));
-        console.log(otpfield, "otpfield");
+        // console.log(otpfield, "otpfield");
     }
 
     useEffect(() => {
@@ -187,7 +188,7 @@ const Register = () => {
 
                                 <div className="l-title font-bold text-[#333333] text-3xl">Hello!</div>
 
-                                <div className="l-desc text-[10px] font-semibold whitespace-nowrap text-[#666]">Welcome to the waho!</div>
+                                <div className="l-desc text-[10px] font-semibold whitespace-nowrap text-[#666]">Welcome to the Dnex!</div>
 
                             </div>
 
