@@ -1,18 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import BASE_URL from '../api_url';
-import applogo from '../images/appLogo.png'
-import Tradmark from './Tradmark';
 import { ContextApi } from '../App';
+// import logo from '../images/logo (1).svg'
+// import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+// import applogo from '../images/appLogo.png'
+// import tradelogo from '../images/logo_g.svg'
+// import Tradmark from './Tradmark';
 import logo from '../images/galaxysone/logo.jpg'
 import imgriti from '../images/galaxysone/imgriti.png'
 import phone from '../images/galaxysone/phone.png'
-import sms from '../images/galaxysone/sms.png'
+import sms from '../images/btc/verify.png'
 import indian from '../images/galaxysone/indianFlag.png'
-import password from '../images/galaxysone/password.png'
-import eyeclosed from '../images/galaxysone/eyeclosed.png'
-import eyeopened from '../images/galaxysone/eyeopened.png'
+import password from '../images/btc/lock.png'
+import eyeclosed from '../images/btc/eyeclosed.png'
+import eyeopened from '../images/btc/eyeopend.png'
+// import ReCAPTCHA from "react-google-recaptcha";
+import RCG from 'react-captcha-generator';
+import loginimg from '../images/btc/login.png'
+import phoneimg from '../images/btc/phone.png'
 
 const Login = () => {
 
@@ -98,189 +105,104 @@ const Login = () => {
     return (
         <>
 
-            {/* <div className="signupMain bgimg01 after:bg-white">
+            <div className="text-base en h-screen w-screen overflow-hidden bg-[#ffeee4] px-5">
 
-                <div className="max-w-[800px] mx-auto">
+                <div className="isPc h-full flex flex-col w-full text-[#2c3e50] overflow-hidden">
 
-                    <div className="flex relative items-center min-h-[90vh] flex-wrap mx-auto">
+                    <div className="van_nav_pd hidden"></div>
 
-                        <div className="w-full">
+                    <div className="login">
 
-                            <div className="mx-[10px] px-[10px]">
-                                <h4 className='text-[32px] text-[#1f3d70] font-bold '>Hello!</h4>
-                                <p className='text-xl leading-none'>Welcome to Kraft.</p>
+                        <div className="login-head flex items-center justify-between">
+
+                            <div className="l-left">
+
+                                <div className="l-title font-bold text-[#333333] text-3xl">Hello!</div>
+
+                                <div className="l-desc text-[10px] font-semibold whitespace-nowrap text-[#666]">Welcome to the waho!</div>
+
                             </div>
 
-                            <div className="bg-white mt-5 mb-[50px] mx-[10px] pt-10 px-5 pb-5 relative rounded-lg">
+                            <div className="l-right">
 
-                                <div className="">
+                                <img className='h-full max-h-72 relative -top-14' src={loginimg} alt="" />
 
-                                    <div className="mb-5 relative">
+                            </div>
 
-                                        <div className="px-[10px] relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                            <div className="flex items-center flex-wrap h-full text-center z-10">
-                                                <p className='text-sm text-[#818393] leading-none mr-1'>+91</p>
-                                            </div>
-                                            <div className="flex items-center relative flex-1">
-                                                <input
-                                                    onChange={e => setmobno(e.target.value)}
-                                                    type="number"
-                                                    name="mob"
-                                                    id="mob"
-                                                    className=' fillArea w-full h-[50px] text-base leading-none px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent flex-1 '
-                                                    maxLength={11}
-                                                    size={11}
-                                                    placeholder=''
-                                                />
-                                                <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                                <label className='placeholder text-[#818393] text-sm leading-none left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>TEL</label>
+                        </div>
 
-                                            </div>
+                        <div className="content relative z-[1] ">
+
+                            <div className="lg-t text-lg font-bold">Welcome back</div>
+
+                            <div className="sign_login sign_login2 relative z-[2] mt-4">
+
+                                <div className="uilist bg-transparent rounded-lg overflow-hidden">
+
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+
+                                        <img className='w-[19px]' src={phoneimg} alt="" />
+
+                                        <span className="pre text-xs ml-1 font-medium ">+91</span>
+
+                                        <input
+                                            onChange={e => { setmobno(e.target.value) }}
+                                            type="tel"
+                                            placeholder="Phone Number"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+
+                                        />
+
+                                    </div>
+
+                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+
+                                        <img className='w-[19px]' src={password} alt="" />
+
+                                        <input
+                                            onChange={e => setpwd(e.target.value)}
+                                            type={loginpwd}
+                                            placeholder="Password"
+                                            name="pattern"
+                                            maxlength="10"
+                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+
+                                        />
+
+                                        <div onClick={() => secrethandel('loginpwd')} className="">
+                                            {loginpwd === 'password' ?
+                                                <img className="eyeimg w-3" src={eyeclosed} alt="" data-v-380ab766="" />
+                                                :
+                                                <img className="eyeimg w-3" src={eyeopened} alt="" data-v-380ab766="" />
+                                            }
                                         </div>
+
                                     </div>
 
-                                    <div className="mb-5 relative">
-
-                                        <div className="px-[10px] relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                            <input
-                                                onChange={e => setpwd(e.target.value)}
-                                                type="password"
-                                                name="pass"
-                                                id="pass"
-                                                className='flex-1 fillArea w-full h-[50px] text-base leading-none px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent '
-                                                placeholder=''
-
-                                            />
-                                            <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                            <label className='placeholder text-[#818393] text-sm leading-none left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>Login password</label>
-
-                                        </div>
-                                    </div>
-
-                                    <div className="my-10">
-                                        <Link to={`/forgotpassword`} className='text-sm leading-none text-[rgba(52,86,255,0.9)]'>Forgot your password?</Link>
-                                    </div>
-
-
-                                    <div className="flex flex-wrap items-center my-10 w-full justify-end ">
-
-                                        <Link to={`/signup`} className='text-[#1f3d70] bg-white border-[1px] border-[#1f3d70] h-11 leading-10 px-5 text-center text-base block border-solid rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative '>SIGN UP</Link>
-
-                                        <button className='ml-[10px] flex-1 text-white bg-[#00aa75] border-0 border-[rgba(215,215,215,0.6)] h-11 leading-10 px-5 text-center text-base block border-solid rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative ' onClick={handleSignIn}>
-                                            LOG IN
-                                        </button>
-                                    </div>
                                 </div>
 
-                            </div>
+                                <p className="btn text-center mt-[14px]">
 
-                            <div className="flex max-w-lg m-[10px] p-[10px] items-start flex-wrap ">
+                                    <button onClick={handleSignIn} className='inline-block w-11/12 leading-3 rounded-full h-9 text-white text-center font-bold px-5' >login in</button>
 
-                                <div className="w-20 p-1 bg-white rounded-2xl ">
-                                    <img src={applogo} alt="appLogo" />
-                                </div>
+                                </p>
 
-                                <Link to={`/download`} className="flex-1 ml-[10px]">
-                                    <h3 className='p-0 m-0 text-2xl text-[#3468a3] font-bold'>Kraft</h3>
-                                    <p className=' p-0 m-0 pb-[10px] text-base leading-none text-[#818393]'>
-                                        Rest assured financial management, quality service, low risk investment, 100% return
-                                    </p>
-                                </Link>
+                                <p className="register_btn mt-8 mb-3 " >
+                                    <Link to={'/forgotpassword'} >Forgot Password?</Link>
+                                </p>
 
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <Tradmark />
-
-
-                </div>
-            </div> */}
-
-            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] bg-[#003136] overflow-y-scroll">
-                <div className="px-[8vw] text-left ">
-
-                    <div className="mb-[6vw] relative">
-
-                        <img src={logo} alt="logo" className='w-[23vw] h-auto mb-[2.5vw] ' />
-
-                        <p className="andount" data-v-380ab766="">Register to receive free </p>
-                        <p className="andount" data-v-380ab766="">equipment and total</p>
-                        <p className="andount" data-v-380ab766="">revenue is <span data-v-380ab766="">₹11988</span></p>
-                        {/* <img className="imgriti" src={imgriti} alt="" data-v-380ab766=""></img> */}
-
-                    </div>
-
-                    <div className="numberi" data-v-380ab766="">
-                        <img src={phone} alt="" data-v-380ab766="" />
-                        <p data-v-380ab766="">Phone number</p>
-                    </div>
-
-                    <div className="van-cell van-field input-box" data-v-380ab766="">
-
-                        <div className="van-field__left-icon">
-                            <div className="phonen" data-v-380ab766="">
-                                <img src={indian} alt="" data-v-380ab766="" />
-                                <p data-v-380ab766="">+91</p>
-                                <span data-v-380ab766=""></span>
                             </div>
                         </div>
 
-                        <div className="van-cell__value van-field__value flex-1 ">
-
-                            <div className="van-field__body">
-
-                                <input onChange={e => { setmobno(e.target.value) }}
-                                    type="tel"
-                                    inputMode="numeric"
-                                    id="van-field-1-input"
-                                    className="van-field__control inline-block"
-                                    placeholder="Please enter phone number"
-
-                                />
-
-
-                            </div>
-
+                        <div className='text-center'>
+                            <p class="footer">
+                                <Link to={'/signup'} data-v-59be2268="">Creat Account</Link>
+                            </p>
                         </div>
-                    </div>
 
-                    <div className="numberi" data-v-380ab766="">
-                        <img src={password} alt="" data-v-380ab766="" />
-                        <p data-v-380ab766="">Login password</p>
                     </div>
-
-                    <div className="van-cell van-field input-box" data-v-380ab766="">
-                        <div className="van-cell__value van-field__value">
-                            <div className="van-field__body">
-                                <input onChange={e => setpwd(e.target.value)}
-                                    type={loginpwd}
-                                    id="van-field-3-input"
-                                    className="van-field__control"
-                                    placeholder="Please enter login password"
-                                />
-                                <div onClick={() => secrethandel('loginpwd')} className="van-field__right-icon">
-                                    {loginpwd === 'password' ?
-                                        <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
-                                        :
-                                        <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-between items-center space-x-3 text-[4vw]">
-                        <Link to={'/signup'} className='h-[13vw] w-full'>
-                            <button className='btnbox h-[13vw] w-full bg-[#2b2b2b] rounded-sm text-[#6e6e6e] font-bold' >Register</button>
-                        </Link>
-                        <button onClick={handleSignIn} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Login</button>
-                    </div>
-
                 </div>
             </div>
 

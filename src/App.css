@@ -38,13 +38,13 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
+    /* text-fill-color: transparent; */
     display: flex;
     align-items: center;
 }
 
-.btn button{
-    background: linear-gradient(111deg,#fe8400 18%,#f9881f 0,#ff5801 85%);
+.btn button {
+    background: linear-gradient(111deg, #fe8400 18%, #f9881f 0, #ff5801 85%);
 }
 
 .footer2 {
@@ -64,10 +64,50 @@
 
 .footer2 a {
     font-size: 12.8px;
-    background: linear-gradient(104deg,#fe8400 19%,#f9881f 0,#ff5801 84%);
+    background: linear-gradient(104deg, #fe8400 19%, #f9881f 0, #ff5801 84%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
+    /* text-fill-color: transparent; */
     font-weight: 700;
+}
+
+.register_btn {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9.6px;
+    color: #626262;
+    font-weight: 700;
+}
+
+.register_btn a {
+    font-size: 9.6px;
+    background: linear-gradient(104deg, #fe8400 19%, #f9881f 0, #ff5801 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+    font-weight: 700;
+}
+
+.footer {
+    margin: 0 auto;
+    margin-top: 24px;
+    bottom: 1rem;
+    border-bottom: 2px solid #fe8400;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer a {
+    font-size: 12.8px;
+    background: linear-gradient(104deg,#fe8400 19%,#f9881f 0,#ff5801 84%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 700;
+    -webkit-text-fill-color: transparent;
 }

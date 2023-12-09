@@ -273,12 +273,6 @@ const Register = () => {
 
                                     </div>
 
-                                    {/* <div className="uilist_div verfy_code">
-                                        <img src="" alt="" />
-                                        <input placeholder="Verification" autoComplete="off" name="pattern" type="text" style={{ flexGrow: 1 }} />
-                                        <button className="verfy_title"> Get Code </button>
-                                    </div> */}
-
                                     <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
 
                                         <img className='w-[19px]' src={sms} alt="" />
