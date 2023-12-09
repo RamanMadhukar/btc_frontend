@@ -105,9 +105,73 @@
 
 .footer a {
     font-size: 12.8px;
-    background: linear-gradient(104deg,#fe8400 19%,#f9881f 0,#ff5801 84%);
+    background: linear-gradient(104deg, #fe8400 19%, #f9881f 0, #ff5801 84%);
     -webkit-background-clip: text;
     background-clip: text;
     font-weight: 700;
     -webkit-text-fill-color: transparent;
+}
+
+nav{
+    background-color: #b03a36;
+    border-top: 1px solid red;
+    height: 55px !important;
+}
+
+@media (max-width: 575.98px) {
+    .navbar {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
+.shadow-lg {
+    box-shadow: 0 0 4rem 0 rgba(0, 0, 0, .05) !important;
+}
+
+.navbar {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.fixed-bottom,
+.fixed-top {
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1030;
+}
+
+.fixed-bottom {
+    bottom: 0;
+}
+
+.container-fluid{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--bs-gutter-x,.75rem);
+    padding-right: var(--bs-gutter-x,.75rem);
+    width: 100%;
+}
+
+.container-fluid{
+    align-items: center;
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: space-between;
+}
+
+.nav-link {
+    color: #3b7ddd;
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.importantsize {
+    font-size: 12px;
 }
