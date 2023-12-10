@@ -33,16 +33,16 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
 
     const handelInvest = async () => {
 
-        if (lvl1plan?.some(element => {
-            if (element.plan_amount === plan_amount) {
-                return true;
-            }
+        // if (lvl1plan?.some(element => {
+        //     if (element.plan_amount === plan_amount) {
+        //         return true;
+        //     }
 
-            return false;
-        })) {
-            toaster("you can buy this plan only once")
-            return
-        }
+        //     return false;
+        // })) {
+        //     toaster("you can buy this plan only once")
+        //     return
+        // }
 
         if (quantity <= 0) {
             toaster('Please a positive value!');
@@ -132,341 +132,64 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
     return (
         <>
 
-            {/* {pop &&
-                <div className="fixed top-0 right-0 left-0 bottom-0 z-50">
+            <div className="row mb-2">
+                <div className="col-12">
 
-                    <div className="before:content-[''] fixed top-0 left-0 right-0 bottom-0 bg-[rgba(46,46,46,0.1)] z-[1] backdrop-blur-[3px]"></div>
 
-                    <div className="top-0 rounded-bl-[30px] rounded-br-[30px] overflow-hidden fixed investPopup left-0 right-0 bg-white backdrop-blur-[5px] shadow-[0_0_20px_3px_rgba(0,0,0,0.1)] max-w-[800px] z-[999] mx-auto ">
-                        <div className="w-full max-h-[80vh] p-5 overflow-auto bg-white">
-                            <div className="">
+                    <div className="p-2 customborder">
 
+
+                        <a className='' style={{ textDecoration: 'none' }} >
+                            <div className="flex items-center">
+
+                                <div className="text-center">
+                                    <img src={product_image} className="rounded-md" width="50" />
+                                </div>
+                                <div className="p-2 text-white">
+                                    <h6 className="text-white">{plan_name}</h6>
+                                    <div className="flex  ">
+                                        <div className="md:col-span-8 col-span-10 ">
+                                            <span>Revnu Type</span>
+                                        </div>
+                                        <div className=" pl-3">
+                                            <span className="text-red-600">Daily income</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style={{ marginTop: '1rem' }} className="row table-responsive text-white text-center overflow-hidden rounded-[100px] shadow-[2px_1px_15px_-4px_#000000]" >
+                                <table className='overflow-hidden' >
+                                    <tbody><tr>
+                                        <th>{(plan_daily_earning * plan_cycle).toFixed(2)}</th>
+                                        <th>{plan_daily_earning.toFixed(2)}</th>
+                                        <th>{plan_cycle}</th>
+                                    </tr>
+                                        <tr className='text-[10px]' >
+                                            <td>Amount</td>
+                                            <td>Daily Income</td>
+                                            <td>Work Dayes</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </a>
+                        <div className="flex mt-5 ">
+                            <a >
                                 <div className="">
-                                    <h3 className='mb-[5px] text-[#1d1d1f] text-lg font-bold'>
-                                        AI
-                                    </h3>
+                                    <span className="text-center text-red-700">{plan_amount.toFixed(2)}</span>
                                 </div>
-
-                                <div className="mb-[10px]">
-
-                                    <div className="">
-
-                                        <div className="flex flex-wrap items-center py-[5px] border-0 border-[rgba(245,245,245,0.5)] border-solid">
-                                            <div className="flex-1 flex items-center">
-
-                                                <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                                    <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Invest Price</p>
-                                                </div>
-
-                                                <div className="">
-                                                    <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>
-                                                        <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-
-                                                        {plan_amount.toFixed(2)}</p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div className="flex flex-wrap items-center py-[5px] border-0 border-t-[1px] border-[rgba(245,245,245,0.5)] border-solid">
-                                            <div className="flex-1 flex items-center">
-
-                                                <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                                    <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Invest Days</p>
-                                                </div>
-
-                                                <div className="">
-                                                    <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>{plan_cycle} Days</p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div className="flex flex-wrap items-center py-[5px] border-0 border-t-[1px] border-[rgba(245,245,245,0.5)] border-solid">
-                                            <div className="flex-1 flex items-center">
-
-                                                <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                                    <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Day Income</p>
-                                                </div>
-
-                                                <div className="">
-                                                    <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>
-                                                        <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-
-                                                        {plan_daily_earning.toFixed(2)}</p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div className="flex flex-wrap items-center py-[5px] border-0 border-t-[1px] border-[rgba(245,245,245,0.5)] border-solid">
-                                            <div className="flex-1 flex items-center">
-
-                                                <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                                    <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Total Revenue</p>
-                                                </div>
-
-                                                <div className="">
-                                                    <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>
-                                                        <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-
-                                                        {(plan_cycle * plan_daily_earning).toFixed(2)}</p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="my-5 p-0 overflow-hidden relative bg-[rgb(246,246,246)] backdrop-blur-[5px] rounded-[7px] flex flex-wrap items-center">
-
-                                        <div className="flex flex-wrap justify-center items-center rounded-full text-white text-[30px] w-10 h-10 bg-[#818393] font-bold" onClick={() => setQuantity(quantity - 1)}>
-                                            <AiOutlineMinus />
-                                        </div>
-
-                                        <input type="number" name='setQuantity' value={quantity} maxLength={10} size={10} className='flex-1 bg-transparent outline-none shadow-0 border-0 select-text appearance-none px-[5px] py-[10px] leading-[50px] h-[50px] w-full font-bold text-center text-[26px] text-[#4b4d5e]'
-                                            onChange={(e) => { setQuantity(Number(e.target.value)) }}
-                                        />
-
-                                        <div className="flex flex-wrap justify-center items-center rounded-full text-white text-[30px] w-10 h-10 bg-[#3468a3] font-bold" onClick={() => { product_type === 1 ? toaster('quantity can only be one for this plan') : setQuantity(quantity + 1) }}>
-                                            <AiOutlinePlus />
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div className="mb-[10px]">
-
-                                    <div className="flex flex-wrap items-center py-[5px] border-0 border-[rgba(245,245,245,0.5)] border-solid">
-                                        <div className="flex-1 flex items-center">
-
-                                            <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                                <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Buying Quantity</p>
-                                            </div>
-
-                                            <div className="">
-                                                <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                    {quantity}</p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div className="flex flex-wrap items-center py-[5px] border-0 border-t-[1px] border-[rgba(245,245,245,0.5)] border-solid">
-                                        <div className="flex-1 flex items-center">
-
-                                            <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                                <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Actually paid</p>
-                                            </div>
-
-                                            <div className="">
-                                                <p className='text-[22px] font-bold text-[#0aa496] break-all whitespace-normal'>
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic align-top leading-none '>₹</em>
-
-                                                    {quantity * plan_amount.toFixed(2)}</p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div className="mt-[10px] p-[10px] bg-[#f8f8f8] borderr-0 flex flex-wrap items-center rounded-[15px]  ">
-                                        <p className='flex-1 mr-[10px] text-[#4b4d5e] text-base'>Balance</p>
-                                        <p className=' text-[#4b4d5e] text-base'>
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-
-                                            {userDetails?.recharge_amount?.toFixed(2)}
-                                        </p>
-                                    </div>
-
-                                </div>
-
-                                <div className="mb-[10px] w-full flex flex-wrap items-stretch">
-
-                                    <div onClick={() => setpop(!pop)} className="bg-[#818393] text-center flex-1 h-[45px] leading-[45px] px-5 text-base text-white block rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative  ">
-                                        Cancel
-                                    </div>
-
-                                    <div onClick={handelInvest} className="bg-[#0aa496] flex-[3] text-center ml-[10px] h-[45px] leading-[45px] px-5 text-base text-white block rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative  ">
-                                        Invest
-                                    </div>
-
-                                </div>
-
+                            </a>
+                            <div className=" mx-auto block ">
+                                <a >
+                                    <span></span>
+                                </a>
+                                <button onClick={handelInvest} className="btn bg-[#3b7ddd] border border-solid border-[#3b7ddd] text-sm text-white px-3 py-1 rounded-lg" >Buy Now</button>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            } */}
-
-
-
-            {/* <div className="w-full p-[5px]">
-                <div className="shadow-[0_-3px_30px_1px_rgba(80,35,0,0.1)] p-[10px] bg-white backdrop-blur-sm relative rounded-[7px] ">
-
-                    <div className="mb-[10px] overflow-hidden bg-center bg-no-repeat bg-[length:90%_90%] cardBg bg-[#f8f8f8] rounded-[3px]">
-                        <img src={product_image} alt="" className={`w-full `} />
-                    </div>
-
-                    <div className="mb-[10px]">
-
-                        <h3 className='text-[22px] text-[#4b4d5e] leading-none font-bold'>
-                            {plan_cycle}
-                            <span className='text-sm text-[#818393] leading-none'>Days</span>
-                        </h3>
-
-                        <p className='text-[#818393] leading-5'>Income Days</p>
-
-                    </div>
-
-                    <div className="mb-[10px]">
-                        <div className="">
-
-                            <div className="flex flex-wrap items-center py-[5px]">
-                                <div className="flex-1 flex items-center">
-
-                                    <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                        <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Required Level</p>
-                                    </div>
-
-                                    <div className="">
-                                        <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>
-                                            <RiVipLine size={26} className={`${vipColor} font-light `} />
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="flex flex-wrap items-center py-[5px] border-0 border-t-[1px] border-[rgba(245,245,245,0.5)] border-solid">
-                                <div className="flex-1 flex items-center">
-
-                                    <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                        <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Invest Price</p>
-                                    </div>
-
-                                    <div className="">
-                                        <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-
-                                            {plan_amount.toFixed(2)}</p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="flex flex-wrap items-center py-[5px] border-0 border-t-[1px] border-[rgba(245,245,245,0.5)] border-solid">
-                                <div className="flex-1 flex items-center">
-
-                                    <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                        <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Day Income</p>
-                                    </div>
-
-                                    <div className="">
-                                        <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-
-                                            {plan_daily_earning.toFixed(2)}</p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="flex flex-wrap items-center py-[5px] border-0 border-t-[1px] border-[rgba(245,245,245,0.5)] border-solid">
-                                <div className="flex-1 flex items-center">
-
-                                    <div className="flex-1 mr-[10px] whitespace-normal break-all">
-                                        <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>Total Revenue</p>
-                                    </div>
-
-                                    <div className="">
-                                        <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-
-                                            {(plan_cycle * plan_daily_earning).toFixed(2)}</p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    {active !== false ?
-                        <div className="text-[rgba(75,169,88,0.9)] py-[5px] justify-end flex" onClick={handelClick}>
-                            <p className='font-bold text-lg flex items-center'>
-                                Invest now
-                                <BiRightArrowAlt size={20} />
-                            </p>
-                        </div>
-                        :
-                        <div className="text-[rgba(204,204,204,0.9)] py-[5px] justify-end flex">
-                            <p className='font-bold text-lg flex items-center'>
-                                Stop selling
-                            </p>
-                        </div>
-                    }
-
-                </div>
-            </div> */}
-
-            <div className="border border-white p-3 rounded-md text-white relative mb-10 ">
-
-                {/* <img src={bgimmg} alt="" className='opacity-30 absolute top-0 left-0  w-full h-full' /> */}
-
-
-                <div className="flex space-x-3">
-
-                    <img src={product_image} alt="" className='border border-white rounded-md w-20' />
-
-                    <div className="flex-1">
-                        <h1>{plan_name}</h1>
-                        <p>
-                            Price
-                        </p>
-                        <p className='text-[#00eefe] font-bold'>
-                            <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
-                            {plan_amount}
-                        </p>
-                    </div>
-
-                </div>
-
-                <div className="flex items-center justify-around">
-
-                    <div className="text-center mt-2">
-                        <p>
-                            <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
-                            {plan_daily_earning}
-                        </p>
-                        <p className='text-[#c6ced9]'>Daily income</p>
-                    </div>
-
-                    <div className="text-center">
-                        <p>
-                            {plan_cycle} days
-                        </p>
-                        <p className='text-[#c6ced9]'>Plan Cycle</p>
-                    </div>
-
-                    <div className="text-center">
-                        <p>
-                            <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
-                            {(plan_daily_earning * plan_cycle).toFixed(2)}
-                        </p>
-                        <p className='text-[#c6ced9]'>Total income</p>
-                    </div>
-
-                </div>
-
-                {/* <button onClick={handelInvest} className='bg-[#00eefe] text-black px-10 py-1 rounded-full absolute -bottom left-[36%] origin-center'>Buy</button> */}
-                {pre_sale ?
-                    <button onClick={handelInvest} className='bg-[#00eefe] text-black px-10 py-1 rounded-full absolute -bottom left-[36%] origin-center'>Buy</button>
-                    : <button className='bg-[#767c81] text-black px-10 py-1 rounded-full absolute -bottom left-[36%] origin-center' disabled>Pre sale</button>
-                }
-
             </div>
 
 

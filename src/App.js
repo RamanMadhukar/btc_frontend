@@ -46,6 +46,7 @@ import Myteams from './components/Myteams.js';
 import AccountSecurity from './components/AccountSecurity.js';
 import AboutUs from './components/AboutUs.js';
 import CustomerCare from './components/Customer.js';
+import customer from './images/btc/customer.png';
 
 export const ContextApi = createContext();
 
@@ -144,7 +145,7 @@ function App() {
   useEffect(() => {
 
     // setInterval(() => {
-      getuserearn();
+    getuserearn();
     // }, 86400000);
 
   }, [])
@@ -187,6 +188,14 @@ function App() {
             </div>
           } */}
 
+          {user &&
+            <span className="btnfix z-50">
+              <a className="btnfix px-6 py-1 space-x-2 flex" href="">
+                <img width="25" src={customer} className='align-middle' alt="" />
+                contact
+              </a>
+            </span>
+          }
           <Routes>
 
             <Route path="/" element={<Fallback />} />

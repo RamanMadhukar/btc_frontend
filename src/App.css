@@ -175,3 +175,58 @@ nav{
 .importantsize {
     font-size: 12px;
 }
+
+.btnfix a {
+    background-color: rgb(60, 1, 1);
+    border: medium none;
+    color: #FFFFFF;
+    float: left;
+    position: fixed;
+    top: 500px;
+    border-radius: 10px;
+    /* padding: 3px; */
+    text-decoration: none;
+    border: 1px solid red;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--bs-gutter-x)*-.5);
+    margin-right: calc(var(--bs-gutter-x)*-.5);
+    margin-top: calc(var(--bs-gutter-y)*-1);
+}
+
+.row > * {
+    flex-shrink: 0;
+    margin-top: var(--bs-gutter-y);
+    max-width: 100%;
+    padding-left: calc(var(--bs-gutter-x)*.5);
+    padding-right: calc(var(--bs-gutter-x)*.5);
+    width: 100%;
+}
+
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.customborder {
+    border: 1px solid rgb(255, 0, 0);
+    background-color: #4f0707;
+    border-radius: 7px;
+    -webkit-box-shadow: 1px 2px 11px 3px #000000;
+    box-shadow: 1px 2px 11px 3px #000000;
+}
+
+table {
+    border-collapse: collapse;
+    caption-side: bottom;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border: 0 solid;
+    border-color: inherit;
+}

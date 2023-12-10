@@ -25,15 +25,13 @@ import { AiFillWallet } from 'react-icons/ai'
 import { IoWallet } from 'react-icons/io5'
 import { FaListAlt } from 'react-icons/fa'
 import ProductCard from './ProductCard'
-import g1 from '../images/galaxysone/g1.jpg'
-import g2 from '../images/galaxysone/g2.jpg'
-import g3 from '../images/galaxysone/g3.jpg'
-import g4 from '../images/galaxysone/g4.jpg'
-import g5 from '../images/galaxysone/g5.jpg'
-import g6 from '../images/galaxysone/g6.jpg'
-import g7 from '../images/galaxysone/g1.jpg'
-import g8 from '../images/galaxysone/g2.jpg'
-import g9 from '../images/galaxysone/g3.jpg'
+import homeLogo from '../images/btc/phoneLogo.png'
+import b1 from '../images/btc/b1.jpg';
+import b2 from '../images/btc/b2.jpg';
+import b3 from '../images/btc/b3.jpg';
+import b4 from '../images/btc/b4.jpg';
+import b5 from '../images/btc/b5.jpg';
+
 
 
 
@@ -47,6 +45,7 @@ const Home = () => {
 
     const [wpwd, setWpwd] = useState(localStorage.getItem('wpwd'))
     const [telegramopen, setTelegram] = useState(false)
+    const [toogle, setToogle] = useState(true)
 
     // console.log(userDetails);
 
@@ -76,187 +75,81 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <Popup />
+            {/* <Popup /> */}
 
-            <div className="text-white bg-[#003136] text-[4vw] px-3 mb-36">
+            <div className="p-5 pb-20">
 
-                <img src={herobg} alt="" className='mt-5 rounded-md' />
+                <img src={homeLogo} className='w-20' alt="" />
 
-                <div className=" border-2 border-solid border-white my-3 navbg p-3 rounded-md  flex justify-between">
+                <div className="text-white flex">
 
-                    <div className="">
-                        <p className='text-white'>My Balance</p>
-                        <h1 className='text-[yellow] text-lg'>
-                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                            {userDetails?.balance}
-                        </h1>
-                    </div>
+                    <div onClick={() => setToogle(true)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${toogle && 'border-b-2'} `}>In Miner</div>
 
-                    <div className="flex space-x-3 items-center ">
-                        <Link to={'/deposit'} className="border-2 border-white rounded-md p-2 h-fit flex items-center space-x-2">
-                            <p className=''>Deposit </p>
-                            <AiFillWallet size={20} className='text-[#0e88fb]' />
-                        </Link>
-                        <Link to={'/widthdrawl'} className="border-2 z-20 border-white rounded-md p-2 h-fit flex items-center space-x-2">
-                            <p className=''>Withdraw </p>
-                            <IoWallet size={20} className='text-[#0e88fb]' />
-                        </Link>
-                    </div>
+                    <div onClick={() => setToogle(false)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${!toogle && 'border-b-2'} `}>Staking Token</div>
 
                 </div>
 
-                <div className="">
+                <div className="flex flex-col mt-5">
+                    {toogle ?
+                        <>
+                            <ProductCard
+                                product_image={b1}
+                                product_type={0}
+                                plan_cycle={120}
+                                plan_amount={630}
+                                plan_daily_earning={25}
+                                pre_sale={false}
+                            />
 
-                    <div className="flex items-center space-x-3">
-                        <FaListAlt className='text-[#0e88fb]' />
-                        <h1>Equipment List</h1>
-                    </div>
+                            <ProductCard
+                                product_image={b2}
+                                product_type={0}
+                                plan_cycle={120}
+                                plan_amount={2100}
+                                plan_daily_earning={110}
+                                pre_sale={false}
+                            />
 
-                    <div className="mt-5">
+                            <ProductCard
+                                product_image={b3}
+                                product_type={0}
+                                plan_cycle={120}
+                                plan_amount={5500}
+                                plan_daily_earning={321}
+                                pre_sale={false}
+                            />
 
-                        <ProductCard
-                            product_image={g1}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={500}
-                            plan_daily_earning={55}
-                            pre_sale={true}
+                            <ProductCard
+                                product_image={b4}
+                                product_type={0}
+                                plan_cycle={120}
+                                plan_amount={18000}
+                                plan_daily_earning={935}
+                                pre_sale={false}
+                            />
 
-                        // plan_name={'Communication Satellite'}
-                        />
+                            <ProductCard
+                                product_image={b5}
+                                product_type={0}
+                                plan_cycle={120}
+                                plan_amount={50000}
+                                plan_daily_earning={265}
+                                pre_sale={false}
+                            />
+                        </>
 
-                        <ProductCard
-                            product_image={g1}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={1800}
-                            plan_daily_earning={220}
-                            pre_sale={true}
+                        :
+                        <div class="row mb-3">
+                            <div class="col-span-12">
+                                <div class="p-2 customborder">
+                                    <div class="text-center">
+                                        <h3 class=" text-white">No Device</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g1}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={4500}
-                            plan_daily_earning={450}
-                            pre_sale={true}
-
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g1}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={15000}
-                            plan_daily_earning={1500}
-                            pre_sale={true}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g1}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={35000}
-                            plan_daily_earning={5000}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g1}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={50000}
-                            plan_daily_earning={9000}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g1}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={100000}
-                            plan_daily_earning={20000}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g1}
-                            product_type={1}
-                            plan_cycle={1}
-                            plan_amount={200}
-                            plan_daily_earning={300}
-                            pre_sale={true}
-
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g1}
-                            product_type={1}
-                            plan_cycle={1}
-                            plan_amount={350}
-                            plan_daily_earning={550}
-                            pre_sale={true}
-
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g8}
-                            product_type={1}
-                            plan_cycle={1}
-                            plan_amount={700}
-                            plan_daily_earning={1100}
-                            pre_sale={true}
-
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g2}
-                            product_type={1}
-                            plan_cycle={7}
-                            plan_amount={1000}
-                            plan_daily_earning={250}
-                            pre_sale={true}
-
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g3}
-                            product_type={1}
-                            plan_cycle={7}
-                            plan_amount={2500}
-                            plan_daily_earning={500}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g4}
-                            product_type={1}
-                            plan_cycle={10}
-                            plan_amount={4000}
-                            plan_daily_earning={600}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g5}
-                            product_type={1}
-                            plan_cycle={10}
-                            plan_amount={10000}
-                            plan_daily_earning={1500}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                    </div>
-
+                    }
                 </div>
 
             </div>
