@@ -2,41 +2,45 @@ import React from 'react'
 import aboutusimg from "../images/galaxysone/aboutusimg.jpg";
 import { Link } from 'react-router-dom';
 import { LiaAngleLeftSolid } from 'react-icons/lia';
+import Navbar from './Navbar';
 
 const AboutUs = () => {
     return (
         <>
 
-            <div className="  after:contents-[' '] bg-[#003136] after:fixed h-screen ">
-                <div className="w-full mx-auto max-w-[800px]">
+            <Navbar />
 
-                    <header className="h-[50px] leading-[50px] block mb-[10px] ">
-                        <div className="bg-black max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center  ">
 
-                            <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                <LiaAngleLeftSolid size={22} />
-                            </Link>
+            <div className="px-3 mt-1 flex-col mb-20" style={{ width: '100vw' }}>
+                <div className="mb-5 mt-3">
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >About Us</h2>
+                    <h4 class="text-center text-white mb-5">About</h4>
 
-                        </div>
-                    </header>
+                    <div className="row ">
+                        <div className="col-span-12">
+                            <div className="p-3 customborder  rounded-sm ">
 
-                    <div className="p-5 text-white">
-                        <img src={aboutusimg} alt="" className='border border-white rounded-lg mb-5' />
+                                <h3 class="text-center text-white mt-4 mb-5 ">Dnex</h3>
 
-                        <div className="">
-                            Adopted in May 2007, Evergreen Line is the common trading name for the Evergreen Group's container shipping companies that comprise Evergreen Marine Corp. (Taiwan) Ltd., Italia Marittima S.p.A., Evergreen Marine (UK) Ltd., Evergreen Marine (Hong Kong) Ltd., and Evergreen Marine (Singapore) Pte. Ltd..
+                                <p className='text-white'>
+                                    We are a Global Semiconductor Foundry
+                                    <br />
+                                    We are continuously innovating to bring leading-edge semiconductor solutions that will transform the world
+                                    <br /><br />
 
-                            <br /> <br />
+                                    Globally ranked 17th by IC Insights in the category of pure-play foundries in 2021, SilTerra strives to provide outstanding technologies and services to our customers.
+                                    <br /><br />
 
-                            With Evergreen Marine (Asia) Pte. Ltd. joining the brand name agreement in year 2021, the six shipping companies operate a modern fleet of container ships with a combined capacity of more than 1.5 million TEU and maintain services across a broad array of trade lanes around the world.
 
-                            <br /> <br />
 
-                            Since its establishment, Evergreen Line has been a global brand which symbolizes innovative, reliable and sustainable marine transportation service. We continue with our mission to build efficient e-commerce platforms and to accelerate our fleet renewal program, introducing ever more eco-friendly container ships.
+                                    Our leadership in advanced semiconductor wafer processing sets the stage to bring transformation in consumer electronics, next generation data communications networks, industrial, medical technologies and mobility.
+                                    <br /><br />
 
-                            <br /> <br />
+
+
+                                    SilTerra is a strategic investment of Dagang NeXchange Berhad (“DNeX”) and Beijing Integrated Circuit Advanced Manufacturing and High-End Equity Investment Fund Center (Limited Partnership) (“CGP Fund”).
+                                </p>
+                            </div>
                         </div>
                     </div>
 

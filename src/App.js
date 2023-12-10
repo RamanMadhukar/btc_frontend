@@ -202,31 +202,31 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Register />} />
             <Route path='/home' element={<Home />} />
-            <Route path='/equipment' element={<Invest />} />
-            {/* <Route path='/account' element={<Account />} /> */}
-            <Route path='/deposit' element={<Deposit />} />
-            <Route path="/recharge_window/:recharge_value" element={<RechargeWindow />} />
-            <Route path='/deposit_records' element={<DepositRecords />} />
+            {/* <Route path='/equipment' element={<Invest />} /> */}
+            <Route path='/account' element={<Account />} />
+            {/* <Route path='/deposit' element={<Deposit />} /> */}
+            {/* <Route path="/recharge_window/:recharge_value" element={<RechargeWindow />} /> */}
+            {/* <Route path='/deposit_records' element={<DepositRecords />} /> */}
             {/* <Route path='/invite' element={<Invite />} /> */}
             {/* <Route path='/vip' element={<Vip />} /> */}
             {/* <Route path='/orders' element={<Order />} /> */}
             {/* <Route path='/bankCard' element={<BankCard />} /> */}
-            <Route path='/bankCardAdd' element={<BankCardAdd />} />
-            <Route path='/widthdrawl' element={<Widthdrawl />} />
-            <Route path='/widthdrawlrecords' element={<WidthdrawlRecords />} />
+            {/* <Route path='/bankCardAdd' element={<BankCardAdd />} /> */}
+            {/* <Route path='/widthdrawl' element={<Widthdrawl />} /> */}
+            {/* <Route path='/widthdrawlrecords' element={<WidthdrawlRecords />} /> */}
             {/* <Route path='/changewidthdrawlpassword' element={<WpasswordChange />} /> */}
             {/* <Route path='/widthdrawlpassword' element={<WithdrawlPassword />} /> */}
             {/* <Route path='/changepassword' element={<ChangePassword />} /> */}
             <Route path='/forgotpassword' element={<ForgotPassword />} />
             {/* <Route path='/comissions' element={<Comissions />} /> */}
-            <Route path='/update' element={<UpdateData />} />
-            <Route path='/award' element={<Task />} />
+            {/* <Route path='/update' element={<UpdateData />} /> */}
+            {/* <Route path='/award' element={<Task />} /> */}
             {/* <Route path='/message' element={<Message />} /> */}
             {/* <Route path='/article' element={<Article />} /> */}
-            <Route path='/team' element={<Myteams />} />
-            <Route path='/accountsecurity' element={<AccountSecurity />} />
+            {/* <Route path='/team' element={<Myteams />} /> */}
+            {/* <Route path='/accountsecurity' element={<AccountSecurity />} /> */}
             <Route path='/aboutus' element={<AboutUs />} />
-            <Route path='/customer' element={<CustomerCare />} />
+            {/* <Route path='/customer' element={<CustomerCare />} /> */}
 
           </Routes>
 

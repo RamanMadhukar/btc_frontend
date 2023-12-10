@@ -21,7 +21,7 @@ const Navbar = () => {
                         </div>
                     </Link>
 
-                    <Link to={'/about'} className="nav-link active">
+                    <Link to={'/aboutus'} className="nav-link active">
                         <div className="text-center flex flex-col items-center text-white">
                             <IoMdCube size={12} />
                             <p className="custom-font importantsize">About</p>
