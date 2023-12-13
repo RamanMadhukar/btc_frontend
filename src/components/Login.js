@@ -183,7 +183,7 @@ const Login = () => {
 
                                 </div>
 
-                                <p className="btn text-center mt-[14px]">
+                                <p className="btn2 text-center mt-[14px]">
 
                                     <button onClick={handleSignIn} className='inline-block w-11/12 leading-3 rounded-full h-9 text-white text-center font-bold px-5' >login in</button>
 

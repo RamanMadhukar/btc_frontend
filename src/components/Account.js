@@ -11,6 +11,22 @@ import Logoutimg from '../images/LogOut.svg'
 import axios from 'axios'
 import BASE_URL from '../api_url'
 import { ContextApi } from '../App'
+import accountImg from '../images/btc/accountImg.jpg';
+import { FaRegGem } from "react-icons/fa";
+import { IoWalletOutline } from "react-icons/io5";
+import { PiDevicesLight } from "react-icons/pi";
+import { IoPeopleOutline } from "react-icons/io5";
+import { LuLink } from "react-icons/lu";
+import { FaGift } from "react-icons/fa";
+import { BsCardList } from "react-icons/bs";
+import { BsBank } from "react-icons/bs";
+import { BsFileLockFill } from "react-icons/bs";
+import { IoReload } from "react-icons/io5";
+import { BsArrowUpCircle } from "react-icons/bs";
+import { TfiAngleRight } from "react-icons/tfi";
+import { CiCircleQuestion } from "react-icons/ci";
+import { IoPower } from "react-icons/io5";
+
 
 const Account = () => {
 
@@ -49,210 +65,212 @@ const Account = () => {
     return (
         <>
 
-            <div className="mx-auto mb-28 bg-[#003136]">
-                <div className="w-full mx-auto max-w-[800px]" >
+            <div className="container-fluid mt-1" style={{ overscrollBehaviorY: 'auto' }}>
 
-                    <div className="relative mx-auto z-[1]">
-                        <div className="">
+                <section className="mt-3 mb-2">
 
-                            <div className="p-[10px] pb-[5px] rounded-br-[15px] rounded-bl-[15px]">
+                    <div className="row p-2 ">
 
-                                <div className="py-5 px-[10px] flex flex-wrap items-center">
+                        <div className=" p-2 justify-between flex">
 
-                                    <div className="flex-1">
-                                        <p className='text-[#4b4d5e] font-bold text-xl'>{userDetails?.name}</p>
-                                        <span className='text-[#818393] text-sm'>{userDetails?.mobno} (ID: {id})</span>
-                                    </div>
+                            <div className="">
 
-                                    <Link to={`/vip`} className='flex items-end '>
-                                        {/* <RiVipLine size={40} className='text-[#b3bdc4]' /> */}
-                                        <img src={vipimg} alt="" className='w-6' />
-                                    </Link>
+                                <div className="  items-center">
 
-                                </div>
+                                    <div className="flex space-x-4 items-center">
 
-                                <div className="p-5 bg-[rgb(1,77,173)] backdrop-blur-[5px] shadow-[rgba(0,0,0,0.03)_0px_0px_10px_5px] rounded-[15px]">
+                                        <img className="rounded-circle rounded mt-2 mb-2 " style={{ border: '1px solid rgb(255, 0, 0)' }} src={accountImg} alt="Placeholder" width="50" height="50" />
 
-                                    <div className="mb-5 justify-between items-center flex flex-wrap">
-
-                                        <div className="">
-                                            <h3 className='text-[28px] font-bold text-white leading-none' >
-                                                <em className='mr-1 p-0 px-[2px] border-0 text-base font-light align-top not-italic leading-none '>₹</em>
-                                                {userDetails?.balance?.toFixed(2)}
-                                            </h3>
-                                            <span className='text-sm text-white opacity-80 leading-none'>Balance</span>
-                                        </div>
+                                        <b className="text-white fs-4">{userDetails?.mobno} &nbsp;<span className="text-red-900">L{userDetails?.vipLevel}</span></b>
 
                                     </div>
 
-                                    <div className="w-full justify-end items-stretch flex flex-wrap">
-
-                                        <Link to={'/deposit'} className="px-5 text-[#0aa496] bg-white font-bold h-[35px] leading-9 text-sm text-center rounded-[500px]  ">
-                                            Deposit
-                                        </Link>
-
-                                        <Link to={'/widthdrawl'} className="px-5 ml-[10px] bg-[#0aa496] text-white font-bold h-[35px] leading-9 text-sm text-center rounded-[500px] ">
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                            {(Number(userDetails?.balance)).toFixed(2)} Withdraw
-                                        </Link>
-
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div className="flex px-[5px] pb-[10px] flex-wrap">
-
-                                <Link to={'/deposit_records'} className="w-1/2 px-[5px] pt-[5px] text-left">
-                                    <div className="h-full px-5 py-[10px] bg-white backdrop-blur-[5px] rounded-[7px] ">
-                                        <p className='text-base font-bold text-[#1f3d70] leading-none '>
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                            {userDetails?.recharge_amount.toFixed(2)}
-                                        </p>
-                                        <span className='text-sm text-[#818393] leading-none'>Total deposits</span>
-                                    </div>
-                                </Link>
-
-                                <Link to={'/widthdrawlrecords'} className="w-1/2 px-[5px] pt-[5px] text-left">
-                                    <div className="h-full px-5 py-[10px] bg-white backdrop-blur-[5px] rounded-[7px] ">
-                                        <p className='text-base font-bold text-[#1f3d70] leading-none '>
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                            {userDetails?.withdrawal_sum?.toFixed(2)}
-                                        </p>
-                                        <span className='text-sm text-[#818393] leading-none'>Total withdrawal</span>
-                                    </div>
-                                </Link>
-
-                                <Link to={'/orders'} className="w-1/2 px-[5px] pt-[5px] text-left">
-                                    <div className="h-full px-5 py-[10px] bg-white backdrop-blur-[5px] rounded-[7px] ">
-                                        <p className='text-base font-bold text-[#1f3d70] leading-none '>
-                                            {/* <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em> */}
-                                            {userDetails?.plans_purchased?.length}
-                                        </p>
-                                        <span className='text-sm text-[#818393] leading-none'>My order</span>
-                                    </div>
-                                </Link>
-
-                                <div className="w-1/2 px-[5px] pt-[5px] text-left">
-                                    <div className="h-full px-5 py-[10px] bg-white backdrop-blur-[5px] rounded-[7px] ">
-                                        <p className='text-base font-bold text-[#1f3d70] leading-none '>
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                            {userDetails?.earning?.toFixed(2)}
-                                        </p>
-                                        <span className='text-sm text-[#818393] leading-none'>Total earnings</span>
-                                    </div>
-                                </div>
-
-                                <div className="w-1/2 px-[5px] pt-[5px] text-left">
-                                    <div className="h-full px-5 py-[10px] bg-white backdrop-blur-[5px] rounded-[7px] ">
-                                        <p className='text-base font-bold text-[#1f3d70] leading-none '>
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                            {userDetails?.rewards?.toFixed(2) || 50.00}
-                                        </p>
-                                        <span className='text-sm text-[#818393] leading-none'>Total rewards</span>
-                                    </div>
-                                </div>
-
-                                <Link to={'/comissions'} className="w-1/2 px-[5px] pt-[5px] text-left">
-                                    <div className="h-full px-5 py-[10px] bg-white backdrop-blur-[5px] rounded-[7px] ">
-                                        <p className='text-base font-bold text-[#1f3d70] leading-none '>
-                                            <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                            {(Number(userDetails?.indirectRecharge) + Number(userDetails?.in_indirectRecharge) + Number(userDetails?.directRecharge)).toFixed(2)}
-                                        </p>
-                                        <span className='text-sm text-[#818393] '>Total commission</span>
-                                    </div>
-                                </Link>
-
-                            </div>
-
-                            <div className="px-[10px] ">
-                                <div className="mb-[10px]">
-
-                                    <Link to={'/update'} className="my-[5px] py-[15px] px-[10px] bg-white rounded-[7px] flex flex-wrap items-center">
-
-                                        <div className="flex justify-center items-center mr-[10px] w-[35px] h-[35px] relative rounded-[50%]">
-                                            <img src={information} alt="information" className='w-4/5' />
-                                        </div>
-
-                                        <div className="flex flex-wrap items-center flex-1">
-                                            <div className="whitespace-normal break-words break-all">
-                                                <p className='text-[#4b4d5e] text-base whitespace-normal break-all'>PersonalData</p>
-                                            </div>
-                                        </div>
-
-                                    </Link>
-
-                                    <Link to={'/bankcard'} className="my-[5px] py-[15px] px-[10px] bg-white rounded-[7px] flex flex-wrap items-center">
-
-                                        <div className="flex justify-center items-center mr-[10px] w-[35px] h-[35px] relative rounded-[50%]">
-                                            <img src={bankcard} alt="information" className='w-4/5' />
-                                        </div>
-
-                                        <div className="flex flex-wrap items-center flex-1">
-                                            <div className="whitespace-normal break-words break-all">
-                                                <p className='text-[#4b4d5e] text-base whitespace-normal break-all'>BankCard</p>
-                                            </div>
-                                        </div>
-
-                                    </Link>
-
-                                    <Link to={'/changepassword'} className="my-[5px] py-[15px] px-[10px] bg-white rounded-[7px] flex flex-wrap items-center">
-
-                                        <div className="flex justify-center items-center mr-[10px] w-[35px] h-[35px] relative rounded-[50%]">
-                                            <img src={LoginPassword} alt="information" className='w-4/5' />
-                                        </div>
-
-                                        <div className="flex flex-wrap items-center flex-1">
-                                            <div className="whitespace-normal break-words break-all">
-                                                <p className='text-[#4b4d5e] text-base whitespace-normal break-all'>ChangeLoginPassword</p>
-                                            </div>
-                                        </div>
-
-                                    </Link>
-
-                                    <Link to={'/changewidthdrawlpassword'} className="my-[5px] py-[15px] px-[10px] bg-white rounded-[7px] flex flex-wrap items-center">
-
-                                        <div className="flex justify-center items-center mr-[10px] w-[35px] h-[35px] relative rounded-[50%]">
-                                            <img src={PayPassword} alt="information" className='w-4/5' />
-                                        </div>
-
-                                        <div className="flex flex-wrap items-center flex-1">
-                                            <div className="whitespace-normal break-words break-all">
-                                                <p className='text-[#4b4d5e] text-base whitespace-normal break-all'>ChangeTradePassword</p>
-                                            </div>
-                                        </div>
-
-                                    </Link>
-
-                                    <div onClick={handelSignOut} className="my-[5px] py-[15px] px-[10px] bg-white rounded-[7px] flex flex-wrap items-center">
-
-                                        <div className="flex justify-center items-center mr-[10px] w-[35px] h-[35px] relative rounded-[50%]">
-                                            <img src={Logoutimg} alt="information" className='w-4/5' />
-                                        </div>
-
-                                        <div className="flex flex-wrap items-center flex-1" >
-                                            <div className="whitespace-normal break-words break-all">
-                                                <p className='text-[rgba(255,87,40,0.9)] text-base whitespace-normal break-all'>LogOut</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                    <b className=""><small className="text-white">Dnex</small></b>
 
                                 </div>
                             </div>
+                            <div className=" flex text-center items-center">
+                                <span className="text-white   p-1 fs-4" style={{ borderRadius: '5px', backgroundColor: '#4f0707', border: '1px solid rgb(255, 0, 0)' }}>
+                                    Score: 60
+                                    <FaRegGem className='mx-auto' />
+                                </span>
+                            </div>
+                        </div>
 
+                    </div>
+                </section>
+
+                <section className="mb-4">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="customborder p-2 mb-3">
+                                <div className="flex justify-between items-center">
+                                    <div className="text-center text-white p-2">
+                                        <h5 className="text-white">₹ {(userDetails?.recharge_amount)?.toFixed(2)}</h5>
+                                        <span className="text-[10px] flex items-end"><IoWalletOutline size={25} /> &nbsp;&nbsp; Recharge Wallet</span>
+                                    </div>
+                                </div>
+                                <hr style={{ color: 'white' }} />
+                                <div className="row mb-3">
+                                    <div className="col-lg-4 col-4">
+                                        <div className="text-center">
+                                            <h5 className="text-white">₹ {(userDetails?.balance)?.toFixed(2)}</h5>
+                                            <span className="text-white text-[10px]">Wallet Balance</span>
+                                        </div>
+
+                                    </div>
+                                    <div className="col-lg-4 col-4">
+                                        <div className="text-center">
+                                            <h5 className="text-white">₹ 0.00</h5>
+                                            <span className="text-white textsizeall">Today profit</span>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-4 col-4">
+                                        <div className="text-center">
+                                            <h5 className="text-white">₹ {(userDetails?.earning)?.toFixed(2)}</h5>
+                                            <span className="text-white textsizeall">Total profit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row justify-between">
+                                <div className="" style={{ width: '50%' }}>
+                                    <a className="btn btn-outline-primary w-full text-white" style={{ color: 'white' }} href="/Member/Withdrawal">Withdrawal</a>
+                                </div>
+                                <div className="w-1/2" style={{ width: '50%' }}>
+                                    <a className="btn btn-primary w-full" href="/Member/Recharge">Recharge</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </section>
 
-                    {/* <Tradmark /> */}
+                <section className="mb-4">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="customborder p-5">
+                                <div className="row mb-7">
 
-                </div>
-            </div >
+                                    <div className="" style={{ width: '25%' }}>
+                                        <div className="text-center">
+                                            <a style={{ textDecoration: 'none' }} href="/Member/Device/Workingdevice" className='flex flex-col items-center'>
+                                                <span className="text-white"><PiDevicesLight size={27} /></span>
+                                                <p className="text-white text-[10px]">My Device</p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+                                    <div className="" style={{ width: '25%' }}>
+                                        <div className="text-center">
+                                            <a href="/Member/Team" className='flex flex-col items-center'>
+                                                <span className="text-white"><IoPeopleOutline size={27} /></span>
+                                                <p className="text-white text-[10px]">My Team</p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div className="col-lg-3 col-3" style={{ width: '25%' }}>
+                                        <div className="text-center">
+                                            <a href="/Member/InviteLink" className='flex flex-col items-center'>
+                                                <span className="text-white"><LuLink className='rotate-45' size={27} /></span>
+                                                <p className="text-white text-[10px]">Invite</p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div className="col-lg-3 col-3" style={{ width: '25%' }}>
+                                        <div className="text-center">
+                                            <a href="/Member/Gift" className='flex flex-col items-center'>
+                                                <span className="text-white"><FaGift size={27} /></span>
+                                                <p className="text-white text-[10px]">Gift</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-lg-3 col-3" style={{ width: '25%' }}>
+                                        <div className="text-center">
+                                            <a href="/Member/Record" className='flex flex-col items-center'>
+                                                <span className="text-white"><BsCardList size={27} /></span>
+                                                <p className="text-white text-[10px]">Record</p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div className="col-lg-3 col-3" style={{ width: '25%' }}>
+                                        <div className="text-center">
+                                            <a href="/Member/Bank" className='flex flex-col items-center'>
+                                                <span className="text-white"><BsBank size={27} /></span>
+                                                <p className="text-white text-[10px]">Bank</p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div className="col-lg-3 col-3" style={{ width: '25%' }}>
+                                        <div className="text-center">
+                                            <a href="/Member/ChangePassword" className='flex flex-col items-center'>
+                                                <span className="text-white"><BsFileLockFill size={27} /></span>
+                                                <p className="text-white text-[10px]">Password</p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div className="col-lg-3 col-3" style={{ width: '25%' }}>
+                                        <div className="text-center">
+                                            <a href="/Member/VipUpgrade" className='flex flex-col items-center'>
+                                                <span className="text-white"><IoReload size={27} /></span>
+                                                <p className="text-white text-[10px]">Vip Upgrade</p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className='mb-20'>
+                    <div className="row">
+                        <div className="w-full">
+                            <div className="customborder p-2">
+                                <div className="p-2">
+
+                                    <a href="/Member/Rule">
+                                        <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid #dd3b3b' }}>
+                                            <p className="text-white textsizeall mb-4 "><BsArrowUpCircle className="inline mr-2 rotate-45 text-[#dd3b3b]" size={10} />Rules</p>
+                                            <span><TfiAngleRight className='text-white' size={18} /></span>
+                                        </div>
+                                    </a>
+
+                                    <a href="/Member/FAQ">
+                                        <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid #dd3b3b' }}>
+                                            <p className="text-white  textsizeall mb-4"><CiCircleQuestion className="inline mr-2 text-[#dd3b3b]" size={10} /> FAQ</p>
+                                            <span><TfiAngleRight className='text-white' size={18} /></span>
+                                        </div>
+                                    </a>
+
+                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid #dd3b3b' }}>
+                                        <p className="text-white  textsizeall mb-4"><BsArrowUpCircle className=" rotate-180 inline mr-2 text-[#dd3b3b]" size={10} /> App Download</p>
+                                        <span><TfiAngleRight className='text-white' size={18} /></span>
+                                    </div>
+
+                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid #dd3b3b' }}>
+                                        <p onClick={handelSignOut} href="#" className="text-white textsizeall mb-4"> <IoPower className="inline mr-2 text-[#dd3b3b]" size={10} /> Sign out</p>
+                                        <span><TfiAngleRight className='text-white' size={18} /></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
 
             {/* footer  */}
-            < Navbar />
+            <Navbar />
         </>
     )
 }

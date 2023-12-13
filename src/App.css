@@ -43,7 +43,7 @@
     align-items: center;
 }
 
-.btn button {
+.btn2 button {
     background: linear-gradient(111deg, #fe8400 18%, #f9881f 0, #ff5801 85%);
 }
 
@@ -112,7 +112,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-nav{
+nav {
     background-color: #b03a36;
     border-top: 1px solid red;
     height: 55px !important;
@@ -150,17 +150,17 @@ nav{
     bottom: 0;
 }
 
-.container-fluid{
+.container-fluid {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--bs-gutter-x,.75rem);
-    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x, .75rem);
+    padding-right: var(--bs-gutter-x, .75rem);
     width: 100%;
 }
 
-.container-fluid{
+.navbar .container-fluid {
     align-items: center;
     display: flex;
     flex-wrap: inherit;
@@ -171,7 +171,7 @@ nav{
     color: #3b7ddd;
     display: block;
     padding: 0.5rem 1rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 .importantsize {
@@ -201,7 +201,7 @@ nav{
     margin-top: calc(var(--bs-gutter-y)*-1);
 }
 
-.row > * {
+.row>* {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
     flex-shrink: 0;
@@ -230,7 +230,51 @@ table {
     caption-side: bottom;
 }
 
-tbody, td, tfoot, th, thead, tr {
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
     border: 0 solid;
     border-color: inherit;
+}
+
+.textsizeall {
+    font-size: 10px;
+}
+
+.col-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}
+
+.btn {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.2rem;
+    color: #763e3e;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.25rem 0.7rem;
+    text-align: center;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.btn-outline-primary {
+    border-color: #dd3b3b;
+    color: #dd3b3b;
+}
+
+.btn-primary {
+    background-color: #dd3b3b;
+    border-color: #dd3b3b;
+    color: #fff;
 }
