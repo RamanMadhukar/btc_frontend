@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { LiaAngleLeftSolid } from 'react-icons/lia';
 import axios from 'axios'
 import { ContextApi } from '../App';
+import { HiMiniArrowLongLeft } from "react-icons/hi2";
 
 const WidthdrawlRecords = () => {
 
@@ -46,74 +47,88 @@ const WidthdrawlRecords = () => {
 
     return (
         <>
-            <div className="  after:contents-[' '] after:fixed h-screen ">
+            <div className="  after:contents-[' '] after:fixed h-screen mb-5 ">
                 <div className="w-full mx-auto max-w-[800px]">
 
-                    <header className="h-[50px] leading-[50px] block mb-[10px] ">
-                        <div className="bg-black max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center  ">
+                    <header className="h-[50px] leading-[50px] block mb-[10px]">
+                        <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center justify-between p-4 ">
 
-                            <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                <LiaAngleLeftSolid size={22} />
+                            <Link to={'/account'} className="w-[60px] h-[50px] text-center text-white z-[2] flex justify-center items-center ">
+                                <HiMiniArrowLongLeft size={22} /> <span className='text-lg'>Back</span>
                             </Link>
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Withdrawl Records</h2>
+                            <h2 className=' text-center text-lg font-medium z-[1] text-white ' >Withdrawal</h2>
 
                         </div>
                     </header>
 
-                    <div className="mx-auto relative z-[1]">
-                        <div className="m-[5px]">
-                            <ul className='px-5 text-white'>
+                    <h6 className="text-center font-bold" style={{ color: 'red' }}>
+                        ₹ {userDetails?.balance?.toFixed(2)}
+                    </h6>
 
-                                {withdrawal_list?.map((data, index) =>
+                    <p className="text-center text-white mb-4">Balance(Rs)</p>
 
-                                    <li key={index} className='my-[5px] p-3 bg-[#212121] rounded-[7px] border-2 border-[#424242]'>
+                    <div className="text-center mb-3">
+                        <Link style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} to={'/widthdrawl'} className="btn btn-primary w-fit" >Withdrawal</Link>
+                    </div>
 
-                                        <div className="flex items-center justify-between">
 
-                                            <p>Withdraw Amount</p>
 
-                                            <p className='text-[#009fe9]'>₹{new Intl.NumberFormat().format(data.withdrawalAmount * 0.9)}</p>
-
+                    <div class="row mb-3 mt-3 px-5">
+                        <div class="col-md-12 col-12">
+                            <div class="p-2 customborder">
+                                <div class="">
+                                    <div class="p-2 text-white">
+                                        <div class="row">
+                                            <h6 class="text-white">Withdrawal record</h6>
+                                            <hr />
                                         </div>
+                                        {withdrawal_list.length === 0 ?
 
-                                        <div className="border border-[#6b6f78] w-full h-0 my-5"></div>
+                                            <p class="text-center text-white p-3">No record found</p>
+                                            :
+                                            <ul className='px-5 text-white'>
 
-                                        <div className="flex justify-between items-center">
+                                                {withdrawal_list?.map((data, index) =>
 
-                                            <div className="w-2/5 text-center">
+                                                    <li key={index} className='my-[5px] p-3 rounded-[7px] border border-[#dd3b3b]'>
 
-                                                <p>{new Date(data.time).toLocaleString(undefined, { timeZone: 'Asia/Kolkata', hour12: false })}</p>
+                                                        <div className="flex items-center justify-between">
 
-                                                <p className='text-[#c6ced9]'>Withdraw time</p>
+                                                            Time: {new Date(data.time).toLocaleString(undefined, { timeZone: 'Asia/Kolkata', hour12: false })}
 
-                                            </div>
+                                                        </div>
 
-                                            <div className=" border border-[#6b6f78] w-0 h-5 my-5"></div>
+                                                        <div className="border border-[#6b6f78] w-full h-0 my-5"></div>
 
-                                            <div className="w-2/5 text-center">
+                                                        <div className="flex justify-between items-center">
 
-                                                <p className='text-[green] font-bold'>{nameMapper[String(data.status)]}</p>
+                                                            <p>{new Intl.NumberFormat().format(data.withdrawalAmount * 0.9)} ₹</p>
 
-                                                <p className='text-[#c6ced9]'>Withdraw status</p>
+                                                            <p className=' font-bold'>{nameMapper[String(data.status)]}</p>
 
-                                            </div>
+                                                        </div>
 
-                                        </div>
+                                                    </li>
 
-                                    </li>
+                                                )
+                                                }
 
-                                )
-                                }
+                                            </ul>
+                                        }
 
-                            </ul>
-
-                            <div className="h-[50px] relative overflow-hidden text-xs translate-z-0  ">
-                                <div className="h-[50px] leading-[50px] text-center text-[#cfd0d9]">No more data</div>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
                     </div>
+
+
+
+
+
+
+
 
                 </div>
             </div>

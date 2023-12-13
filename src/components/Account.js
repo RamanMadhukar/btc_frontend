@@ -135,7 +135,7 @@ const Account = () => {
                             </div>
                             <div className="row justify-between">
                                 <div className="" style={{ width: '50%' }}>
-                                    <a className="btn btn-outline-primary w-full text-white" style={{ color: 'white' }} href="/Member/Withdrawal">Withdrawal</a>
+                                    <Link to={'/widthdrawlrecords'} className="btn btn-outline-primary w-full text-white" style={{ color: 'white' }} >Withdrawal</Link>
                                 </div>
                                 <div className="w-1/2" style={{ width: '50%' }}>
                                     <a className="btn btn-primary w-full" href="/Member/Recharge">Recharge</a>
@@ -256,8 +256,8 @@ const Account = () => {
                                         <span><TfiAngleRight className='text-white' size={18} /></span>
                                     </div>
 
-                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid #dd3b3b' }}>
-                                        <p onClick={handelSignOut} href="#" className="text-white textsizeall mb-4"> <IoPower className="inline mr-2 text-[#dd3b3b]" size={10} /> Sign out</p>
+                                    <div onClick={handelSignOut} className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid #dd3b3b' }}>
+                                        <p href="#" className="text-white textsizeall mb-4"> <IoPower className="inline mr-2 text-[#dd3b3b]" size={10} /> Sign out</p>
                                         <span><TfiAngleRight className='text-white' size={18} /></span>
                                     </div>
 
