@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { ContextApi } from '../App';
 import { LiaAngleLeftSolid } from 'react-icons/lia';
+import { HiMiniArrowLongLeft } from 'react-icons/hi2';
 
 const DateDifference = (date1, date2) => {
 
@@ -35,7 +36,7 @@ const Order = () => {
         }
     }, [])
 
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(true)
     const [completed, setCompleted] = useState('text-black')
     const [processing, setProcessing] = useState('text-red-500')
 
@@ -61,58 +62,63 @@ const Order = () => {
     return (
         <>
 
-            <div className="bg-[#e0f2f1]  after:contents-[' '] after:fixed min-h-screen">
+            <div className=" after min-h-screen px-5">
                 <div className="w-full mx-auto max-w-[800px]">
 
-                    <header className="h-[50px] leading-[50px] block mb-[10px]">
-                        <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed bg-[rgb(1,77,173)] z-[9999] flex flex-wrap items-center  ">
+                    <header className="h-[50px] leading-[50px] block mb-[20px]">
+                        <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto flex flex-wrap items-center justify-between p-4 ">
 
-                            <Link to={'/account'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                <LiaAngleLeftSolid size={22} />
+                            <Link to={'/account'} className="w-[60px] h-[50px] text-center text-white z-[2] flex justify-center items-center ">
+                                <HiMiniArrowLongLeft size={22} /> <span className='text-lg'>Back</span>
                             </Link>
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Plan Records</h2>
+                            <h2 className=' text-center text-lg font-medium z-[1] text-white ' >Device</h2>
 
                         </div>
                     </header>
 
-                    <div className="mx-auto relative z-[1]">
+                    <div className="mx-auto relative z-[1] ">
 
-                        <div className="flex flex-wrap">
+                        <div className="text-white flex mb-5">
 
-                            <div onClick={() => setToggle(!toggle)} className={`p-1 flex flex-wrap justify-center items-center w-1/2 `}>
-                                <p className={`${completed}`}>completed</p>
-                            </div>
+                            <div onClick={() => setToggle(true)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${toggle && 'border-b-2'} `}> Working Device</div>
 
-                            <div onClick={() => setToggle(!toggle)} className={` p-1 flex flex-wrap justify-center items-center w-1/2`}>
-                                <p className={`${processing}`}>processing</p>
-                            </div>
+                            <div onClick={() => setToggle(false)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${!toggle && 'border-b-2'} `}>Expired Device</div>
 
                         </div>
 
-                        <div className="p-[5px]">
+                        <div className="p-[5px] -z-10">
 
-                            {toggle ?
+                            {!toggle ?
 
                                 <>
                                     {userDetails?.plans_purchased?.map((element, index) => {
                                         if (element.plan_daily_earning * element.plan_cycle === DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning) {
                                             return (
-                                                <div className="my-[5px] border-x-2 bg-white border-white border-b-2  rounded-[7px]" key={index}>
+                                                <>
+                                                    <div className="row mb-3">
+                                                        <div className="w-full">
+                                                            <div className="p-2 customborder">
+                                                                <div className="">
+                                                                    <div className="p-2 text-white">
+                                                                        <div className="row">
+                                                                            <div className="mb-3">
+                                                                                <p className="text-lg mb-4">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
+                                                                                <p className="text-lg mb-4">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
+                                                                                <p className="text-lg mb-4">time: {element.date_purchased}</p>
+                                                                                <p className="text-lg mb-4">Plan Cycle: {element.plan_cycle}</p>
+                                                                                <p className="text-lg mb-4">Plan Daily Earning: &#8377;{element.plan_daily_earning}</p>
+                                                                                <p className="text-lg mb-4">Plan Cycle: {element.plan_cycle}</p>
+                                                                                <p className="text-lg mb-4">full time: {element.fullTime}</p>
+                                                                            </div>
 
-                                                    <div className="p-3 text-base font-semibold bg-confirm rounded-t-lg bg-[rgb(1,77,173)] text-white">Plan Details</div>
-                                                    <div className='p-3'>
-                                                        <div className='mb-1'>earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</div>
-                                                        <div className='mb-1'>total revenue: {element.plan_daily_earning * element.plan_cycle}</div>
-                                                        <div className='mb-1'>time: {element.date_purchased}</div>
-                                                        {/* <div className='mb-1'>Plan Cycle: {element.plan_cycle}</div>
-                                                        <div className='mb-1'>Plan Daily Earning: &#8377;{element.plan_daily_earning}</div>
-                                                        <div className='mb-1'>Quantity: {element.quantity}</div> */}
-                                                        <div className='mb-1'>full time: {element.fullTime}</div>
-
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-
-                                                </div>
+                                                </>
                                             )
                                         }
                                     })}
@@ -123,21 +129,45 @@ const Order = () => {
                                     {userDetails?.plans_purchased?.map((element, index) => {
                                         if (element.plan_daily_earning * element.plan_cycle !== DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning) {
                                             return (
-                                                <div className="my-[5px] border-x-2 bg-white border-white border-b-2  rounded-[7px]" key={index}>
+                                                <>
+                                                    {/* <div className="my-[5px] border-x-2 bg-white border-white border-b-2  rounded-[7px]" key={index}>
 
                                                     <div className="p-3 text-base font-semibold bg-confirm rounded-t-lg bg-[rgb(1,77,173)] text-white">Plan Details</div>
                                                     <div className='p-3'>
                                                         <div className='mb-1'>earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</div>
                                                         <div className='mb-1'>total revenue: {element.plan_daily_earning * element.plan_cycle}</div>
                                                         <div className='mb-1'>time: {element.date_purchased}</div>
-                                                        {/* <div className='mb-1'>Plan Cycle: {element.plan_cycle}</div>
+                                                        <div className='mb-1'>Plan Cycle: {element.plan_cycle}</div>
                                                         <div className='mb-1'>Plan Daily Earning: &#8377;{element.plan_daily_earning}</div>
-                                                        <div className='mb-1'>Quantity: {element.quantity}</div> */}
+                                                        <div className='mb-1'>Quantity: {element.quantity}</div>
                                                         <div className='mb-1'>full time: {element.fullTime}</div>
 
                                                     </div>
 
-                                                </div>
+                                                </div> */}
+                                                    <div className="row mb-3">
+                                                        <div className="w-full">
+                                                            <div className="p-2 customborder">
+                                                                <div className="">
+                                                                    <div className="p-2 text-white">
+                                                                        <div className="row">
+                                                                            <div className="mb-3">
+                                                                                <p className="text-lg mb-4">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
+                                                                                <p className="text-lg mb-4">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
+                                                                                <p className="text-lg mb-4">time: {element.date_purchased}</p>
+                                                                                <p className="text-lg mb-4">Plan Cycle: {element.plan_cycle}</p>
+                                                                                <p className="text-lg mb-4">Plan Daily Earning: &#8377;{element.plan_daily_earning}</p>
+                                                                                <p className="text-lg mb-4">Plan Cycle: {element.plan_cycle}</p>
+                                                                                <p className="text-lg mb-4">full time: {element.fullTime}</p>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </>
                                             )
                                         }
                                     })}
@@ -150,7 +180,7 @@ const Order = () => {
                     </div>
 
                 </div>
-            </div>
+            </div >
 
         </>
     )

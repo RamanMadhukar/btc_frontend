@@ -153,10 +153,10 @@ const Account = () => {
 
                                     <div className="" style={{ width: '25%' }}>
                                         <div className="text-center">
-                                            <a style={{ textDecoration: 'none' }} href="/Member/Device/Workingdevice" className='flex flex-col items-center'>
+                                            <Link to={'/Workingdevice'} style={{ textDecoration: 'none' }} className='flex flex-col items-center'>
                                                 <span className="text-white"><PiDevicesLight size={27} /></span>
                                                 <p className="text-white text-[10px]">My Device</p>
-                                            </a>
+                                            </Link>
                                         </div>
 
                                     </div>

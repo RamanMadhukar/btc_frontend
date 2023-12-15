@@ -189,8 +189,8 @@ function App() {
           } */}
 
           {user &&
-            <span className="btnfix z-50">
-              <a className="btnfix px-6 py-1 space-x-2 flex" href="">
+            <span className="btnfix ">
+              <a className="btnfix px-6 py-1 space-x-2 flex z-[99999]" href="">
                 <img width="25" src={customer} className='align-middle' alt="" />
                 contact
               </a>
@@ -209,7 +209,7 @@ function App() {
             {/* <Route path='/deposit_records' element={<DepositRecords />} /> */}
             {/* <Route path='/invite' element={<Invite />} /> */}
             {/* <Route path='/vip' element={<Vip />} /> */}
-            {/* <Route path='/orders' element={<Order />} /> */}
+            <Route path='/Workingdevice' element={<Order />} />
             <Route path='/bankCard' element={<BankCard />} />
             <Route path='/bankCardAdd' element={<BankCardAdd />} />
             <Route path='/widthdrawl' element={<Widthdrawl />} />
