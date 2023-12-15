@@ -8,6 +8,7 @@ import BASE_URL from '../api_url'
 import axios from 'axios'
 import floatings from '../images/galaxysone/g2.png'
 import { BiSolidCoinStack } from 'react-icons/bi'
+import { HiMiniArrowLongLeft } from 'react-icons/hi2'
 
 const Deposit = () => {
 
@@ -69,210 +70,22 @@ const Deposit = () => {
 
         <>
 
-            {/* <div className="after:bg-white after:contents-[' '] after:fixed ">
-                <div className="w-full mx-auto max-w-[800px]">
-
-                    <header className="h-[50px] leading-[50px] block">
-                        <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed bg-[rgb(1,77,173)] z-[9999] flex flex-wrap items-center  ">
-
-                            <Link to={'/account'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                <LiaAngleLeftSolid size={22} />
-                            </Link>
-
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Deposit</h2>
-
-                        </div>
-                    </header>
-
-                    <div className="mx-auto relative z-[1]">
-
-                        <div className="bg-[rgb(1,77,173)] px-5 pt-5 overflow-hidden invite">
-                            <div className="flex flex-wrap items-center mb-5 ">
-                                <div className="mt-[10px]">
-                                    <h3 className='text-[30px] font-bold text-white leading-none' >
-                                        <em className='mr-1 p-0 px-[2px] border-0 text-base font-light align-top not-italic leading-none '>₹</em>
-                                        {userDetails?.balance?.toFixed(2)}
-                                    </h3>
-                                    <span className='text-base text-[#fffc] opacity-80 leading-none'>Account Balance</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="m-[10px] p-[10px] relative z-10 ">
-                            <div className="">
-
-                                <div className="px-[10px] mb-5 relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                    {Deposit ?
-                                        <input
-                                            onChange={e => { setDeposit(e.target.value); setSelected() }}
-                                            type="number"
-                                            name="deposit"
-                                            id="deposit"
-                                            className='flex-1 fillArea w-full h-[50px] text-base leading-none px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent '
-                                            value={Deposit}
-                                            placeholder=''
-                                        />
-                                        :
-                                        <input
-                                            onChange={e => { setDeposit(e.target.value); setSelected() }}
-                                            type="number"
-                                            name="deposit"
-                                            id="deposit"
-                                            className='flex-1 fillArea w-full h-[50px] text-base leading-none px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent '
-                                            placeholder=''
-                                        />
-                                    }
-                                    <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                    <label className='placeholder text-[#818393] text-sm leading-none left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>Deposit Amount</label>
-                                </div>
-
-                                <div className="mb-5 relative">
-
-                                    <div className="inline-block text-sm px-[5px] pb-[3px] ">
-                                        <h3 className='font-bold'>Quick Amount</h3>
-                                    </div>
-
-                                    <div className="flex flex-wrap items-center">
-
-                                        {amount.map((data, index) =>
-                                            <QuickAmountCard key={index} id={index} selected={selected} setSelected={setSelected} amount={data} setDeposit={setDeposit} />
-                                        )}
-
-                                    </div>
-
-                                </div>
-
-                                <div className="mb-5 relative">
-
-                                    <div className="inline-block text-sm px-[5px] pb-[3px] ">
-                                        <h3 className='font-bold'>Select the Deposit channel</h3>
-                                    </div>
-
-                                    <div className="">
-
-                                        <div className="w-full inline-block relative check clear">
-                                            <input className='hidden invisible' type="radio" value="102" id="payway102" name="payway" defaultChecked />
-                                            <label htmlFor="payway102" className='rounded-[7px] w-full p-[10px_10px_10px_35px] mt-[10px] border-2 border-[#f5f5f5] border-solid leading-[20px] text-[#999] inline-block relative before:top-[10px] before:left-[10px] before:w-5 before:h-5 before:leading-[20px] before:inline-block before:bg-white before:border-2 before:border-solid before:border-[#ccc] before:rounded-[50%] before:contents-[" "] before:text-center before:align-top before:cursor-pointer before:absolute '>
-
-                                                <p className='text-[#666]'>Deposit Channel A</p>
-
-                                                <span className='text-sm text-[#999]'>
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                    100 ~
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                    100,00
-                                                </span>
-
-
-                                            </label>
-                                        </div>
-
-                                        <div className="w-full inline-block relative check clear">
-                                            <input className='hidden invisible' type="radio" value="100" id="payway100" name="payway" />
-                                            <label htmlFor="payway100" className='rounded-[7px] w-full p-[10px_10px_10px_35px] mt-[10px] border-2 border-[#f5f5f5] border-solid leading-[20px] text-[#999] inline-block relative before:top-[10px] before:left-[10px] before:w-5 before:h-5 before:leading-[20px] before:inline-block before:bg-white before:border-2 before:border-solid before:border-[#ccc] before:rounded-[50%] before:contents-[" "] before:text-center before:align-top before:cursor-pointer before:absolute '>
-
-                                                <p className='text-[#666]'>Deposit Channel B</p>
-
-                                                <span className='text-sm text-[#999]'>
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                    100 ~
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                    100,00
-                                                </span>
-
-
-                                            </label>
-                                        </div>
-
-                                        <div className="w-full inline-block relative check clear">
-                                            <input className='hidden invisible' type="radio" value="101" id="payway101" name="payway" />
-                                            <label htmlFor="payway101" className='rounded-[7px] w-full p-[10px_10px_10px_35px] mt-[10px] border-2 border-[#f5f5f5] border-solid leading-[20px] text-[#999] inline-block relative before:top-[10px] before:left-[10px] before:w-5 before:h-5 before:leading-[20px] before:inline-block before:bg-white before:border-2 before:border-solid before:border-[#ccc] before:rounded-[50%] before:contents-[" "] before:text-center before:align-top before:cursor-pointer before:absolute '>
-
-                                                <p className='text-[#666]'>Deposit Channel C</p>
-
-                                                <span className='text-sm text-[#999]'>
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                    100 ~
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                    100,00
-                                                </span>
-
-
-                                            </label>
-                                        </div>
-
-                                        <div className="w-full inline-block relative check clear">
-                                            <input className='hidden invisible' type="radio" value="103" id="payway103" name="payway" />
-                                            <label htmlFor="payway103" className='rounded-[7px] w-full p-[10px_10px_10px_35px] mt-[10px] border-2 border-[#f5f5f5] border-solid leading-[20px] text-[#999] inline-block relative before:top-[10px] before:left-[10px] before:w-5 before:h-5 before:leading-[20px] before:inline-block before:bg-white before:border-2 before:border-solid before:border-[#ccc] before:rounded-[50%] before:contents-[" "] before:text-center before:align-top before:cursor-pointer before:absolute '>
-
-                                                <p className='text-[#666]'>Deposit Channel D</p>
-
-                                                <span className='text-sm text-[#999]'>
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                    100 ~
-                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                    100,00
-                                                </span>
-
-
-                                            </label>
-                                        </div>
-
-
-
-                                    </div>
-
-                                </div>
-
-                                <div onClick={handleRecharge} className='my-10 w-full text-white bg-[#00aa75] border-0 border-[rgba(215,215,215,0.6)] h-11 leading-10 px-5 text-center text-base block border-solid rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative '>
-                                    To Deposit
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div className="mx-[10px] px-5">
-
-                            <p className='leading-6 text-sm text-[#666] mb-[10px]'>
-                                <strong>
-                                    1. Please do not modify the deposit amount. Unauthorized modification of the deposit
-                                    amount will result in the deposit not being credited
-                                </strong>
-                            </p>
-
-                            <p className='leading-6 text-sm text-[#666] mb-[10px]'>
-                                2. Deposit received within 5 minutes, if not received within 5 minutes, please contact online
-                                customer service for processing
-                            </p>
-
-                            <p className='leading-6 text-sm text-[#666] mb-[10px]'>
-                                3. Due to too many deposit users, please try multiple times to obtain the deposit link or try
-                                again after a period of time
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div> */}
-
             <div className=" after:contents-[' '] after:fixed ">
                 <div className="w-full mx-auto max-w-[800px]">
 
-                    <header className="h-[50px] leading-[50px] block ">
-                        <div className="bg-black max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center  ">
+                    <header className="h-[50px] leading-[50px] block mb-[10px]">
+                        <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center justify-between p-4 ">
 
-                            <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                <LiaAngleLeftSolid size={22} />
+                            <Link to={'/account'} className="w-[60px] h-[50px] text-center text-white z-[2] flex justify-center items-center ">
+                                <HiMiniArrowLongLeft size={22} /> <span className='text-lg'>Back</span>
                             </Link>
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Deposit</h2>
+                            <h2 className=' text-center text-lg font-medium z-[1] text-white ' >Recharge</h2>
 
                         </div>
                     </header>
 
-                    <div className="px-5 mt-12 ">
+                    {/* <div className="px-5 mt-12 ">
 
                         <div className="rounded-lg ">
 
@@ -288,7 +101,7 @@ const Deposit = () => {
                                     </p>
                                 </div>
 
-                                {/* <img src={floatings} className='h-32 w-32 absolute right-0 -top-14' alt="" /> */}
+                                <img src={floatings} className='h-32 w-32 absolute right-0 -top-14' alt="" />
 
                             </div>
 
@@ -306,7 +119,7 @@ const Deposit = () => {
 
                             <div className="van-field__left-icon">
                                 <div className="phonen" data-v-380ab766="">
-                                    {/* <img src={indian} alt="" data-v-380ab766="" /> */}
+                                    <img src={indian} alt="" data-v-380ab766="" />
                                     <p data-v-380ab766="" className='mr-1'>₹</p>
                                     <span data-v-380ab766=""></span>
                                 </div>
@@ -366,6 +179,54 @@ const Deposit = () => {
                                 again after a period of time
                             </p>
 
+                        </div>
+                    </div> */}
+
+                    <div className="row mb-3">
+                        <div className="w-full">
+                            <div className="p-2 customborder">
+                                <div className="">
+                                    <div className="p-2 text-white">
+                                        <div className="row">
+                                            <div className="input-group mb-3">
+                                                <button style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }} className="btn btn-outline-primary text-white colorinput">₹</button>
+                                                <input
+                                                    onChange={e => { setDeposit(e.target.value); setSelected() }}
+                                                    style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
+                                                    name="amount"
+                                                    id="amount"
+                                                    className="form-control p-3 colorinput"
+                                                    placeholder="Input recharge amount"
+                                                    type="number"
+                                                    value={Deposit}
+                                                />
+                                            </div>
+                                            <div className="row justify-content-between mt-3">
+                                                <div className="col-lg-4 col-4">
+                                                    <p onclick="myFunction1()" className="btn btn-primary w-100">600 Rs</p>
+                                                </div>
+                                                <div className="col-lg-4 col-4">
+                                                    <p onclick="myFunction2()" className="btn btn-primary w-100">2900 Rs</p>
+                                                </div>
+                                                <div className="col-lg-4 col-4">
+                                                    <p onclick="myFunction3()" className="btn btn-primary w-100">7600 Rs</p>
+                                                </div>
+                                            </div>
+                                            <div className="row justify-content-between mt-3">
+                                                <div className="col-lg-4 col-4">
+                                                    <p onclick="myFunction4()" className="btn btn-primary w-100">15600 Rs</p>
+                                                </div>
+                                                <div className="col-lg-4 col-4">
+                                                    <p onclick="myFunction5()" className="btn btn-primary w-100">24600 Rs</p>
+                                                </div>
+                                                <div className="col-lg-4 col-4">
+                                                    <p onclick="myFunction6()" className="btn btn-primary w-100">30000 Rs</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

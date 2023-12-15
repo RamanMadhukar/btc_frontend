@@ -10,6 +10,7 @@ import floatings from '../images/galaxysone/g2.png'
 import eyeclosed from '../images/galaxysone/eyeclosed.png'
 import eyeopened from '../images/galaxysone/eyeopened.png'
 import sms from '../images/galaxysone/sms.png'
+import { HiMiniArrowLongLeft } from 'react-icons/hi2';
 
 const Widthdrawl = () => {
 
@@ -78,11 +79,11 @@ const Widthdrawl = () => {
             return;
         }
 
-        if (otp !== otpfield) {
-            toaster('Wrong otp');
-            setnextBtn(false)
-            return;
-        }
+        // if (otp !== otpfield) {
+        //     toaster('Wrong otp');
+        //     setnextBtn(false)
+        //     return;
+        // }
 
         if (Number(deposit) === false || Number(deposit) <= 0) {
             toaster('Enter a valid number');
@@ -116,7 +117,7 @@ const Widthdrawl = () => {
             return;
         }
         //&& otp === otpfield
-        if (userDetails.wpwd === wpwd) {
+        if (true) {
             try {
                 //const docRef1 = 
                 var temp_details = bank_details;
@@ -175,14 +176,14 @@ const Widthdrawl = () => {
     useEffect(() => {
         // console.log(wpwd2);
 
-        if (wpwd2 === 'undefined') {
-            toaster('Set Trade Password')
-            setTimeout(() => {
-                navigate('/accountsecurity', { state: "pin  " })
-            }, 3000);
-        }
+        // if (wpwd2 === 'undefined') {
+        //     toaster('Set Trade Password')
+        //     setTimeout(() => {
+        //         navigate('/accountsecurity', { state: "pin  " })
+        //     }, 3000);
+        // }
 
-        else if (userDetails?.bank_details.bankAccount.length === 0) {
+        if (userDetails?.bank_details.bankAccount.length === 0) {
             toaster("Add bank details first")
             setTimeout(() => {
                 navigate('/bankcardadd')
@@ -261,152 +262,95 @@ const Widthdrawl = () => {
 
     return (
         <>
-            <div className=" after:contents-[' '] after:fixed ">
+            <div className=" after:contents-[' '] after:fixed p-5">
                 <div className="w-full mx-auto max-w-[800px]">
 
-                    <header className="h-[50px] leading-[50px] block">
-                        <div className="bg-black max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center  ">
+                    <header className="h-[50px] leading-[50px] block mb-[10px]">
+                        <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center justify-between p-4 ">
 
-                            <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                <LiaAngleLeftSolid size={22} />
+                            <Link to={'/account'} className="w-[60px] h-[50px] text-center text-white z-[2] flex justify-center items-center ">
+                                <HiMiniArrowLongLeft size={22} /> <span className='text-lg'>Back</span>
                             </Link>
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Withdraw</h2>
+                            <h2 className=' text-center text-lg font-medium z-[1] text-white ' >Withdrawal</h2>
 
                         </div>
                     </header>
 
-                    <div className="px-5 mt-12 ">
-
-                        <div className="rounded-lg ">
-
-                            <div className="bg-[#009fe9] flex relative justify-between p-5 rounded-lg rounded-bl-none">
-
+                    <div className="row mb-3 mt-3">
+                        <div className="w-full">
+                            <div className="p-2 customborder">
                                 <div className="">
-                                    <div className="flex items-center space-x-1 mb-1" >
-                                        <BiSolidCoinStack className='text-[yellow]' size={25} /> <span>My balance</span>
-                                    </div>
-                                    <p className='text-black text-xl font-bold'>
-                                        <em className=' p-0 px-[2px] border-0 not-italic leading-none '>₹</em>
-                                        {userDetails?.balance.toFixed(2)}
-                                    </p>
-                                </div>
-
-                                {/* <img src={floatings} className='h-32 w-32 absolute right-0 -top-14' alt="" /> */}
-
-                            </div>
-
-                            <div className="flex ">
-                                <div className="flex-1 -z-10 bg-[#009fe9] rounded-xl rounded-t-none inverted_radius relative">
-
-                                </div>
-                                <Link to={'/widthdrawlrecords'} className="bg-[#009fe9] flex justify-center items-center rounded-lg border-2 mt-2 border-black px-5 py-2">
-                                    Withdraw record
-                                </Link>
-                            </div>
-                        </div>
-
-                        <div className="van-cell van-field input-box mt-7 bg-[#1e1e20]" data-v-380ab766="" style={{ background: '#1e1e20', border: 'none' }}>
-
-                            <div className="van-field__left-icon">
-                                <div className="phonen" data-v-380ab766="">
-                                    {/* <img src={indian} alt="" data-v-380ab766="" /> */}
-                                    <p data-v-380ab766="" className='mr-1'>₹</p>
-                                    <span data-v-380ab766=""></span>
-                                </div>
-                            </div>
-
-                            <div className="van-cell__value van-field__value flex-1 ">
-
-                                <div className="van-field__body">
-
-                                    <input onChange={e => { setDeposit(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
-                                        type="number"
-                                        inputMode="numeric"
-                                        id="van-field-1-input"
-                                        className="van-field__control inline-block font-bold"
-                                        placeholder="Please enter withdraw amount"
-                                        style={{ color: 'white', fontWeight: 700 }}
-
-                                    />
-
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div className="van-cell van-field input-box" data-v-380ab766="" style={{ background: '#1e1e20', border: 'none' }}>
-                            <div className="van-cell__value van-field__value">
-                                <div className="van-field__body">
-                                    <input onChange={e => setWpwd(e.target.value)}
-                                        type={loginpwd}
-                                        id="van-field-3-input"
-                                        className="van-field__control"
-                                        placeholder="Please enter withdrawl password"
-                                    />
-                                    <div onClick={() => secrethandel('loginpwd')} className="van-field__right-icon">
-                                        {loginpwd === 'password' ?
-                                            <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
-                                            :
-                                            <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
-                                        }
+                                    <div className="p-5 text-white">
+                                        <div className="row">
+                                            <h6 className="text-center mb-2" style={{ color: 'red' }}>
+                                                ₹ {userDetails?.balance?.toFixed(2)}
+                                            </h6>
+                                            <p className="text-center text-white mb-4">Balance ( INR ) </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div className="numberi" data-v-380ab766="">
-                            <img src={sms} alt="" data-v-380ab766="" />
-                            <p data-v-380ab766="">SMS verification code</p>
-                        </div>
-                        <div className="van-cell van-field input-box btnbox" data-v-380ab766="">
-                            <div className="van-cell__value van-field__value flex-1">
-                                <div className="van-field__body">
-                                    <input
-                                        onChange={e => setOtp(e.target.value)}
-                                        type="tel"
-                                        inputMode="numeric"
-                                        id="van-field-2-input"
-                                        className="van-field__control"
-                                        placeholder="Enter SMS verification code"
-                                    />
-                                    <div className="van-field__right-icon shrink-0">
-                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} type="button" className="van-button van-button--default van-button--normal senduis" data-v-380ab766="">
-                                            <div className="van-button__content">
-                                                <span className="van-button__text">
-                                                    {seconds > 0 || minutes > 0 ?
-                                                        <>
-                                                            {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-                                                        </>
-                                                        :
-                                                        'send'}
-                                                </span>
+                    <div className="row mb-3 mt-3">
+                        <div className="full">
+                            <div className="p-2 customborder">
+                                <div className="">
+                                    <div className="p-2 text-white">
+                                        <div className="row">
+                                            <div className="input-group mb-3">
+                                                <button style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }} className="btn btn-outline-primary text-white colorinput">Amount</button>
+                                                <input
+                                                    onChange={e => setDeposit(e.target.value)}
+                                                    type="text"
+                                                    name="amount"
+                                                    id="amount"
+                                                    className="form-control p-3 colorinput"
+                                                    placeholder="Input withdrawal amount"
+                                                    style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
+                                                />
                                             </div>
-                                        </button>
+                                            <h6 className="text-white">Withdrawal bank account</h6>
+                                            <hr className="text-center" />
+                                            <p className="text-white mb-4">Acccount name: &nbsp; Pk</p>
+                                            <p className="text-white mb-4">Bank name:  &nbsp; Pk</p>
+                                            <p className="text-white mb-4">IFSC:  &nbsp; Airo </p>
+                                            <p className="text-white mb-4">Bank account:  &nbsp; 8009072885</p>
+                                            <div className="text-center mb-3">
+                                                {isBetween() ?
+                                                    <button disabled={nextBtn} onClick={handleWithdrawal} style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn btn-primary w-fit" >Withdrawal</button>
+                                                    :
+                                                    <button onClick={() => { toaster('You can withdraw only between 09:00:00 to 21:00:00 ') }} style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn btn-primary w-fit" >Withdrawal</button>
+                                                }
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
+                    <div className="row mb-3 mt-3">
+                        <div className="w-full">
+                            <div className="p-2 customborder">
+                                <div className="">
+                                    <div className="p-2 text-white">
+                                        <div className="row p-3">
+                                            <h6 className="text-white mb-2 px-3 text-sm">Tips</h6>
+                                            <ol className="text-white text-sm">
+                                                <li>1. Minimum withdrawal amount is <span className="text-[red]">INR 130</span></li>
+                                                <li>2. Personal income tax is <span className="text-[red]">INR 5 %</span></li>
+                                                <li>3. Withdrawal time is 12 hours to 72 hours..</li>
 
-                        <div className="flex justify-between items-center space-x-3 text-[4vw]">
-                            {isBetween() ?
-                                <button onClick={handleWithdrawal} disabled={nextBtn} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'>Withdraw</button>
-                                :
-                                <button onClick={() => { toaster('You can withdraw only between 09:00:00 to 21:00:00 ') }} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'>Withdraw</button>
-                            }
-                        </div>
-
-                        <div className="mx-[10px] py-5">
-                            <div className="my-5">
-                                <p className='leading-tight py-[2px] text-[white] mb-[10px]'>1. The daily withdrawal time is from 09:00:00 to 21:00:00</p>
-                                <p className='leading-tight py-[2px] text-[white] mb-[10px]'>2. The single withdrawal amount is between 300 and 50000</p>
-                                <p className='leading-tight py-[2px] text-[white] mb-[10px]'>3. 10% of the withdrawal amount will be charged as tax for each withdrawal</p>
-                                <p className='leading-tight py-[2px] text-[white] mb-[10px]'>4. In order to facilitate financial settlement, you can only apply for cash withdrawal 1 times a day</p>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>

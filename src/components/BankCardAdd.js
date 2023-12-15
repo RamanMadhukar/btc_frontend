@@ -8,6 +8,7 @@ import bankaccountimg from '../images/galaxysone/bankaccountimg.png'
 import { BsFillPersonFill } from 'react-icons/bs';
 import { AiOutlineCreditCard } from 'react-icons/ai';
 import { BiCoinStack } from 'react-icons/bi';
+import { HiMiniArrowLongLeft } from 'react-icons/hi2';
 
 const BankCardAdd = () => {
 
@@ -21,10 +22,13 @@ const BankCardAdd = () => {
             fullName: '',
             bankAccount: '',
             ifsc: '',
+            bankName: ''
         }
     );
     const [pop, setpop] = useState(false);
     const [wpwd, setWpwd] = useState()
+    const [otpfield, setOTPfield] = useState('');
+    const [otp, setOtp] = useState('');
 
 
     const handleChange = (e) => {
@@ -36,21 +40,37 @@ const BankCardAdd = () => {
     }
 
     const handleSubmit = async () => {
-        // console.log(userDetails.wpwd,wpwd);
-        if (true) {
-            setLoading(true)
-            await axios.post(`${BASE_URL}/bank_details`, { user_id: localStorage.getItem('uid'), bank_details: details })
-                .then(() => {
-                    setLoading(false)
-                    toaster('Bank details added successfully!');
-                    navigate('/home')
-                })
-                .catch(() => { setLoading(false); toaster('Some error Occured') }
-                );
-        } else {
-            setLoading(false)
-            toaster('Incorrect withdrawal password!');
+
+        if (details.fullName.length === 0) {
+            toaster('Name cannot be empty')
+            return
         }
+
+        if (details.bankAccount.length === 0) {
+            toaster('Bank account number cannot be empty')
+            return
+        }
+
+        if (details.ifsc.length===0) {
+            toaster('IFSC code cannot be empty')
+            return
+        }
+        
+        if (details.bankName.length===0) {
+            toaster('Bank name cannot be empty')
+            return
+        }
+
+        setLoading(true)
+        await axios.post(`${BASE_URL}/bank_details`, { user_id: localStorage.getItem('uid'), bank_details: details })
+            .then(() => {
+                setLoading(false)
+                toaster('Bank details added successfully!');
+                navigate('/bankcard')
+            })
+            .catch(() => { setLoading(false); toaster('Some error Occured') }
+            );
+
     }
 
     useEffect(() => {
@@ -70,100 +90,83 @@ const BankCardAdd = () => {
 
 
 
-            <div className="after:bg-white after:contents-[' '] after:fixed ">
+            <div className="after:bg-white after:contents-[' '] after:fixed p-5">
                 <div className="w-full mx-auto max-w-[800px]">
 
-                    <header className="h-[50px] leading-[50px] block mb-[10px] bg-black">
-                        <div className="bg-black max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center  ">
+                    <header className="h-[50px] leading-[50px] block mb-[10px]">
+                        <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center justify-between p-4 ">
 
-                            <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                <LiaAngleLeftSolid size={22} />
+                            <Link to={'/account'} className="w-[60px] h-[50px] text-center text-white z-[2] flex justify-center items-center ">
+                                <HiMiniArrowLongLeft size={22} /> <span className='text-lg'>Back</span>
                             </Link>
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Bank Account</h2>
+                            <h2 className=' text-center text-lg font-medium z-[1] text-white ' >Edit bank account</h2>
 
                         </div>
                     </header>
 
-                    <div className="p-5">
+                    <div className="row mb-3">
+                        <div className="w-full">
+                            <div className="p-2 customborder">
+                                <div className="">
+                                    <div className="p-2 text-white">
+                                        <div className="row">
+                                            <div className="input-group mb-3">
+                                                <input
+                                                    onChange={handleChange}
+                                                    type='text'
+                                                    name='fullName'
+                                                    id="AccountHolderName"
+                                                    className="form-control p-3 colorinput"
+                                                    placeholder="Name"
 
-                        <img src={bankaccountimg} alt="" className='mx-auto w-32' />
+                                                />
+                                            </div>
+                                            <div className="input-group mb-3">
+                                                <input
+                                                    type="text"
+                                                    className="form-control p-3 colorinput"
+                                                    placeholder="Bank Name"
+                                                    id="BankName"
+                                                    name="bankName"
+                                                    onChange={handleChange}
 
-                        <div className='mt-5'>
+                                                />
+                                            </div>
+                                            <div className="input-group mb-3">
+                                                <input
+                                                    type="text"
+                                                    className="form-control p-3 colorinput"
+                                                    placeholder="IFSC" aria-label="Recipient's username"
+                                                    id="BankCode"
+                                                    name="ifsc"
+                                                    onChange={handleChange}
+                                                />
+                                            </div>
+                                            <div className="input-group mb-3">
+                                                <input
+                                                    type="text"
+                                                    className="form-control p-3 colorinput"
+                                                    placeholder="Account" aria-label="Recipient's username"
+                                                    id="AccountNumber"
+                                                    name="bankAccount"
+                                                    onChange={(e) => { handleChange(e); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
 
-                            <div className="numberi" data-v-380ab766="">
-                                {/* <img src={password} alt="" data-v-380ab766="" /> */}
-                                <BsFillPersonFill className='text-[#0098e7] mr-1' size={25}/>
-                                <p data-v-380ab766="">Holder's Name</p>
-                            </div>
+                                                />
+                                            </div>
+                                            {/* <div className="input-group mb-3">
 
-                            <div className="van-cell van-field input-box" data-v-380ab766="" style={{ background: '#242424', border: '0' }}>
-                                <div className="van-cell__value van-field__value">
-                                    <div className="van-field__body">
-                                        <input
-                                            onChange={handleChange}
-                                            type='text'
-                                            name='fullName'
-                                            id="van-field-3-input"
-                                            className="van-field__control bg-[#242424]"
-                                            placeholder="Please enter Holder's name"
-                                        />
-
+                                                <input onChange={(e) => setOtp(e.target.value)} style={{ borderBottomRightRadius: 0, borderTopRightRadius: 0 }} type="text" name="enterOpt" className="form-control p-3 colorinput" placeholder="Please input otp code" />
+                                                <button style={{ borderBottomLeftRadius: 0, borderTopLeftRadius: 0, marginLeft: '-1px ' }} className="btn btn-outline-primary text-white colorinput" type="button" id="getOtpButton">Get OTP</button>
+                                            </div> */}
+                                            <div className="mb-2 text-center">
+                                                <button onClick={handleSubmit} style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn-primary btn-lg fw-bold mx-auto d-block btn-sm">Save bank account</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="numberi" data-v-380ab766="">
-                                {/* <img src={password} alt="" data-v-380ab766="" /> */}
-                                <AiOutlineCreditCard className='text-[#0098e7] mr-1' size={25}/>
-                                <p data-v-380ab766="">Account number</p>
-                            </div>
-
-                            <div className="van-cell van-field input-box" data-v-380ab766="" style={{ background: '#242424', border: '0' }}>
-                                <div className="van-cell__value van-field__value">
-                                    <div className="van-field__body">
-                                        <input
-                                            onChange={handleChange}
-                                            type='text'
-                                            name='bankAccount'
-                                            id="van-field-3-input"
-                                            className="van-field__control"
-                                            placeholder="Please enter bank account number"
-                                        />
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="numberi" data-v-380ab766="">
-                                {/* <img src={password} alt="" data-v-380ab766="" /> */}
-                                <BiCoinStack className='text-[#0098e7] mr-1' size={25}/>
-                                <p data-v-380ab766="">IFSC</p>
-                            </div>
-
-                            <div className="van-cell van-field input-box" data-v-380ab766="" style={{ background: '#242424', border: '0' }}>
-                                <div className="van-cell__value van-field__value">
-                                    <div className="van-field__body">
-                                        <input
-                                            onChange={handleChange}
-                                            type='text'
-                                            name='ifsc'
-                                            id="van-field-3-input"
-                                            className="van-field__control"
-                                            placeholder="Please enter IFSC"
-                                        />
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex justify-between items-center space-x-3 text-[4vw]">
-
-                                <button onClick={handleSubmit} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'>Confirm</button>
-                            </div>
-
                         </div>
-
                     </div>
 
                 </div>

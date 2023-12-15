@@ -138,7 +138,7 @@ const Account = () => {
                                     <Link to={'/widthdrawlrecords'} className="btn btn-outline-primary w-full text-white" style={{ color: 'white' }} >Withdrawal</Link>
                                 </div>
                                 <div className="w-1/2" style={{ width: '50%' }}>
-                                    <a className="btn btn-primary w-full" href="/Member/Recharge">Recharge</a>
+                                    <Link to={'/deposit'} className="btn btn-primary w-full" >Recharge</Link>
                                 </div>
                             </div>
                         </div>

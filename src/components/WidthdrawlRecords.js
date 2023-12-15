@@ -74,18 +74,18 @@ const WidthdrawlRecords = () => {
 
 
 
-                    <div class="row mb-3 mt-3 px-5">
-                        <div class="col-md-12 col-12">
-                            <div class="p-2 customborder">
-                                <div class="">
-                                    <div class="p-2 text-white">
-                                        <div class="row">
-                                            <h6 class="text-white">Withdrawal record</h6>
+                    <div className="row mb-3 mt-3 px-5">
+                        <div className="col-md-12 col-12">
+                            <div className="p-2 customborder">
+                                <div className="">
+                                    <div className="p-2 text-white">
+                                        <div className="row">
+                                            <h6 className="text-white">Withdrawal record</h6>
                                             <hr />
                                         </div>
                                         {withdrawal_list.length === 0 ?
 
-                                            <p class="text-center text-white p-3">No record found</p>
+                                            <p className="text-center text-white p-3">No record found</p>
                                             :
                                             <ul className='px-5 text-white'>
 

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { ContextApi } from '../App';
 import chip from '../images/Chip.svg'
 import { AiOutlinePlus } from 'react-icons/ai';
+import { HiMiniArrowLongLeft } from 'react-icons/hi2';
 
 const BankCard = () => {
 
@@ -31,59 +32,68 @@ const BankCard = () => {
 
     return (
         <>
-            <div className="after:bg-white after:contents-[' '] after:fixed ">
+            <div className="after:bg-white after:contents-[' '] after:fixed p-5">
                 <div className="w-full mx-auto max-w-[800px]">
 
-                    <header className="h-[50px] leading-[50px] block">
-                        <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed bg-[rgb(1,77,173)] z-[9999] flex flex-wrap items-center  ">
+                    <header className="h-[50px] leading-[50px] block mb-[10px]">
+                        <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center justify-between p-4 ">
 
-                            <Link to={'/account'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                <LiaAngleLeftSolid size={22} />
+                            <Link to={'/account'} className="w-[60px] h-[50px] text-center text-white z-[2] flex justify-center items-center ">
+                                <HiMiniArrowLongLeft size={22} /> <span className='text-lg'>Back</span>
                             </Link>
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >My Bank Account</h2>
+                            <h2 className=' text-center text-lg font-medium z-[1] text-white ' >Bank</h2>
 
                         </div>
                     </header>
 
-                    <div className="mx-auto relative z-[1]">
+                    <p className="text-white mb-5">My Bank Account</p>
 
-                        {userDetails?.bank_details?.fullName !== '' &&
-                            <div className="">
-                                <div className="m-[10px] px-5 py-[10px] relative bankcard rounded-[7px]">
-
-                                    <div className="m-auto relative">
-                                        <p className='text-white text-sm tracking-[2px]'>IFSC:{userDetails?.bank_details?.ifsc}</p>
-                                    </div>
-
-                                    <div className="py-[10px]">
-                                        <h3 className='font-bold text-[26px] text-white'>{userDetails?.bank_details?.bankAccount.toString().replace(/\d{4}(?=.)/g, '$& ')}</h3>
-                                    </div>
-
+                    {userDetails?.bank_details ?
+                        <div className="row mb-3">
+                            <div className="w-full">
+                                <div className="p-2 customborder">
                                     <div className="">
-                                        <span className='text-white font-light text-xs leading-4'>CARD HOLDER</span>
-                                        <p className='text-white text-sm tracking-[2px]'>{userDetails?.bank_details?.fullName}</p>
+                                        <div className="p-2 text-white">
+                                            <div className="row">
+                                                <div className="mb-3">
+
+                                                    <p className="text-lg mb-4">Name: &nbsp;  {userDetails?.bank_details?.fullName}</p>
+                                                    <p className="text-lg mb-4">Bank Name: &nbsp; {userDetails?.bank_details?.bankName}</p>
+                                                    <p className="text-lg mb-4">IfSC:&nbsp; {userDetails?.bank_details?.ifsc} </p>
+                                                    <p className="text-lg mb-4">Account: &nbsp; {userDetails?.bank_details?.bankAccount}</p>
+
+                                                    <div className="text-center mb-3">
+                                                        <Link style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} to={'/bankCardAdd'} className="btn btn-primary w-fit" >Edit bank account</Link>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <div className="w-[45px] top-5 right-[10px] absolute z-[2]">
-                                        <img src={chip} alt="" className='w-full opacity-20' />
-                                    </div>
-
-                                    <div className="shading"></div>
-
                                 </div>
                             </div>
-                        }
+                        </div>
+                        :
+                        <div className="row mb-3 mt-5">
+                            <div className="w-full">
+                                <div className="p-2 customborder">
+                                    <div className="">
+                                        <div className="p-2 text-white">
+                                            <div className="row">
+                                                <p className="text-center p-3">No bank information available.</p>
+                                                <div className="mb-2  block">
+                                                    <div className="text-center mb-3">
+                                                        <Link style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} to={'/bankCardAdd'} className="btn btn-primary w-fit" >Save bank account</Link>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>}
 
-                        <Link to={'/bankcardadd'} className='bg-[#eee] my-[30px] mx-[10px] p-[10px] text-[#4b4d5e] block text-center rounded-[7px]' >
-                            <AiOutlinePlus size={25} className='mx-2 inline-block align-bottom' />
-
-                            Add Bank card
-
-
-                        </Link>
-
-                    </div>
 
                 </div>
             </div>

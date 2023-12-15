@@ -204,14 +204,14 @@ function App() {
             <Route path='/home' element={<Home />} />
             {/* <Route path='/equipment' element={<Invest />} /> */}
             <Route path='/account' element={<Account />} />
-            {/* <Route path='/deposit' element={<Deposit />} /> */}
-            {/* <Route path="/recharge_window/:recharge_value" element={<RechargeWindow />} /> */}
+            <Route path='/deposit' element={<Deposit />} />
+            <Route path="/recharge_window/:recharge_value" element={<RechargeWindow />} />
             {/* <Route path='/deposit_records' element={<DepositRecords />} /> */}
             {/* <Route path='/invite' element={<Invite />} /> */}
             {/* <Route path='/vip' element={<Vip />} /> */}
             {/* <Route path='/orders' element={<Order />} /> */}
-            {/* <Route path='/bankCard' element={<BankCard />} /> */}
-            {/* <Route path='/bankCardAdd' element={<BankCardAdd />} /> */}
+            <Route path='/bankCard' element={<BankCard />} />
+            <Route path='/bankCardAdd' element={<BankCardAdd />} />
             <Route path='/widthdrawl' element={<Widthdrawl />} />
             <Route path='/widthdrawlrecords' element={<WidthdrawlRecords />} />
             {/* <Route path='/changewidthdrawlpassword' element={<WpasswordChange />} /> */}
