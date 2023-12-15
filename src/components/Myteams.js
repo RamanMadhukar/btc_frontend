@@ -100,7 +100,7 @@ const Myteams = () => {
                                             <p className="text-white mb-4"> Team Profite </p>
                                             <span className="text-white">₹ 0.00</span>
                                         </div>
-                                        <div className="flex justify-between items-center" style={{ borderBottom: "1px dotted #dd3b3b" }}>
+                                        <div className="flex justify-between items-center" style={{ borderBottom: "1px dotted blue" }}>
                                             <span className="text-white">Valid Team Size</span>
                                             <span className="text-white">0 People</span>
                                         </div>
@@ -124,6 +124,144 @@ const Myteams = () => {
                             </div>
                         </div>
                     </section>
+
+                    <section className="mt-3">
+	<div className="row">
+		<div className="w-full">
+
+			<div className="tab">
+				<div className="row">
+					<div className="col-lg-12">
+						<ul className="nav nav-tabs" role="tablist">
+
+							<li className="nav-item">
+								<a className="nav-link active   text-white" href="#tab-1" data-bs-toggle="tab" role="tab" >Team-B(1)</a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link   text-white" href="#tab-2" data-bs-toggle="tab" role="tab" >Team-C(0)</a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link   text-white" href="#tab-3" data-bs-toggle="tab" role="tab" >Team-D(0)</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-lg-12">
+						<div className="tab-content ">
+
+							<div className="tab-pane active " id="tab-1" role="tabpanel">
+								<div className="row justify-content-between">
+									<div className="col-lg-6 col-6">
+										<a className="btn btn-outline-primary w-100" href="#" id="validButtonlevel1">Valid</a>
+									</div>
+									<div className="col-lg-6 col-6">
+										<a href="#" className="btn btn-outline-primary  w-100" id="invalidButtonlevel1">InValid</a>
+									</div>
+								</div>
+								<section className="tab-pane active mt-5" id="validlevel1" >
+									<div className="row">
+										<div className="col-12">
+											
+												<div className="customborder p-2">
+													<div>
+													</div>
+												</div>
+											
+										</div>
+									</div>
+								</section>
+								<section className="tab-pane active mt-5" id="invalidlevel1">
+									<div className="row">
+										<div className="col-12">
+
+											<div className="customborder p-2">
+												<div>
+															<div className="d-flex justify-content-between align-items-center mb-0 pb-0">
+																<p className="text-white textsizeall"> 6394856706 </p>
+																<span className="text-white">₹ 0.00</span>
+															</div>
+															<div className="d-flex justify-content-between align-items-center mt-0 pt-0">
+																<span className="text-white textsizeall" > 12/15/2023 </span>
+																<span className="text-white" >Max Price Device</span>
+															</div>
+															<hr/>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</section>
+							</div>
+							<div className="tab-pane" id="tab-2" role="tabpanel">
+								<div className="row justify-content-between">
+									<div className="col-lg-6 col-6">
+										<a href="#" className="btn btn-outline-primary w-100" id="validButtonlevel2">Valid</a>
+									</div>
+									<div className="col-lg-6 col-6">
+										<a href="#" className="btn btn-outline-primary  w-100" id="invalidButtonlevel2">InValid</a>
+									</div>
+								</div>
+								<section className="tab-pane active mt-5" id="validlevel2">
+									<div className="row mb-3">
+										<div className="col-12">
+											<div className="customborder p-2">
+												<div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+								<section className="tab-pane active mt-5" id="invalidlevel2" >
+									<div className="row mb-3">
+										<div className="col-12">
+											<div className="customborder p-2">
+												<div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
+							<div className="tab-pane" id="tab-3" role="tabpanel">
+								<div className="row justify-content-between">
+									<div className="col-lg-6 col-6">
+										<a href="#" className="btn btn-outline-primary w-100" id="validButtonlevel3">Valid</a>
+									</div>
+									<div className="col-lg-6 col-6">
+										<a href="#" className="btn btn-outline-primary  w-100" id="invalidButtonlevel3">InValid</a>
+									</div>
+								</div>
+								<section className="tab-pane active mt-5" id="validlevel3">
+									<div className="row mb-3">
+										<div className="col-12">
+											<div className="customborder p-2">
+												<div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+								<section className="tab-pane active mt-5" id="invalidlevel3" >
+									<div className="row mb-3">
+										<div className="col-12">
+											<div className="customborder p-2">
+												<div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
 
                 </div>
             </div>

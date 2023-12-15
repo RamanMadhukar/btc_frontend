@@ -124,21 +124,21 @@ const Deposit = () => {
                         <div className="w-full">
                             <div className="customborder p-2">
                                 <div className="p-2 mb-2">
-                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid red' }}>
+                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />UPI Channel-1
                                         </label>
                                         <span><input type="radio" className="bankOption" name="bankOption" value="upi" /></span>
 
                                     </div>
-                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid red' }}>
+                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />UPI Channel-2
                                         </label>
                                         <span><input type="radio" className="bankOption" name="bankOption" value="stripe" /></span>
                                     </div>
 
-                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid red' }}>
+                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />Pay Using our Crypto Channel-3
                                         </label>

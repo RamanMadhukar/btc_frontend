@@ -184,7 +184,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                                 <a >
                                     <span></span>
                                 </a>
-                                <button onClick={handelInvest} className="btn bg-[#3b7ddd] border border-solid border-[#3b7ddd] text-sm text-white px-3 py-1 rounded-lg" >Buy Now</button>
+                                <button onClick={handelInvest} className="btn btn-primary border border-solid border-[#3b7ddd] text-sm text-white px-3 py-1 rounded-lg" >Buy Now</button>
                             </div>
                         </div>
 

@@ -90,8 +90,8 @@ const Task = () => {
     return (
         <>
 
-            <div className="  after:contents-[' '] h-screen mb-5 ">
-                <div className="w-full mx-auto max-w-[800px]">
+            <div className="  after:contents-[' '] h-screen mb-5 px-5">
+                <div className="w-full mx-auto max-w-[800px] mb-5">
 
                     <header className="h-[50px] leading-[50px] block mb-[10px]">
                         <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto z-[9999] flex flex-wrap items-center justify-between p-4 ">

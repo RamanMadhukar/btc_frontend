@@ -113,8 +113,8 @@
 }
 
 nav {
-    background-color: #b03a36;
-    border-top: 1px solid red;
+    background-color: rgb(1 15 60);
+    border-top: 1px solid blue;
     height: 55px !important;
 }
 
@@ -179,7 +179,7 @@ nav {
 }
 
 .btnfix a {
-    background-color: rgb(60, 1, 1);
+    background-color: #07184f;
     border: medium none;
     color: #FFFFFF;
     float: left;
@@ -188,7 +188,7 @@ nav {
     border-radius: 10px;
     /* padding: 3px; */
     text-decoration: none;
-    border: 1px solid red;
+    border: 1px solid blue;
 }
 
 .row {
@@ -218,8 +218,8 @@ nav {
 }
 
 .customborder {
-    border: 1px solid rgb(255, 0, 0);
-    background-color: #4f0707;
+    border: 1px solid blue;
+    background-color: #07184f;
     border-radius: 7px;
     -webkit-box-shadow: 1px 2px 11px 3px #000000;
     box-shadow: 1px 2px 11px 3px #000000;
@@ -269,13 +269,13 @@ tr {
 }
 
 .btn-outline-primary {
-    border-color: #dd3b3b;
-    color: #dd3b3b;
+    border-color: #3b7ddd;
+    color: #3b7ddd;
 }
 
 .btn-primary {
-    background-color: #dd3b3b;
-    border-color: #dd3b3b;
+    background-color: #3b7ddd;
+    border-color: #3b7ddd;
     color: #fff;
 }
 
