@@ -163,28 +163,28 @@ const Account = () => {
 
                                     <div className="" style={{ width: '25%' }}>
                                         <div className="text-center">
-                                            <a href="/Member/Team" className='flex flex-col items-center'>
+                                            <Link to={'/team'} href="/Member/Team" className='flex flex-col items-center'>
                                                 <span className="text-white"><IoPeopleOutline size={27} /></span>
                                                 <p className="text-white text-[10px]">My Team</p>
-                                            </a>
+                                            </Link>
                                         </div>
 
                                     </div>
                                     <div className="col-lg-3 col-3" style={{ width: '25%' }}>
                                         <div className="text-center">
-                                            <a href="/Member/InviteLink" className='flex flex-col items-center'>
+                                            <Link to={'/invite'} className='flex flex-col items-center'>
                                                 <span className="text-white"><LuLink className='rotate-45' size={27} /></span>
                                                 <p className="text-white text-[10px]">Invite</p>
-                                            </a>
+                                            </Link>
                                         </div>
 
                                     </div>
                                     <div className="col-lg-3 col-3" style={{ width: '25%' }}>
                                         <div className="text-center">
-                                            <a href="/Member/Gift" className='flex flex-col items-center'>
+                                            <Link to={'/gift'} href="/Member/Gift" className='flex flex-col items-center'>
                                                 <span className="text-white"><FaGift size={27} /></span>
                                                 <p className="text-white text-[10px]">Gift</p>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

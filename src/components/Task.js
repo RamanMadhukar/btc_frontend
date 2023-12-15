@@ -13,6 +13,7 @@ import CopyToClipboard from 'react-copy-to-clipboard'
 import { PiCopyBold } from 'react-icons/pi'
 import giftimg from '../images/galaxysone/giftimg.png'
 import planateglob from '../images/galaxysone/planateglob.png'
+import { HiMiniArrowLongLeft } from 'react-icons/hi2'
 
 
 const Task = () => {
@@ -89,243 +90,58 @@ const Task = () => {
     return (
         <>
 
-            <Navbar />
+            <div className="  after:contents-[' '] h-screen mb-5 ">
+                <div className="w-full mx-auto max-w-[800px]">
 
-            <div className="px-3 mt-10 mb-36 text-white ">
+                    <header className="h-[50px] leading-[50px] block mb-[10px]">
+                        <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto z-[9999] flex flex-wrap items-center justify-between p-4 ">
 
-                <div className="flex items-center space-x-3 ">
+                            <Link to={'/account'} className="w-[60px] h-[50px] text-center text-white z-[2] flex justify-center items-center ">
+                                <HiMiniArrowLongLeft size={22} /> <span className='text-lg'>Back</span>
+                            </Link>
 
-                    <div className="flex items-center justify-center border border-white bg-[rgb(10,170,183)] rounded-full h-10 w-10">
-                        <BsFillEnvelopePaperHeartFill />
-                    </div>
+                            <h2 className=' text-center text-lg font-medium z-[1] text-white ' >Gift</h2>
 
-                    <h1 className='text-sm'>
-                        Invite friends to get rich rewards
-                        <p className='text-[#c6ced9] text-xs'>Share my invitation link</p>
-                    </h1>
-
+                        </div>
+                    </header>
                 </div>
 
-                <div className="border border-[#424242] my-5"></div>
-
-                <div className="border border-[#424242] my-5 bg-[#06454c] rounded-lg p-5">
-
-                    <h1 className='text-center'>My invitation code</h1>
-
-                    <div className="border border-[#ffffff3d] my-3"></div>
-
-                    <div className="flex items-center justify-around">
-
-                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
-                            <span>{userDetails?.user_invite[0]}</span>
-                        </div>
-
-                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
-                            <span>{userDetails?.user_invite[1]}</span>
-                        </div>
-
-                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
-                            <span>{userDetails?.user_invite[2]}</span>
-                        </div>
-
-                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
-                            <span>{userDetails?.user_invite[3]}</span>
-                        </div>
-
-                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
-                            <span>{userDetails?.user_invite[4]}</span>
-                        </div>
-
-                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
-                            <span>{userDetails?.user_invite[5]}</span>
-                        </div>
-
-                        <CopyToClipboard text={userDetails?.user_invite} onCopy={() => toaster('copied succeded')}>
-                            <PiCopyBold className='text-[#4f999b]' />
-                        </CopyToClipboard>
-
-
-                    </div>
-
-                    <div className="border border-[#424242] my-4 bg-[#052e32] text-center text-[#96afb3] rounded-lg py-3">
-
-                        <p>{`${origin}/signup?invitation_code=${userDetails?.user_invite}`}</p>
-
-                    </div>
-
-
-                    <CopyToClipboard text={`${origin}/signup?invitation_code=${userDetails?.user_invite}`} onCopy={() => toaster('copy succeded')}>
-                        <button className='btnbox block h-[13vw] mx-auto bg-[#13d2e4] rounded-lg text-[#074762] font-bold'>Copy Link</button>
-                    </CopyToClipboard>
-
-
-                </div>
-
-                <h1 className='text-center my-3'>Invite registration rewards</h1>
-
-                <div className="border border-white rounded-lg bg-[#003235] p-5">
-
-                    <div className="flex items-end justify-between">
-
-                        <img src={giftimg} alt="" className='w-[15vw]' />
-
-                        <p className='text-sm'>Invite friends to register and get
-                            <span className='text-[yellow]'> ₹50 </span>
-                            for the first time
-                            <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/1</p>
-                        </p>
-
-                        {userDetails?.direactMember === 1 && userDetails.memcount !== 1 ?
-                            <button onClick={activation} className='bg-[yellow] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
-                            :
-                            <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
-                        }
-
-                    </div>
-
-                    <div className="border border-[#ffffff3d] my-3"></div>
-
-                    <div className="">
-
-                        <p>Get<span className='text-[yellow]'> ₹6 </span>for every person you invite to register</p>
-
-                        <div className="flex items-end justify-between mt-1">
-
-                            <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 20 ? '20' : userDetails?.direactMember}</span>/20</p>
-
-                            {userDetails?.direactMember === 20 && userDetails.memcount !== 20 ?
-                                <button onClick={activation} className='bg-[yellow] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
-                                :
-                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
-                            }
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <h1 className='text-center my-3'>Invite investment rewards</h1>
-
-                <div className="border border-white rounded-lg bg-[#003235] p-5">
-
-                    <div className="flex items-center justify-between">
-                        <h1 className=' my-3'>
-                            Invitation mission rewards
-                            <p className='text-xs text-[#c6ced9]'>Invite valid users to invest and get <span className='text-[#13d2e4]'>₹100</span></p>
-                        </h1>
-
-                        {/* <img src={planateglob} alt="" className='w-[15vw]' /> */}
-                    </div>
-
-                    <div className="bg-[#000a09] flex items-center justify-around py-2 mb-5 text-center">
-
-                        <div className="">
-                            <p className='text-[yellow]'>₹{(userDetails?.vipMemcount * 100)}</p>
-                            <p>Received</p>
-                        </div>
-
-                        <div className="">
-                            <p className='text-[yellow]'>₹{((level_1 - userDetails?.vipMemcount) * 100)}</p>
-                            <p>Active</p>
-                        </div>
-
-                    </div>
-
-                    <div className="flex justify-between items-center">
-
-                        <p className='text-sm'>Number of people <span className='text-[yellow]'>{level_1}</span></p>
-
-                        {userDetails?.vipMemcount < level_1 ?
-
-                            <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Receive</button>
-                            :
-                            <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-
-                        }
-
-                    </div>
-
-                </div>
-
-                <div className="mt-5">
-
-                    <div className="flex space-x-3 my-5">
-                        <div className="px-2 rounded-lg bg-white flex justify-center items-center">
-                            <BsFlagFill className='text-[orange]' size={25} />
-                        </div>
-                        <div className="flex-1 text-sm">
-                            <p className='text-[#c6ced9]'>Invite 20 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹2000</span></p>
-
-                            <div className="flex justify-between items-end">
-                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 20 ? '20' : userDetails?.direactMember}</span>/20</p>
-
-                                {userDetails?.vipMemcount !== 20 && level_1 === 20 ?
-                                    <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-                                    :
-                                    <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-                                }
-
+                <div className="row">
+                    <div className="w-full">
+                        <div className="p-2 customborder">
+                            <div className="">
+                                <div className="p-2 text-white">
+                                    <div className="row">
+                                        <div className="input-group mb-3">
+                                            <a className="btn btn-outline-primary text-white colorinput" style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }} >Code</a>
+                                            <input
+                                                type="text"
+                                                name="GiftCode"
+                                                className="form-control p-3 colorinput"
+                                                placeholder="Please input gift code"
+                                                aria-label="Recipient's username"
+                                                aria-describedby="button-addon2"
+                                                required=""
+                                                data-val="true"
+                                                data-val-required="The GiftCode field is required."
+                                                id="GiftCode"
+                                                value=""
+                                                style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
+                                            />
+                                        </div>
+                                        {/* <div className="mb-2">
+                                            <button id="login-submit" type="submit" style="border-radius:5px;" className="btn-primary btn-lg fw-bold mx-auto d-block btn-sm">Get Gift</button>
+                                            <p className="text-center mt-2" style="font-size:10px">The gift amount also can be withdrawal or buy device.</p>
+                                        </div> */}
+                                        <div className="text-center mb-3">
+                                            <button style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn btn-primary w-fit" >Get Gift</button>
+                                            <p className="text-center mt-2 text-[10px]">The gift amount also can be withdrawal or buy device.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div className="flex space-x-3 my-5">
-                        <div className="px-2 rounded-lg bg-white flex justify-center items-center">
-                            <BsFlagFill className='text-[blue]' size={25} />
-                        </div>
-                        <div className="flex-1 text-sm">
-                            <p className='text-[#c6ced9]'>Invite 50 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹10000</span></p>
-
-                            <div className="flex justify-between items-end">
-                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 50 ? '50' : userDetails?.direactMember}</span>/50</p>
-                                {userDetails?.vipMemcount !== 50 && level_1 === 50 ?
-                                    <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-                                    :
-                                    <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-                                }
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="flex space-x-3 my-5">
-                        <div className="px-2 rounded-lg bg-white flex justify-center items-center">
-                            <BsFlagFill className='text-[green]' size={25} />
-                        </div>
-                        <div className="flex-1 text-sm">
-                            <p className='text-[#c6ced9]'>Invite 100 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹50000</span></p>
-
-                            <div className="flex justify-between items-end">
-                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 100 ? '100' : userDetails?.direactMember}</span>/100</p>
-                                {userDetails?.vipMemcount !== 100 && level_1 === 100 ?
-                                    <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-                                    :
-                                    <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-                                }
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="flex space-x-3 my-5">
-                        <div className="px-2 rounded-lg bg-white flex justify-center items-center">
-                            <BsFlagFill className='text-[purple]' size={25} />
-                        </div>
-                        <div className="flex-1 text-sm">
-                            <p className='text-[#c6ced9]'>Invite 300 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹150000</span></p>
-
-                            <div className="flex justify-between items-end">
-                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 300 ? '300' : userDetails?.direactMember}</span>/300</p>
-                                {userDetails?.vipMemcount !== 300 && level_1 === 300 ?
-                                    <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-                                    :
-                                    <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-                                }
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>

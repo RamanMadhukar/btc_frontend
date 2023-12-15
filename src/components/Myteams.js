@@ -11,6 +11,7 @@ import one from "../images/galaxysone/1.png";
 import two from "../images/galaxysone/2.png";
 import three from "../images/galaxysone/3.png";
 import { BiCoinStack } from 'react-icons/bi';
+import { HiMiniArrowLongLeft } from 'react-icons/hi2';
 
 const Myteams = () => {
 
@@ -75,135 +76,56 @@ const Myteams = () => {
 
     return (
         <>
-            <Navbar />
+            <div className="  after:contents-[' '] after:fixed h-screen mb-5 px-5">
+                <div className="w-full mx-auto max-w-[800px]">
 
-            <div className="text-white px-3 mt-8 mb-36 bg-[#003136]">
+                    <header className="h-[50px] leading-[50px] block mb-[10px]">
+                        <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center justify-between p-4 ">
 
-                <div className="flex p-5 justify-between items-start bg-white border border-[#424242] rounded-lg text-black">
+                            <Link to={'/account'} className="w-[60px] h-[50px] text-center text-white z-[2] flex justify-center items-center ">
+                                <HiMiniArrowLongLeft size={22} /> <span className='text-lg'>Back</span>
+                            </Link>
 
-                    <div className="">
-                        <p className=''>Team Invest</p>
-                        <p className='text-[#00eefe]'>₹{teamInvest}</p>
-                        <Link to={'/award'} className='flex items-center mt-3 text-[red]'>To invite <LiaAngleRightSolid /></Link>
-                    </div>
+                            <h2 className=' text-center text-lg font-medium z-[1] text-white ' >My Team</h2>
 
-                    <div className="">
-                        <p className=''>Team Size</p>
-                        <p className=''>{userDetails?.directMember?.length + userDetails?.indirectMember?.length + userDetails?.in_indirectMember?.length}</p>
-                    </div>
+                        </div>
+                    </header>
 
-                    <img src={teamImg} alt="" className='w-20' />
+                    <section className="mt-12">
+                        <div className="row">
+                            <div className="w-full">
+                                <div className="customborder p-2">
+                                    <div>
+                                        <div className="flex justify-between items-center mb-0 pb-0">
+                                            <p className="text-white mb-4"> Team Profite </p>
+                                            <span className="text-white">₹ 0.00</span>
+                                        </div>
+                                        <div className="flex justify-between items-center" style={{ borderBottom: "1px dotted #dd3b3b" }}>
+                                            <span className="text-white">Valid Team Size</span>
+                                            <span className="text-white">0 People</span>
+                                        </div>
+                                        <div className="row">
+                                            <table className="table-responsive border-0 text-center text-white" style={{ marginTop: '12px' }}>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>₹ 0.00</th>
+
+                                                        <th>₹ 0.00</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total Recharge Amount</td>
+
+                                                        <td>Today Recharge Amount</td>
+                                                    </tr>
+                                                </tbody></table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                 </div>
-
-                <h1 className='text-center text-lg font-bold my-5'>My team</h1>
-
-                <div className="p-5 border my-3 bg-black rounded-lg border-[#424242]">
-
-                    <div className=" flex items-center justify-between">
-                        <h1 className='flex items-center'>Level 1 Team <LiaAngleRightSolid className='m-2 text-[#00eefe]' /></h1>
-
-                        {/* <div className="text-white w-10 h-10 rounded-full bg-[gold] flex justify-center items-center border border-white"><BiCoinStack size={28} /></div> */}
-                        <img src={one} alt="" />
-                    </div>
-
-                    <div className="flex justify-between items-center mt-3">
-                        <p className='text-[#c6ced9] text-xs'>Commission rate: <span className='ml-1 text-[#00eefe]'>10%</span></p>
-                        {/* <p className='text-[#c6ced9] text-xs'>Rebate rate: <span className='ml-1 text-[#00eefe]'>20%</span></p> */}
-                    </div>
-
-                    <div className="bg-[#005359] py-1 mt-2 flex items-center justify-around border border-[#424242]">
-
-                        <div className="text-center">
-                            <p className='text-white'>{userDetails?.directMember?.length}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team size</p>
-                        </div>
-
-                        <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.directRecharge * 0.05)?.toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Commission</p>
-                        </div>
-
-                        <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.directRecharge)?.toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team Recharge</p>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-                <div className="p-5 border my-3 bg-black rounded-lg border-[#424242]">
-
-                    <div className="flex items-center justify-between">
-                        <h1 className='flex items-center'>Level 2 Team <LiaAngleRightSolid className='m-2 text-[#00eefe]' /></h1>
-                        <img src={two} alt="" />
-                        {/* <div className="text-white w-10 h-10 rounded-full bg-[silver] flex justify-center items-center border border-white"><BiCoinStack size={28} /></div> */}
-                    </div>
-
-
-                    <div className="flex justify-between items-center mt-3">
-                        <p className='text-[#c6ced9] text-xs'>Commission rate: <span className='ml-1 text-[#00eefe]'>3%</span></p>
-                        {/* <p className='text-[#c6ced9] text-xs'>Rebate rate: <span className='ml-1 text-[#00eefe]'>20%</span></p> */}
-                    </div>
-
-                    <div className="bg-[#005359] py-1 mt-2 flex items-center justify-around border border-[#424242]">
-
-                        <div className="text-center">
-                            <p className='text-white'>{userDetails?.indirectMember?.length}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team size</p>
-                        </div>
-
-                        <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.indirectRecharge * 0.02)?.toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Commission</p>
-                        </div>
-
-                        <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.indirectRecharge)?.toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team Recharge</p>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-                <div className="p-5 border my-3 bg-black rounded-lg border-[#424242]">
-                    <div className="flex items-center justify-between">
-                        <h1 className='flex items-center'>Level 3 Team <LiaAngleRightSolid className='m-2 text-[#00eefe]' /></h1>
-                        <img src={three} alt="" />
-                        {/* <div className="text-white w-10 h-10 rounded-full bg-[#CD7F32] flex justify-center items-center border border-white"><BiCoinStack size={28} /></div> */}
-                    </div>
-
-                    <div className="flex justify-between items-center mt-3">
-                        <p className='text-[#c6ced9] text-xs'>Commission rate: <span className='ml-1 text-[#00eefe]'>1%</span></p>
-                        {/* <p className='text-[#c6ced9] text-xs'>Rebate rate: <span className='ml-1 text-[#00eefe]'>20%</span></p> */}
-                    </div>
-
-                    <div className="bg-[#005359] py-1 mt-2 flex items-center justify-around border border-[#424242]">
-
-                        <div className="text-center">
-                            <p className='text-white'>{userDetails?.in_indirectMember?.length}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team size</p>
-                        </div>
-
-                        <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.in_indirectRecharge * 0.01)?.toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Commission</p>
-                        </div>
-
-                        <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.in_indirectRecharge)?.toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team Recharge</p>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
             </div>
 
         </>

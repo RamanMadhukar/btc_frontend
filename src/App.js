@@ -207,7 +207,7 @@ function App() {
             <Route path='/deposit' element={<Deposit />} />
             <Route path="/recharge_window/:recharge_value" element={<RechargeWindow />} />
             {/* <Route path='/deposit_records' element={<DepositRecords />} /> */}
-            {/* <Route path='/invite' element={<Invite />} /> */}
+            <Route path='/invite' element={<Invite />} />
             {/* <Route path='/vip' element={<Vip />} /> */}
             <Route path='/Workingdevice' element={<Order />} />
             <Route path='/bankCard' element={<BankCard />} />
@@ -220,10 +220,10 @@ function App() {
             <Route path='/forgotpassword' element={<ForgotPassword />} />
             {/* <Route path='/comissions' element={<Comissions />} /> */}
             {/* <Route path='/update' element={<UpdateData />} /> */}
-            {/* <Route path='/award' element={<Task />} /> */}
+            <Route path='/gift' element={<Task />} />
             {/* <Route path='/message' element={<Message />} /> */}
             {/* <Route path='/article' element={<Article />} /> */}
-            {/* <Route path='/team' element={<Myteams />} /> */}
+            <Route path='/team' element={<Myteams />} />
             {/* <Route path='/accountsecurity' element={<AccountSecurity />} /> */}
             <Route path='/aboutus' element={<AboutUs />} />
             {/* <Route path='/customer' element={<CustomerCare />} /> */}
