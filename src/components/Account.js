@@ -209,10 +209,10 @@ const Account = () => {
                                     </div>
                                     <div className="col-lg-3 col-3" style={{ width: '25%' }}>
                                         <div className="text-center">
-                                            <a href="/Member/ChangePassword" className='flex flex-col items-center'>
+                                            <Link to={'/changepassword'} className='flex flex-col items-center'>
                                                 <span className="text-white"><BsFileLockFill size={27} /></span>
                                                 <p className="text-white text-[10px]">Password</p>
-                                            </a>
+                                            </Link>
                                         </div>
 
                                     </div>

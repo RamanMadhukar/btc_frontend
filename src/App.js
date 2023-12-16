@@ -216,7 +216,7 @@ function App() {
             <Route path='/widthdrawlrecords' element={<WidthdrawlRecords />} />
             {/* <Route path='/changewidthdrawlpassword' element={<WpasswordChange />} /> */}
             {/* <Route path='/widthdrawlpassword' element={<WithdrawlPassword />} /> */}
-            {/* <Route path='/changepassword' element={<ChangePassword />} /> */}
+            <Route path='/changepassword' element={<ChangePassword />} />
             <Route path='/forgotpassword' element={<ForgotPassword />} />
             {/* <Route path='/comissions' element={<Comissions />} /> */}
             {/* <Route path='/update' element={<UpdateData />} /> */}
