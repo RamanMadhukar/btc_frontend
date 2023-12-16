@@ -208,7 +208,7 @@ function App() {
             <Route path="/recharge_window/:recharge_value" element={<RechargeWindow />} />
             {/* <Route path='/deposit_records' element={<DepositRecords />} /> */}
             <Route path='/invite' element={<Invite />} />
-            {/* <Route path='/vip' element={<Vip />} /> */}
+            <Route path='/vip' element={<Vip />} />
             <Route path='/Workingdevice' element={<Order />} />
             <Route path='/bankCard' element={<BankCard />} />
             <Route path='/bankCardAdd' element={<BankCardAdd />} />

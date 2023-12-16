@@ -13,7 +13,7 @@
     border: 1px solid blue;
 }
 
-.verfy_title{
+.verfy_title {
     font-size: 12px;
 }
 
@@ -247,7 +247,7 @@ tr {
     line-height: 1.5;
     padding: 0.25rem 0.7rem;
     text-align: center;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -287,11 +287,12 @@ tr {
     font-weight: 400;
     line-height: 1.5;
     padding: 12px;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     width: 100%;
 }
 
-.input-group > .form-control, .input-group > .form-select {
+.input-group>.form-control,
+.input-group>.form-select {
     flex: 1 1 auto;
     min-width: 0;
     position: relative;
@@ -302,4 +303,55 @@ tr {
     background: none;
     border-radius: 10px;
     color: white;
+}
+
+.tab-content>.tab-pane {
+    display: none;
+}
+
+.tab-content>.active {
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    caption-side: bottom;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    border: 0 solid;
+    border-color: inherit;
+}
+
+.progress {
+    background-color: #e9ecef;
+    border-radius: 0.2rem;
+    font-size: .703125rem;
+    height: 1rem;
+}
+
+.progress,
+.progress-bar {
+    display: flex;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #3b7ddd;
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: width .6s ease;
+    white-space: nowrap;
+}
+
+.bg-danger {
+    --bs-bg-opacity: 1;
+    background-color: rgba(220, 53, 69, 1) !important;
 }

@@ -12,182 +12,439 @@ import v6 from '../images/v6.png'
 import v7 from '../images/v7.png'
 import v8 from '../images/v8.png'
 import { ContextApi } from '../App'
+import { HiMiniArrowLongLeft } from 'react-icons/hi2'
 
 const Vip = () => {
-    
+
     const { vipimg, setVipimg } = useContext(ContextApi);
+
+    const { userDetails, setUserDetails, setUser, getUserDetails, toaster, user } = useContext(ContextApi);
+
 
     return (
         <>
-            <div className="mx-auto bgimg overflow-hidden">
+            <div className="mx-auto bgimg  px-5">
                 <div className="w-full mx-auto max-w-[800px]" >
 
-                    <div>
+                    <div className='mb-5'>
 
-                        <header className="h-[50px] leading-[50px] block">
-                            <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed bg-[rgb(1,77,173)] z-[9999] flex flex-wrap items-center  ">
+                        <header className="h-[50px] leading-[50px] block mb-[10px]">
+                            <div className=" max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto z-[9999] flex flex-wrap items-center justify-between p-4 ">
 
-                                <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                    <LiaAngleLeftSolid size={22} />
+                                <Link to={'/account'} className="w-[60px] h-[50px] text-center text-white z-[2] flex justify-center items-center ">
+                                    <HiMiniArrowLongLeft size={22} /> <span className='text-lg'>Back</span>
                                 </Link>
 
-                                <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >VIP Description</h2>
+                                <h2 className=' text-center text-lg font-medium z-[1] text-white ' >Vip Upgrade</h2>
 
                             </div>
                         </header>
 
                     </div>
 
-                    <div className="mx-auto relative z-[1]">
+                    <div className="row">
 
-                        <div className="p-5 bg-[#b3bdc4] rounded-bl-[15px] rounded-br-[15px]">
+                        <div className="w-full">
+                            <div className="tab-content ">
 
-                            <div className="mb-5">
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
 
-                                <div className="-bottom-2 relative">
-                                    <img src={v01} alt="" className='w-[48px]' />
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 2</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Invest</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td>1500Rs</td>
+                                                                <td>5</td>
+                                                                <td>200Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <span className='text-white text-sm opacity-80'>Current level</span>
-
                             </div>
-
-                            <div className="">
-                                <p className='text-[8px] text-white font-bold'><b>0</b> / 495</p>
-                            </div>
-
-                            <div className="w-full h-1 my-[5px] relative bg-white rounded-[500px]">
-                                <div className="w-0 h-full relative bg-[#00aa75] transition-all delay-300 duration-500 rounded-tr-sm rounded-br-sm">
-                                    <div className="w-[60px] max-w-full h-full float-right rounded-[500px] glow"></div>
-                                </div>
-                            </div>
-
-                            <p className='text-sm text-white'>
-                                You still need to invest
-                                <b className="exp font-bold"> 495 </b>
-                                more to upgrade VIP
-                                <b className="lv font-bold">1</b>
-                            </p>
-
                         </div>
 
-                        <div className="bg-white p-5">
-                            <div className="py-[10px]">
+                        <div className="w-full">
+                            <div className="tab-content ">
 
-                                <div className="">
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
 
-                                    <div className="pb-5 relative">
-                                        <div className="flex flex-wrap items-start">
-                                            <div className="mr-[10px] py-2">
-                                                <img src={v0} alt="" className='w-6' />
-                                            </div>
-                                            <div className="flex-1 mb-[5px]">
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e] '>Statement of interest</p>
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e]'>When your investment amount reaches 0 rupees, you will be upgraded to this level of VIP</p>
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 3</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Invest</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td>10000Rs</td>
+                                                                <td>15</td>
+                                                                <td>400Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div className="pb-5 relative">
-                                        <div className="flex flex-wrap items-start">
-                                            <div className="mr-[10px] py-2">
-                                                <img src={v1} alt="" className='w-6' />
-                                            </div>
-                                            <div className="flex-1 mb-[5px]">
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e] '>Statement of interest</p>
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e]'>When your investment amount reaches 575 rupees, you will be upgraded to this level of VIP</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="pb-5 relative">
-                                        <div className="flex flex-wrap items-start">
-                                            <div className="mr-[10px] py-2">
-                                                <img src={v2} alt="" className='w-6' />
-                                            </div>
-                                            <div className="flex-1 mb-[5px]">
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e] '>Statement of interest</p>
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e]'>When your investment amount reaches 10,000 rupees, you will be upgraded to this level of VIP</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="pb-5 relative">
-                                        <div className="flex flex-wrap items-start">
-                                            <div className="mr-[10px] py-2">
-                                                <img src={v3} alt="" className='w-6' />
-                                            </div>
-                                            <div className="flex-1 mb-[5px]">
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e] '>Statement of interest</p>
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e]'>When your investment amount reaches 30,000 rupees, you will be upgraded to this level of VIP</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="pb-5 relative">
-                                        <div className="flex flex-wrap items-start">
-                                            <div className="mr-[10px] py-2">
-                                                <img src={v4} alt="" className='w-6' />
-                                            </div>
-                                            <div className="flex-1 mb-[5px]">
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e] '>Statement of interest</p>
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e]'>When your investment amount reaches 70,000 rupees, you will be upgraded to this level of VIP</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="pb-5 relative">
-                                        <div className="flex flex-wrap items-start">
-                                            <div className="mr-[10px] py-2">
-                                                <img src={v5} alt="" className='w-6' />
-                                            </div>
-                                            <div className="flex-1 mb-[5px]">
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e] '>Statement of interest</p>
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e]'>When your investment amount reaches 200,000 rupees, you will be upgraded to this level of VIP</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="pb-5 relative">
-                                        <div className="flex flex-wrap items-start">
-                                            <div className="mr-[10px] py-2">
-                                                <img src={v6} alt="" className='w-6' />
-                                            </div>
-                                            <div className="flex-1 mb-[5px]">
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e] '>Statement of interest</p>
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e]'>When your investment amount reaches 500,000 rupees, you will be upgraded to this level of VIP</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="pb-5 relative">
-                                        <div className="flex flex-wrap items-start">
-                                            <div className="mr-[10px] py-2">
-                                                <img src={v7} alt="" className='w-6' />
-                                            </div>
-                                            <div className="flex-1 mb-[5px]">
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e] '>Statement of interest</p>
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e]'>When your investment amount reaches 1,000,000 rupees, you will be upgraded to this level of VIP</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="pb-5 relative">
-                                        <div className="flex flex-wrap items-start">
-                                            <div className="mr-[10px] py-2">
-                                                <img src={v8} alt="" className='w-6' />
-                                            </div>
-                                            <div className="flex-1 mb-[5px]">
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e] '>Statement of interest</p>
-                                                <p className='py-[2px] leading-tight text-[#4b4d5e]'>When your investment amount reaches 5,000,000 rupees, you will be upgraded to this level of VIP</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
 
-                                <p className='leading-tight text-[#4b4d5e]'>You need to upgrade vip to get product purchase rights. If you need to purchase vip 1
-                                    products, You need to invest enough in fixed income products.</p>
+                            </div>
+                        </div>
+
+                        <div className="w-full">
+                            <div className="tab-content ">
+
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
+
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 4</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Invest</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td>30000Rs</td>
+                                                                <td>40</td>
+                                                                <td>800Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="w-full">
+                            <div className="tab-content ">
+
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
+
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 5</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Invest</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td>150000Rs</td>
+                                                                <td>150</td>
+                                                                <td>2000Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="w-full">
+                            <div className="tab-content ">
+
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
+
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 6</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Invest</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td>500000Rs</td>
+                                                                <td>500</td>
+                                                                <td>10000Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="w-full">
+                            <div className="tab-content ">
+
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
+
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 7</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Invest</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td>1000000Rs</td>
+                                                                <td>1500</td>
+                                                                <td>20000Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="w-full">
+                            <div className="tab-content ">
+
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
+
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 8</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Invest</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td>1500000Rs</td>
+                                                                <td>3000</td>
+                                                                <td>80000Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="w-full">
+                            <div className="tab-content ">
+
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
+
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 9</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Invest</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td>2000000Rs</td>
+                                                                <td>5000</td>
+                                                                <td>200000Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="w-full">
+                            <div className="tab-content ">
+
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
+
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 10</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Invest</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td>3000000Rs</td>
+                                                                <td>8000</td>
+                                                                <td>500000Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>

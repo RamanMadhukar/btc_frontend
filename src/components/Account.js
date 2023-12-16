@@ -218,10 +218,10 @@ const Account = () => {
                                     </div>
                                     <div className="col-lg-3 col-3" style={{ width: '25%' }}>
                                         <div className="text-center">
-                                            <a href="/Member/VipUpgrade" className='flex flex-col items-center'>
+                                            <Link to={'/vip'} href="/Member/VipUpgrade" className='flex flex-col items-center'>
                                                 <span className="text-white"><IoReload size={27} /></span>
                                                 <p className="text-white text-[10px]">Vip Upgrade</p>
-                                            </a>
+                                            </Link>
                                         </div>
 
                                     </div>
