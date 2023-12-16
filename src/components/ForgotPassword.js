@@ -18,7 +18,7 @@ import eyeclosed from '../images/btc/eyeclosed.png'
 import eyeopened from '../images/btc/eyeopend.png'
 // import ReCAPTCHA from "react-google-recaptcha";
 import RCG from 'react-captcha-generator';
-import loginimg from '../images/btc/login.png'
+import loginimg from '../images/btc/login.jpg'
 import phoneimg from '../images/btc/phone.png'
 import { MdPhoneIphone } from 'react-icons/md';
 import { IoLockClosed, IoShieldCheckmark } from 'react-icons/io5';
@@ -158,7 +158,7 @@ const ForgotPassword = () => {
 
                     <div className="login">
 
-                        <div className="login-head flex items-center justify-between">
+                        <div className="login-head flex items-center justify-between my-10">
 
                             <div className="l-left">
 
@@ -170,7 +170,7 @@ const ForgotPassword = () => {
 
                             <div className="l-right">
 
-                                <img className='h-full max-h-72 relative -z-10 rounded-lg' src={loginimg} alt="" />
+                                <img className='h-24 relative -z-10 rounded-lg' src={loginimg} alt="" />
                                 {/* <img className='h-full max-h-72 relative -top-14' src={loginimg} alt="" /> */}
 
                             </div>

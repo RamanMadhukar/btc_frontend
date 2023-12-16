@@ -244,12 +244,12 @@ const Account = () => {
                                         </div>
                                     </a>
 
-                                    <a href="/Member/FAQ">
+                                    <Link to={'/FAQ'} href="/Member/FAQ">
                                         <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                             <p className="text-white  textsizeall mb-4"><CiCircleQuestion className="inline mr-2 text-[blue]" size={10} /> FAQ</p>
                                             <span><TfiAngleRight className='text-white' size={18} /></span>
                                         </div>
-                                    </a>
+                                    </Link>
 
                                     <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <p className="text-white  textsizeall mb-4"><BsArrowUpCircle className=" rotate-180 inline mr-2 text-[blue]" size={10} /> App Download</p>

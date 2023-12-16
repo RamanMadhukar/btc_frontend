@@ -221,7 +221,7 @@ function App() {
             {/* <Route path='/comissions' element={<Comissions />} /> */}
             {/* <Route path='/update' element={<UpdateData />} /> */}
             <Route path='/gift' element={<Task />} />
-            {/* <Route path='/message' element={<Message />} /> */}
+            <Route path='/FAQ' element={<Message />} />
             {/* <Route path='/article' element={<Article />} /> */}
             <Route path='/team' element={<Myteams />} />
             {/* <Route path='/accountsecurity' element={<AccountSecurity />} /> */}
