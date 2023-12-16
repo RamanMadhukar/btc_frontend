@@ -18,7 +18,7 @@ import eyeclosed from '../images/btc/eyeclosed.png'
 import eyeopened from '../images/btc/eyeopend.png'
 // import ReCAPTCHA from "react-google-recaptcha";
 import RCG from 'react-captcha-generator';
-import loginimg from '../images/btc/login.jpg'
+import loginimg from '../images/btc/login.png'
 import phoneimg from '../images/btc/phone.png'
 import { MdPhoneIphone } from "react-icons/md";
 import { IoLockClosed } from "react-icons/io5";
@@ -178,9 +178,9 @@ const Register = () => {
     return (
         <>
 
-            <div className="text-base en h-screen w-screen overflow-hidden bg-[linear-gradient(to left bottom, #010f3c, #021140, #031345, #051549, #08174e)] px-5">
+            <div className="text-base en h-screen w-screen bg-[linear-gradient(to left bottom, #010f3c, #021140, #031345, #051549, #08174e)] px-5">
 
-                <div className="isPc h-full flex flex-col w-full text-[white] overflow-hidden">
+                <div className="isPc h-full flex flex-col w-full text-[white] ">
 
                     <div className="van_nav_pd hidden"></div>
 
@@ -198,7 +198,7 @@ const Register = () => {
 
                             <div className="l-right">
 
-                                <img className='h-full max-h-72 relative -top-14 border border-solid border-[blue] rounded-lg' src={loginimg} alt="" />
+                                <img className='h-full  -z-10 rounded-lg' src={loginimg} alt="" />
 
                             </div>
 
@@ -210,7 +210,7 @@ const Register = () => {
 
                             <div className="sign_login sign_login2 relative z-[2] mt-4">
 
-                                <div className="uilist bg-transparent rounded-lg overflow-hidden">
+                                <div className="uilist bg-transparent rounded-lg ">
 
                                     <div className="uilist_div account h-8 px-3 py-5 flex items-center  mb-4 backdrop-blur-sm hello rounded-full">
 
