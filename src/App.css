@@ -2,7 +2,7 @@
     transition: height .3s;
     position: relative;
     z-index: 1;
-    background: hsla(0, 0%, 100%, .344);
+    background: rgb(1 15 60);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     width: 90%;
@@ -10,37 +10,19 @@
     border-radius: 14px;
     margin-top: -100px;
     padding: 16px 12px;
+    border: 1px solid blue;
 }
 
 .hello {
-    background: linear-gradient(103deg, rgba(254, 131, 0, .23137254901960785) 19%, rgba(254, 131, 0, .23137254901960785) 0, #fbd8ca 84%);
+    background: none;
+    color: white;
+    border: 1px solid #ced4da;
 }
 
 .pre {
     background: linear-gradient(138deg, #fe8400 11%, #f9881f 0, #ff5801 91%);
     -webkit-background-clip: text;
     background-clip: text;
-}
-
-.verfy_title {
-    transform: translateX(-20px);
-    white-space: nowrap;
-    font-weight: 700;
-    height: 50%;
-    padding-left: 8px;
-    float: right;
-    text-align: left;
-    font-size: 10.4px;
-    border: transparent;
-    border-left: 1px solid hsla(0, 0%, 60%, .2);
-    font-size: 10.4px;
-    background: linear-gradient(115deg, #fe8400 17%, #f9881f 0, #ff5801 86%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* text-fill-color: transparent; */
-    display: flex;
-    align-items: center;
 }
 
 .btn2 button {
@@ -64,7 +46,7 @@
 
 .footer2 a {
     font-size: 12.8px;
-    background: linear-gradient(104deg, #fe8400 19%, #f9881f 0, #ff5801 84%);
+    background: blue;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -77,14 +59,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 9.6px;
-    color: #626262;
+    font-size: 12px;
+    color: white;
     font-weight: 700;
 }
 
 .register_btn a {
     font-size: 9.6px;
-    background: linear-gradient(104deg, #fe8400 19%, #f9881f 0, #ff5801 84%);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -96,7 +78,7 @@
     margin: 0 auto;
     margin-top: 24px;
     bottom: 1rem;
-    border-bottom: 2px solid #fe8400;
+    border-bottom: 2px solid blue;
     display: inline-block;
     justify-content: center;
     align-items: center;
@@ -105,7 +87,7 @@
 
 .footer a {
     font-size: 12.8px;
-    background: linear-gradient(104deg, #fe8400 19%, #f9881f 0, #ff5801 84%);
+    background: blue;
     -webkit-background-clip: text;
     background-clip: text;
     font-weight: 700;

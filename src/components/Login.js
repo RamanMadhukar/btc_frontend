@@ -18,8 +18,10 @@ import eyeclosed from '../images/btc/eyeclosed.png'
 import eyeopened from '../images/btc/eyeopend.png'
 // import ReCAPTCHA from "react-google-recaptcha";
 import RCG from 'react-captcha-generator';
-import loginimg from '../images/btc/login.png'
+import loginimg from '../images/btc/login.jpg'
 import phoneimg from '../images/btc/phone.png'
+import { MdPhoneIphone } from 'react-icons/md';
+import { IoLockClosed } from 'react-icons/io5';
 
 const Login = () => {
 
@@ -105,7 +107,7 @@ const Login = () => {
     return (
         <>
 
-            <div className="text-base en h-screen w-screen overflow-hidden bg-[#ffeee4] px-5">
+            <div className="text-base en h-screen w-screen overflow-hidden bg-[linear-gradient(to left bottom, #010f3c, #021140, #031345, #051549, #08174e)] px-5">
 
                 <div className="isPc h-full flex flex-col w-full text-[#2c3e50] overflow-hidden">
 
@@ -117,7 +119,7 @@ const Login = () => {
 
                             <div className="l-left">
 
-                                <div className="l-title font-bold text-[#333333] text-3xl">Hello!</div>
+                                <div className="l-title font-bold text-white text-3xl">Hello!</div>
 
                                 <div className="l-desc text-[10px] font-semibold whitespace-nowrap text-[#666]">Welcome to the Dnex!</div>
 
@@ -125,7 +127,8 @@ const Login = () => {
 
                             <div className="l-right">
 
-                                <img className='h-full max-h-72 relative -top-14' src={loginimg} alt="" />
+                                <img className='h-full max-h-72 relative -top-14 border border-solid border-[blue] rounded-lg' src={loginimg} alt="" />
+                                {/* <img className='h-full max-h-72 relative -top-14' src={loginimg} alt="" /> */}
 
                             </div>
 
@@ -133,17 +136,18 @@ const Login = () => {
 
                         <div className="content relative z-[1] ">
 
-                            <div className="lg-t text-lg font-bold">Welcome back</div>
+                            <div className="lg-t text-lg font-bold text-white">Welcome back</div>
 
                             <div className="sign_login sign_login2 relative z-[2] mt-4">
 
                                 <div className="uilist bg-transparent rounded-lg overflow-hidden">
 
-                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+                                    <div className="uilist_div py-5 account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
 
-                                        <img className='w-[19px]' src={phoneimg} alt="" />
+                                        <MdPhoneIphone className='text-white' size={19} />
+                                        {/* <img className='w-[19px]' src={phoneimg} alt="" /> */}
 
-                                        <span className="pre text-xs ml-1 font-medium ">+91</span>
+                                        <span className="pre  ml-1 font-medium ">+91</span>
 
                                         <input
                                             onChange={e => { setmobno(e.target.value) }}
@@ -151,15 +155,16 @@ const Login = () => {
                                             placeholder="Phone Number"
                                             name="pattern"
                                             maxlength="10"
-                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+                                            className='bg-transparent border-transparent outline-none  text-white pl-[10px] flex-grow'
 
                                         />
 
                                     </div>
 
-                                    <div className="uilist_div account h-8 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+                                    <div className="uilist_div account h-8 py-5 px-3 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
 
-                                        <img className='w-[19px]' src={password} alt="" />
+                                        <IoLockClosed className='text-white' size={19} />
+                                        {/* <img className='w-[19px]' src={password} alt="" /> */}
 
                                         <input
                                             onChange={e => setpwd(e.target.value)}
@@ -167,15 +172,15 @@ const Login = () => {
                                             placeholder="Password"
                                             name="pattern"
                                             maxlength="10"
-                                            className='bg-transparent border-transparent outline-none text-xs text-black pl-[10px] flex-grow'
+                                            className='bg-transparent border-transparent outline-none  text-white pl-[10px] flex-grow'
 
                                         />
 
                                         <div onClick={() => secrethandel('loginpwd')} className="">
                                             {loginpwd === 'password' ?
-                                                <img className="eyeimg w-3" src={eyeclosed} alt="" data-v-380ab766="" />
+                                                <img className="eyeimg w-4" src={eyeclosed} alt="" data-v-380ab766="" />
                                                 :
-                                                <img className="eyeimg w-3" src={eyeopened} alt="" data-v-380ab766="" />
+                                                <img className="eyeimg w-4" src={eyeopened} alt="" data-v-380ab766="" />
                                             }
                                         </div>
 
@@ -183,22 +188,22 @@ const Login = () => {
 
                                 </div>
 
-                                <p className="btn2 text-center mt-[14px]">
+                                <p className=" text-center mt-[14px]">
 
-                                    <button onClick={handleSignIn} className='inline-block w-11/12 leading-3 rounded-full h-9 text-white text-center font-bold px-5' >login in</button>
+                                    <button onClick={handleSignIn} className='inline-block w-11/12 leading-3 rounded-full h-10 text-white text-center font-bold px-5 btn btn-primary' >login in</button>
 
                                 </p>
 
-                                <p className="register_btn mt-8 mb-3 " >
+                                <p className="register_btn mt-8 mb-3 text-white " >
                                     <Link to={'/forgotpassword'} >Forgot Password?</Link>
                                 </p>
 
                             </div>
                         </div>
 
-                        <div className='text-center'>
+                        <div className='text-center text-[blue]'>
                             <p class="footer">
-                                <Link to={'/signup'} data-v-59be2268="">Creat Account</Link>
+                                <Link to={'/signup'} >Create Account</Link>
                             </p>
                         </div>
 
