@@ -141,7 +141,7 @@ const Register = () => {
             toaster('Invalid Mobile No, please enter a valid number');
             return;
         }
-        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=nei0bPwRvpzKaX362T718yGVN5ICgskMEmfdUxOBYWLhrZH9cSyZHdTi1PEt7cl0LwroKYCS89x6kApQ&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
+        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=U1dPqEDiCO5WfZMAFwovrmz349tKBL0Hbh2eGlN8QXg7ujSRYVTSyRuW9H3LZ2Nafn5X6obgd47ACIt0&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
             .then((response) => {
                 console.log(response);
                 setSeconds(59)
@@ -311,7 +311,7 @@ const Register = () => {
 
                                     <div className="tcode text-center text-[12px]"> Invitation code:{invt}</div>
 
-                                    <div className="tcode tcode2 text-center text-[10px] font-bold mt-1 leading-none"> If you haven't received the email in your inbox, please check your spam folder. </div>
+                                    {/* <div className="tcode tcode2 text-center text-[10px] font-bold mt-1 leading-none"> If you haven't received the email in your inbox, please check your spam folder. </div> */}
 
                                 </div>
 

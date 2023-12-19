@@ -39,7 +39,7 @@ const WpasswordChange = () => {
         //     toaster('Invalid Mobile No, please enter a valid number');
         //     return;
         // }
-        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=27b58V4YOqBDMgWvNjapz1k9IHlrJfynC6w0hceRAZGoLimK3PuJC7OoiV4N2B6DjfwWKzb0lhgEetPH&variables_values=${otpfield}&route=otp&numbers=${userDetails.mobno}`)
+        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=U1dPqEDiCO5WfZMAFwovrmz349tKBL0Hbh2eGlN8QXg7ujSRYVTSyRuW9H3LZ2Nafn5X6obgd47ACIt0&variables_values=${otpfield}&route=otp&numbers=${userDetails.mobno}`)
             .then((response) => {
                 console.log(response);
                 toaster('OTP sent successfully');
