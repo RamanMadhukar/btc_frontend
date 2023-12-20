@@ -219,7 +219,7 @@ const Register = () => {
 
                                         <span className="pre   ml-1 font-medium ">+91</span>
 
-                                        <input
+                                        <input autoComplete='off'
                                             onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
                                             type="tel"
                                             placeholder="Phone Number"
@@ -236,7 +236,7 @@ const Register = () => {
                                         <IoLockClosed className='text-white' size={19} />
                                         {/* <img className='w-[19px]' src={password} alt="" /> */}
 
-                                        <input
+                                        <input autoComplete='off'
                                             onChange={e => setPwd(e.target.value)}
                                             type={loginpwd}
                                             placeholder="Password"
@@ -261,7 +261,7 @@ const Register = () => {
                                         <IoLockClosed className='text-white' size={19} />
                                         {/* <img className='w-[19px]' src={password} alt="" /> */}
 
-                                        <input
+                                        <input autoComplete='off'
                                             onChange={e => setPwd2(e.target.value)}
                                             type={loginpwd2}
                                             placeholder="Confirm New Password"
@@ -286,7 +286,7 @@ const Register = () => {
                                         <IoShieldCheckmark className='text-white' size={19} />
                                         {/* <img className='w-[19px]' src={sms} alt="" /> */}
 
-                                        <input
+                                        <input autoComplete='off'
                                             onChange={(e) => setOtp(e.target.value)}
                                             type={'text'}
                                             placeholder="Verification"

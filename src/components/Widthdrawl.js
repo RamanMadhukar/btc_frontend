@@ -302,7 +302,7 @@ const Widthdrawl = () => {
                                         <div className="row">
                                             <div className="input-group mb-3">
                                                 <button style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }} className="btn btn-outline-primary text-white colorinput">Amount</button>
-                                                <input
+                                                <input autoComplete='off'
                                                     onChange={e => setDeposit(e.target.value)}
                                                     type="text"
                                                     name="amount"

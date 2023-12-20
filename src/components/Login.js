@@ -156,7 +156,7 @@ const Login = () => {
                                             name="pattern"
                                             maxlength="10"
                                             className='bg-transparent border-transparent outline-none  text-white pl-[10px] flex-grow'
-
+                                            autoComplete='off'
                                         />
 
                                     </div>
@@ -166,7 +166,7 @@ const Login = () => {
                                         <IoLockClosed className='text-white' size={19} />
                                         {/* <img className='w-[19px]' src={password} alt="" /> */}
 
-                                        <input
+                                        <input autoComplete='off'
                                             onChange={e => setpwd(e.target.value)}
                                             type={loginpwd}
                                             placeholder="Password"

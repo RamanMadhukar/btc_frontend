@@ -145,7 +145,7 @@ const ChangePassword = () => {
                                     <div className="p-2 text-white">
                                         <div className="row">
                                             <div className="input-group mb-3">
-                                                <input
+                                                <input autoComplete='off'
                                                     onChange={e => { setPwd(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
                                                     type="password"
                                                     className="form-control p-1 colorinput"
@@ -156,7 +156,7 @@ const ChangePassword = () => {
                                                 <span className="text-danger field-validation-valid" data-valmsg-for="OldPassword" data-valmsg-replace="true"></span>
                                             </div>
                                             <div className="input-group mb-3">
-                                                <input
+                                                <input autoComplete='off'
                                                     onChange={e => setNewPwd(e.target.value)}
                                                     type="password"
                                                     className="form-control p-1 colorinput"
@@ -168,7 +168,7 @@ const ChangePassword = () => {
                                                 <span className="text-danger field-validation-valid" data-valmsg-for="NewPassword" data-valmsg-replace="true"></span>
                                             </div>
                                             <div className="input-group mb-3">
-                                                <input
+                                                <input autoComplete='off'
                                                     onChange={e => setNewPwd2(e.target.value)}
                                                     type="password"
                                                     className="form-control p-1 colorinput"
@@ -178,7 +178,7 @@ const ChangePassword = () => {
                                                 <span className="text-danger field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
                                             </div>
                                             <div className="input-group mb-3">
-                                                <input
+                                                <input autoComplete='off'
                                                     onChange={e => setOtp(e.target.value)}
                                                     type="text"
                                                     className="form-control p-1 colorinput"

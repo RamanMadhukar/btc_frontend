@@ -94,7 +94,7 @@ const Deposit = () => {
                                         <div className="row">
                                             <div className="input-group mb-3">
                                                 <button style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }} className="btn btn-outline-primary text-white colorinput">₹</button>
-                                                <input
+                                                <input autoComplete='off'
                                                     onChange={e => { setDeposit(e.target.value); setSelected() }}
                                                     style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
                                                     name="amount"
@@ -128,21 +128,21 @@ const Deposit = () => {
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />UPI Channel-1
                                         </label>
-                                        <span><input type="radio" className="bankOption" name="bankOption" value="upi" /></span>
+                                        <span><input autoComplete='off' type="radio" className="bankOption" name="bankOption" value="upi" /></span>
 
                                     </div>
                                     <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />UPI Channel-2
                                         </label>
-                                        <span><input type="radio" className="bankOption" name="bankOption" value="stripe" /></span>
+                                        <span><input autoComplete='off' type="radio" className="bankOption" name="bankOption" value="stripe" /></span>
                                     </div>
 
                                     <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />Pay Using our Crypto Channel-3
                                         </label>
-                                        <span><input type="radio" className="bankOption1" name="bankOption" /></span>
+                                        <span><input autoComplete='off' type="radio" className="bankOption1" name="bankOption" /></span>
 
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@ const Deposit = () => {
                                             </div>
                                             <span className="fs-4 text-white mb-2">Payment Address</span>
                                             <div className="input-group mb-2">
-                                                <input type="text" className="form-control" value="paytmqrg9p0bdgrr7@paytm" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" id="wallet-address-input">
+                                                <input autoComplete='off' type="text" className="form-control" value="paytmqrg9p0bdgrr7@paytm" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" id="wallet-address-input">
                                                     <button className="btn btn-outline-secondary text-white" type="button" id="button-addon2" onclick="copyToClipboard('wallet-address-input')"><i className="bi bi-copy"></i></button>
                                             </div>
 

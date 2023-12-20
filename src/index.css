@@ -62,8 +62,16 @@ code {
     monospace;
 }
 
-input {
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset; /* Set the autofill background to transparent */
+  box-shadow: 0 0 0px 1000px transparent inset;
+  background: transparent;
+}
+
+/* Style for focus state */
+input:focus {
   outline: none;
+  border-color: #007bff; /* Change border color on focus */
 }
 
 @tailwind base;
