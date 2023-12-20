@@ -191,10 +191,10 @@ const Account = () => {
                                 <div className="row">
                                     <div className="col-lg-3 col-3" style={{ width: '25%' }}>
                                         <div className="text-center">
-                                            <a href="/Member/Record" className='flex flex-col items-center'>
+                                            <Link to={'/records'} className='flex flex-col items-center'>
                                                 <span className="text-white"><BsCardList size={27} /></span>
                                                 <p className="text-white text-[10px]">Record</p>
-                                            </a>
+                                            </Link>
                                         </div>
 
                                     </div>

@@ -43,7 +43,8 @@ const Deposit = () => {
                 toaster(`Amount should be greater than ₹${amounts.amount}`);
                 return;
             }
-            navigate(`/recharge_window/${Deposit}`);
+            // navigate(`/recharge_window/${Deposit}`);
+            window.location.href = `http://localhost:3001/pay/${localStorage.getItem('uid')}/${Deposit}`
         } else {
             toaster('Enter a valid recharge amount');
         }

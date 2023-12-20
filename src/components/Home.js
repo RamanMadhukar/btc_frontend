@@ -31,6 +31,7 @@ import b2 from '../images/btc/b2.jpg';
 import b3 from '../images/btc/b3.jpg';
 import b4 from '../images/btc/b4.jpg';
 import b5 from '../images/btc/b5.jpg';
+import Slider from './Slider'
 
 
 
@@ -75,11 +76,15 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            {/* <Popup /> */}
+            <Popup />
 
             <div className="p-5 pb-20">
 
                 <img src={homeLogo} className='w-20' alt="" />
+
+                <div className="my-10">
+                    <Slider />
+                </div>
 
                 <div className="text-white flex">
 
