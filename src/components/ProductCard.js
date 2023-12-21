@@ -184,7 +184,11 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                                 <a >
                                     <span></span>
                                 </a>
-                                <button onClick={handelInvest} className="btn btn-primary border border-solid border-[#3b7ddd] text-sm text-white px-3 py-1 rounded-lg" >Buy Now</button>
+                                {!pre_sale ?
+                                    <button onClick={handelInvest} className="btn btn-primary border border-solid border-[#3b7ddd] text-sm text-white px-3 py-1 rounded-lg" >Buy Now</button>
+                                    :
+                                    <button disabled className="btn btn-primary border border-solid border-[gray] text-sm text-white px-3 py-1 rounded-lg" style={{ background: 'gray', borderColor: 'gray' }} >Pre Sale</button>
+                                }
                             </div>
                         </div>
 

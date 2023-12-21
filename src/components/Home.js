@@ -100,17 +100,17 @@ const Home = () => {
                             <ProductCard
                                 product_image={b1}
                                 product_type={0}
-                                plan_cycle={120}
-                                plan_amount={630}
-                                plan_daily_earning={25}
+                                plan_cycle={35}
+                                plan_amount={800}
+                                plan_daily_earning={50}
                                 pre_sale={false}
                             />
 
                             <ProductCard
                                 product_image={b2}
                                 product_type={0}
-                                plan_cycle={120}
-                                plan_amount={2100}
+                                plan_cycle={35}
+                                plan_amount={1800}
                                 plan_daily_earning={110}
                                 pre_sale={false}
                             />
@@ -118,33 +118,44 @@ const Home = () => {
                             <ProductCard
                                 product_image={b3}
                                 product_type={0}
-                                plan_cycle={120}
-                                plan_amount={5500}
-                                plan_daily_earning={321}
+                                plan_cycle={35}
+                                plan_amount={5400}
+                                plan_daily_earning={315}
                                 pre_sale={false}
                             />
 
                             <ProductCard
                                 product_image={b4}
                                 product_type={0}
-                                plan_cycle={120}
-                                plan_amount={18000}
-                                plan_daily_earning={935}
+                                plan_cycle={35}
+                                plan_amount={18500}
+                                plan_daily_earning={1015}
                                 pre_sale={false}
                             />
 
                             <ProductCard
                                 product_image={b5}
                                 product_type={0}
-                                plan_cycle={120}
+                                plan_cycle={35}
                                 plan_amount={50000}
-                                plan_daily_earning={265}
-                                pre_sale={false}
+                                plan_daily_earning={2754}
+                                pre_sale={true}
+                            />
+
+                            <ProductCard
+                                product_image={b5}
+                                product_type={0}
+                                plan_cycle={35}
+                                plan_amount={95000}
+                                plan_daily_earning={5780}
+                                pre_sale={true}
                             />
                         </>
 
                         :
-                        <div class="row mb-3">
+                        <>
+
+                            {/* <div class="row mb-3">
                             <div class="col-span-12">
                                 <div class="p-2 customborder">
                                     <div class="text-center">
@@ -152,7 +163,17 @@ const Home = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
+
+                            <ProductCard
+                                product_image={b5}
+                                product_type={0}
+                                plan_cycle={5}
+                                plan_amount={350}
+                                plan_daily_earning={95}
+                                pre_sale={false}
+                            />
+                        </>
 
                     }
                 </div>
