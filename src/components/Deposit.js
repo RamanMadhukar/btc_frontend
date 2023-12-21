@@ -107,7 +107,7 @@ const Deposit = () => {
                                                 />
                                             </div>
 
-                                            <div className="grid grid-cols-3 gap-8" style={{ margin: '20px 0' }}>
+                                            <div className="grid grid-cols-3 gap-4" style={{ margin: '20px 0' }}>
 
                                                 {amount.map((data, index) =>
                                                     <QuickAmountCard key={index} id={index} selected={selected} setSelected={setSelected} amount={data} setDeposit={setDeposit} />

@@ -15,15 +15,18 @@ import { HiMiniArrowLongLeft } from 'react-icons/hi2';
 
 const Myteams = () => {
 
-	const { userDetails, setUserDetails, user, toaster, vipimg } = useContext(ContextApi);
+	const { userDetails, setUserDetails, user, toaster, vipimg, getUserDetails } = useContext(ContextApi);
 
 
 	const [lvl1, setLvl1] = useState([])
 	const [lvl2, setLvl2] = useState([])
 	const [lvl3, setLvl3] = useState([])
 	const [toogle, setToogle] = useState('lvl1')
+	const [toogle2, setToogle2] = useState('valid')
+	const [data, setData] = useState(lvl1.filter(e => e.plans_purchased.length !== 0))
+	var totalProfit
 
-	const getUserDetails = async () => {
+	const getUserDetails2 = async () => {
 		// const details = await axios.post(`${BASE_URL}/get_user`, { user_id: localStorage.getItem('uid') }).then(({ data }) => data);
 		await axios.post(`${BASE_URL}/lvl1`, { user_id: localStorage.getItem('uid') }).then(({ data }) => {
 			setLvl1(data.level1);
@@ -43,6 +46,7 @@ const Myteams = () => {
 
 	useEffect(() => {
 		getUserDetails();
+		getUserDetails2();
 
 	}, [])
 
@@ -50,11 +54,55 @@ const Myteams = () => {
 		setToogle(name)
 	}
 
-	// console.log(typeof userDetails);
+	const handelTooglle2 = (name) => {
+		setToogle2(name)
+	}
 
 	useEffect(() => {
-		
-	}, [])
+
+		if (toogle === 'lvl1') {
+			if (toogle2 === 'valid') {
+				const data2 = lvl1.filter(e => e.plans_purchased.length !== 0)
+				setData(data2)
+			}
+			else if (toogle2 === 'invalid') {
+				const data2 = lvl1.filter(e => e.plans_purchased.length === 0)
+				setData(data2)
+			}
+		}
+
+		if (toogle === 'lvl2') {
+			if (toogle2 === 'valid') {
+				const data2 = lvl2.filter(e => e.plans_purchased.length !== 0)
+				setData(data2)
+			}
+			else if (toogle2 === 'invalid') {
+				const data2 = lvl2.filter(e => e.plans_purchased.length === 0)
+				setData(data2)
+			}
+		}
+
+		if (toogle === 'lvl3') {
+			if (toogle2 === 'valid') {
+				const data2 = lvl3.filter(e => e.plans_purchased.length !== 0)
+				setData(data2)
+			}
+			else if (toogle2 === 'invalid') {
+				const data2 = lvl3.filter(e => e.plans_purchased.length === 0)
+				setData(data2)
+			}
+		}
+
+		console.log(data);
+
+
+	}, [toogle, setToogle, toogle2, setToogle2])
+
+	useEffect(() => {
+		const data2 = lvl1.filter(e => e.plans_purchased.length !== 0)
+		setData(data2)
+	}, [lvl1, setLvl1])
+
 
 
 	return (
@@ -80,12 +128,12 @@ const Myteams = () => {
 								<div className="customborder p-2">
 									<div>
 										<div className="flex justify-between items-center mb-0 pb-0">
-											<p className="text-white mb-4"> Team Profite </p>
-											<span className="text-white">₹ 0.00</span>
+											<p className="text-white mb-4"> Team Profit </p>
+											<span className="text-white">₹ {(Number(userDetails?.directRecharge + userDetails?.indirectRecharge + userDetails?.in_indirectRecharge)).toFixed(2)}</span>
 										</div>
 										<div className="flex justify-between items-center" style={{ borderBottom: "1px dotted blue" }}>
 											<span className="text-white">Valid Team Size</span>
-											<span className="text-white">0 People</span>
+											<span className="text-white">{userDetails?.directMember.length + userDetails?.indirectMember.length + userDetails?.in_indirectMember.length} People</span>
 										</div>
 										<div className="row">
 											<table className="table-responsive border-0 text-center text-white" style={{ marginTop: '12px' }}>
@@ -118,134 +166,69 @@ const Myteams = () => {
 											<ul className="nav nav-tabs" role="tablist">
 
 												<li className="nav-item">
-													<a className="nav-link active text-white" href="#tab-1" data-bs-toggle="tab" role="tab" >Team-B(1)</a>
+													<a onClick={() => handelTooglle('lvl1')} className={`nav-link ${toogle === 'lvl1' && 'active'} text-white`} >Team-B(1)</a>
 												</li>
 												<li className="nav-item">
-													<a className="nav-link text-white" href="#tab-2" data-bs-toggle="tab" role="tab" >Team-C(0)</a>
+													<a onClick={() => handelTooglle('lvl2')} className={`nav-link ${toogle === 'lvl2' && 'active'} text-white`}  >Team-C(0)</a>
 												</li>
 												<li className="nav-item">
-													<a className="nav-link text-white" href="#tab-3" data-bs-toggle="tab" role="tab" >Team-D(0)</a>
+													<a onClick={() => handelTooglle('lvl3')} className={`nav-link ${toogle === 'lvl3' && 'active'} text-white`} >Team-D(0)</a>
 												</li>
 											</ul>
 										</div>
 									</div>
 									<div className="row">
-										<div className="col-lg-12">
+										<div className="w-full">
 											<div className="tab-content ">
 
 												<div className="tab-pane active " id="tab-1" role="tabpanel">
-													<div className="row justify-content-between">
-														<div className="col-lg-6 col-6">
-															<a className="btn btn-outline-primary w-100" href="#" id="validButtonlevel1">Valid</a>
-														</div>
-														<div className="col-lg-6 col-6">
-															<a href="#" className="btn btn-outline-primary  w-100" id="invalidButtonlevel1">InValid</a>
-														</div>
-													</div>
-													<section className="tab-pane active mt-5" id="validlevel1" >
-														<div className="row">
-															<div className="col-12">
+													<div className="row justify-between" style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
 
-																<div className="customborder p-2">
-																	<div>
-																	</div>
-																</div>
-
+														<div className="flex justify-between">
+															<div className="w-1/2 flex-[0_0_auto] p-5">
+																<a onClick={() => setToogle2('valid')} className={`btn btn-outline-primary w-full ${toogle2 === 'valid' && 'text-white bg-[#3b7ddd] border-[#3b7ddd] shadow-[0_0_0_0.2rem_rgba(59,125,221,0.5)]'}`}>Valid</a>
+															</div>
+															<div className="w-1/2 flex-[0_0_auto] p-5">
+																<a onClick={() => setToogle2('invalid')} className={`btn btn-outline-primary w-full ${toogle2 === 'invalid' && 'text-white bg-[#3b7ddd] border-[#3b7ddd] shadow-[0_0_0_0.2rem_rgba(59,125,221,0.5)]'}`} >InValid</a>
 															</div>
 														</div>
-													</section>
-													<section className="tab-pane active mt-5" id="invalidlevel1">
-														<div className="row">
-															<div className="col-12">
+													</div>
 
-																<div className="customborder p-2">
-																	<div>
-																		<div className="d-flex justify-content-between align-items-center mb-0 pb-0">
-																			<p className="text-white textsizeall"> 6394856706 </p>
-																			<span className="text-white">₹ 0.00</span>
+													{data.map((element, index) =>
+														<section key={index} className="tab-pane active mt-5" id="invalidlevel1">
+															<div className="row">
+																<div className="col-12">
+																	<div className="customborder p-2">
+																		<div>
+																			<div className="flex justify-between items-center mb-0 pb-0">
+																				<p className="text-white textsizeall"> {element.mobno} </p>
+																				<span className="text-white">₹
+																					{
+																						element.plans_purchased.reduce(function (max, obj) {
+																							return obj.plan_amount > max.plan_amount ? obj : max;
+																						}, element.plans_purchased[0]).plan_amount
+																					}
+																				</span>
+																			</div>
+																			<div className="flex justify-between items-center mt-0 pt-0">
+																				<span className="text-white textsizeall" > 12/15/2023 </span>
+																				<span className="text-white" >Max Price Device</span>
+																			</div>
+																			<hr />
 																		</div>
-																		<div className="d-flex justify-content-between align-items-center mt-0 pt-0">
-																			<span className="text-white textsizeall" > 12/15/2023 </span>
-																			<span className="text-white" >Max Price Device</span>
-																		</div>
-																		<hr />
 																	</div>
 																</div>
-
 															</div>
-														</div>
-													</section>
+														</section>
+													)}
 												</div>
-												<div className="tab-pane" id="tab-2" role="tabpanel">
-													<div className="row justify-content-between">
-														<div className="col-lg-6 col-6">
-															<a href="#" className="btn btn-outline-primary w-100" id="validButtonlevel2">Valid</a>
-														</div>
-														<div className="col-lg-6 col-6">
-															<a href="#" className="btn btn-outline-primary  w-100" id="invalidButtonlevel2">InValid</a>
-														</div>
-													</div>
-													<section className="tab-pane active mt-5" id="validlevel2">
-														<div className="row mb-3">
-															<div className="col-12">
-																<div className="customborder p-2">
-																	<div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</section>
-													<section className="tab-pane active mt-5" id="invalidlevel2" >
-														<div className="row mb-3">
-															<div className="col-12">
-																<div className="customborder p-2">
-																	<div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</section>
-												</div>
-												<div className="tab-pane" id="tab-3" role="tabpanel">
-													<div className="row justify-content-between">
-														<div className="col-lg-6 col-6">
-															<a href="#" className="btn btn-outline-primary w-100" id="validButtonlevel3">Valid</a>
-														</div>
-														<div className="col-lg-6 col-6">
-															<a href="#" className="btn btn-outline-primary  w-100" id="invalidButtonlevel3">InValid</a>
-														</div>
-													</div>
-													<section className="tab-pane active mt-5" id="validlevel3">
-														<div className="row mb-3">
-															<div className="col-12">
-																<div className="customborder p-2">
-																	<div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</section>
-													<section className="tab-pane active mt-5" id="invalidlevel3" >
-														<div className="row mb-3">
-															<div className="col-12">
-																<div className="customborder p-2">
-																	<div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</section>
-												</div>
-
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
 					</section>
-
 				</div>
 			</div>
 
