@@ -21,7 +21,7 @@ const Popup = () => {
             <div className={`top-0 right-0 bottom-0 left-0 p-5 fixed z-[999] justify-center items-center h-screen max-h-screen flex ${popOpen} `}>
                 <div className="before:content-[''] fixed top-0 left-0 right-0 bottom-0 bg-[rgba(46,46,46,0.1)] z-[1] backdrop-blur-[3px]"></div>
 
-                <div className="p-5 max-w-[600px] w-full -top-5 relative mx-auto bg-[#07184f] text-white border border-[blue] backdrop-blur-sm shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] z-[2] rounded-[15px]">
+                <div className="p-5 max-w-[600px] w-full -top-5 relative mx-auto bg-[#07184f] text-white border-[10px] border-[blue] backdrop-blur-sm shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] z-[2] rounded-[15px]">
 
                     {/* <div  className="w-[45px] h-[45px] top-0 right-0 font-bold absolute bg-[rgba(255,87,40,0.9)] z-50 rounded-bl-[30px] flex justify-center items-center ">
                         <RxCross1 size={16} className='font-bold text-white' />
@@ -29,14 +29,14 @@ const Popup = () => {
 
                     <div className="flex space-x-3 items-center">
 
-                        <img src={navlogo} alt="" className='w-20' />
+                        <img src={navlogo} alt="" className='w-20 mx-auto' />
                         {/* <h1 className='text-xl text-white font-bold'>Dnex</h1> */}
 
                     </div>
 
                     <hr className='my-5' />
 
-                    <h1 className='text-lg text-white font-bold mb-5 capitalize'>WELCOME</h1>
+                    <h1 className='text-lg text-white font-bold mb-5 capitalize text-center'>WELCOME</h1>
 
                     <div className=" text-white border border-[blue] shadow-[2px_1px_15px_-4px_#000000] px-2 py-5 rounded-lg text-sm">
 
@@ -46,7 +46,7 @@ const Popup = () => {
 
                         <div className="text-[white]">
                             Set up in 1970, DNeX is a global technology company operating in three business segments namely, Technology, Energy, and Information Technology (“IT”).
-<br /><br />
+                            <br /><br />
                             Our businesses strive to provide customised services, solutions and infrastructures. Each service offered is meticulously engineered and led by industry experts.
                         </div>
 
@@ -55,9 +55,19 @@ const Popup = () => {
 
                     {/* <a href='https://telegram.me/Evergreenofficial656' className='text-white mt-5 bg-[#13d2e4] text-sm flex items-center justify-center w-full py-2 rounded-md'><FaTelegramPlane className='inline-block mr-1' />Service</a> */}
 
-                    <div onClick={() => setPopOpen('hidden')} className="absolute -bottom-10 flex justify-center items-center w-full ">
+                    {/* <div onClick={() => setPopOpen('hidden')} className="absolute -bottom-10 flex justify-center items-center w-full ">
                         <div className="bg-[#848484] w-7 h-7 flex justify-center items-center rounded-full mx-auto text-white">X</div>
+                    </div> */}
+
+                    <div className="text-center px-auto my-8 ">
+                        <Link to={'https://t.me/'} className='text-center mx-auto'>https://t.me/</Link>
                     </div>
+
+                    <p className=" text-center">
+
+                        <button onClick={() => setPopOpen('hidden')} className='inline-block w-11/12 leading-3 rounded-full h-10 text-white text-center font-bold px-5 btn btn-primary' style={{ borderRadius: '100px' }} >Cancel</button>
+
+                    </p>
 
                 </div>
 

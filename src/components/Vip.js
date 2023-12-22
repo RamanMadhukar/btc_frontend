@@ -60,12 +60,12 @@ const Vip = () => {
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
                                                     <table style={{overflow:'hidden'}}>
                                                         <tbody><tr>
-                                                            <th>Invest</th>
+                                                            <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{fontSize:'10px'}}>
-                                                                <td>1500Rs</td>
+                                                                <td></td>
                                                                 <td>5</td>
                                                                 <td>200Rs</td>
                                                             </tr>
@@ -105,14 +105,14 @@ const Vip = () => {
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
                                                     <table style={{overflow:'hidden'}}>
                                                         <tbody><tr>
-                                                            <th>Invest</th>
+                                                            <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{fontSize:'10px'}}>
-                                                                <td>10000Rs</td>
-                                                                <td>15</td>
-                                                                <td>400Rs</td>
+                                                                <td></td>
+                                                                <td>10</td>
+                                                                <td>500Rs</td>
                                                             </tr>
                                                         </tbody></table>
 
@@ -150,14 +150,14 @@ const Vip = () => {
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
                                                     <table style={{overflow:'hidden'}}>
                                                         <tbody><tr>
-                                                            <th>Invest</th>
+                                                            <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{fontSize:'10px'}}>
-                                                                <td>30000Rs</td>
-                                                                <td>40</td>
-                                                                <td>800Rs</td>
+                                                                <td></td>
+                                                                <td>20</td>
+                                                                <td>1500Rs</td>
                                                             </tr>
                                                         </tbody></table>
 
@@ -195,14 +195,14 @@ const Vip = () => {
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
                                                     <table style={{overflow:'hidden'}}>
                                                         <tbody><tr>
-                                                            <th>Invest</th>
+                                                            <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{fontSize:'10px'}}>
-                                                                <td>150000Rs</td>
-                                                                <td>150</td>
-                                                                <td>2000Rs</td>
+                                                                <td></td>
+                                                                <td>35</td>
+                                                                <td>3000Rs</td>
                                                             </tr>
                                                         </tbody></table>
 
@@ -240,14 +240,14 @@ const Vip = () => {
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
                                                     <table style={{overflow:'hidden'}}>
                                                         <tbody><tr>
-                                                            <th>Invest</th>
+                                                            <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{fontSize:'10px'}}>
-                                                                <td>500000Rs</td>
-                                                                <td>500</td>
-                                                                <td>10000Rs</td>
+                                                                <td></td>
+                                                                <td>50</td>
+                                                                <td>5000Rs</td>
                                                             </tr>
                                                         </tbody></table>
 
@@ -285,14 +285,14 @@ const Vip = () => {
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
                                                     <table style={{overflow:'hidden'}}>
                                                         <tbody><tr>
-                                                            <th>Invest</th>
+                                                            <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{fontSize:'10px'}}>
-                                                                <td>1000000Rs</td>
-                                                                <td>1500</td>
-                                                                <td>20000Rs</td>
+                                                                <td></td>
+                                                                <td>80</td>
+                                                                <td>8000Rs</td>
                                                             </tr>
                                                         </tbody></table>
 
@@ -330,14 +330,14 @@ const Vip = () => {
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
                                                     <table style={{overflow:'hidden'}}>
                                                         <tbody><tr>
-                                                            <th>Invest</th>
+                                                            <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{fontSize:'10px'}}>
-                                                                <td>1500000Rs</td>
-                                                                <td>3000</td>
-                                                                <td>80000Rs</td>
+                                                                <td></td>
+                                                                <td>150</td>
+                                                                <td>15000Rs</td>
                                                             </tr>
                                                         </tbody></table>
 
@@ -375,14 +375,14 @@ const Vip = () => {
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
                                                     <table style={{overflow:'hidden'}}>
                                                         <tbody><tr>
-                                                            <th>Invest</th>
+                                                            <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{fontSize:'10px'}}>
-                                                                <td>2000000Rs</td>
-                                                                <td>5000</td>
-                                                                <td>200000Rs</td>
+                                                                <td></td>
+                                                                <td>250</td>
+                                                                <td>35000Rs</td>
                                                             </tr>
                                                         </tbody></table>
 
@@ -420,14 +420,59 @@ const Vip = () => {
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
                                                     <table style={{overflow:'hidden'}}>
                                                         <tbody><tr>
-                                                            <th>Invest</th>
+                                                            <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{fontSize:'10px'}}>
-                                                                <td>3000000Rs</td>
-                                                                <td>8000</td>
-                                                                <td>500000Rs</td>
+                                                                <td></td>
+                                                                <td>500</td>
+                                                                <td>60000Rs</td>
+                                                            </tr>
+                                                        </tbody></table>
+
+                                                </div>
+                                                    <div className=" mt-3">
+                                                        <div className="progress">
+                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className=" mt-2">
+                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="w-full">
+                            <div className="tab-content ">
+
+                                <div className="tab-pane active " id="tab-1" role="tabpanel">
+
+                                    <div className="row mb-3 pt-3">
+
+                                        <div className="w-full">
+
+                                            <div className="p-2 customborder">
+                                                <div className=" mt-2">
+                                                    <h6 className="text-white text-center">Lavel 9</h6>
+                                                </div>
+                                                <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
+                                                    <table style={{overflow:'hidden'}}>
+                                                        <tbody><tr>
+                                                            <th>Active</th>
+                                                            <th>Team</th>
+                                                            <th>Rewards</th>
+                                                        </tr>
+                                                            <tr style={{fontSize:'10px'}}>
+                                                                <td></td>
+                                                                <td>800</td>
+                                                                <td>150000Rs</td>
                                                             </tr>
                                                         </tbody></table>
 

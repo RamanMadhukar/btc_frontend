@@ -63,6 +63,7 @@ const Login = () => {
                 }
                 localStorage.setItem('uid', data.user_details._id);
                 setUser(data.user_details._id)
+                toaster('Success')
                 setTimeout(() => {
                     navigate('/home');
                     setLoading(false);

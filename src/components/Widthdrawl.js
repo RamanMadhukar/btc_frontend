@@ -79,6 +79,11 @@ const Widthdrawl = () => {
             return;
         }
 
+        if (new Date().getDay() === 0) {
+            toaster('widthdrawl is off on sunday');
+            return;
+        }
+
         // if (otp !== otpfield) {
         //     toaster('Wrong otp');
         //     setnextBtn(false)
@@ -314,10 +319,10 @@ const Widthdrawl = () => {
                                             </div>
                                             <h6 className="text-white">Withdrawal bank account</h6>
                                             <hr className="text-center" />
-                                            <p className="text-white mb-4">Acccount name: &nbsp; Pk</p>
-                                            <p className="text-white mb-4">Bank name:  &nbsp; Pk</p>
-                                            <p className="text-white mb-4">IFSC:  &nbsp; Airo </p>
-                                            <p className="text-white mb-4">Bank account:  &nbsp; 8009072885</p>
+                                            <p className="text-white mb-4">Acccount name: &nbsp; {userDetails?.bank_details?.fullName}</p>
+                                            <p className="text-white mb-4">Bank name:  &nbsp; {userDetails?.bank_details?.bankName}</p>
+                                            <p className="text-white mb-4">IFSC:  &nbsp; {userDetails?.bank_details?.ifsc} </p>
+                                            <p className="text-white mb-4">Bank account:  &nbsp; {userDetails?.bank_details?.bankAccount}</p>
                                             <div className="text-center mb-3">
                                                 {isBetween() ?
                                                     <button disabled={nextBtn} onClick={handleWithdrawal} style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn btn-primary w-fit" >Withdrawal</button>

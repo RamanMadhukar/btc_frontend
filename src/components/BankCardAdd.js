@@ -65,7 +65,7 @@ const BankCardAdd = () => {
         await axios.post(`${BASE_URL}/bank_details`, { user_id: localStorage.getItem('uid'), bank_details: details })
             .then(() => {
                 setLoading(false)
-                toaster('Bank details added successfully!');
+                toaster('Account has been added');
                 navigate('/bankcard')
             })
             .catch(() => { setLoading(false); toaster('Some error Occured') }
