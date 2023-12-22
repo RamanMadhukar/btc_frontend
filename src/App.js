@@ -48,6 +48,7 @@ import AboutUs from './components/AboutUs.js';
 import CustomerCare from './components/Customer.js';
 import customer from './images/btc/customer.png';
 import ProductBuy from './components/ProductBuy.js';
+import Records from './components/Records.js';
 
 export const ContextApi = createContext();
 
@@ -229,6 +230,7 @@ function App() {
             <Route path='/aboutus' element={<AboutUs />} />
             <Route path='/productdetail' element={<ProductBuy />} />
             {/* <Route path='/customer' element={<CustomerCare />} /> */}
+            <Route path='/records' element={<Records />} />
 
           </Routes>
 

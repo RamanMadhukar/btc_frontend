@@ -91,7 +91,7 @@ const WidthdrawlRecords = () => {
 
                                                 {withdrawal_list?.map((data, index) =>
 
-                                                    <li key={index} className='my-[5px] p-3 rounded-[7px] border border-[#dd3b3b]'>
+                                                    <li key={index} className='my-[5px] p-3 rounded-[7px] border border-[blue]'>
 
                                                         <div className="flex items-center justify-between">
 
