@@ -13,10 +13,13 @@ const AboutUs = () => {
 
     useEffect(() => {
         window.onresize = () => {
-
-            var newDim = [ref.current.offsetWidth, ref.current.innerHeight]
+            if (ref.current === null)
+                return;
+            var newDim = [ref.current?.offsetWidth, ref.current?.innerHeight]
             setdim(newDim)
         }
+        var newDim = [ref.current?.offsetWidth, ref.current?.innerHeight]
+        setdim(newDim)
     }, [])
 
 

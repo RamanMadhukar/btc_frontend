@@ -6,6 +6,7 @@ import { ContextApi } from '../App'
 import axios from 'axios'
 import BASE_URL from '../api_url'
 import bgimmg from '../images/galaxysone/cardimg.jpg'
+import { useNavigate } from 'react-router-dom'
 
 const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_image, plan_name, plan_type, plan_amount, plan_daily_earning, plan_cycle, handleClick }) => {
 
@@ -13,6 +14,8 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
         this.setDate(this.getDate() + parseInt(days));
         return this;
     };
+
+    const navigate = useNavigate();
 
     const {
         userDetails, setUserDetails,
@@ -104,10 +107,36 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
 
         if (plan?.length !== 0 && product_type === 1) {
             toaster('You can buy this plan only once')
+            return
         }
 
         else {
-            setpop(!pop)
+
+            const data = {
+                recharge_amount: Number(userDetails.recharge_amount) - Number(Number(quantity) * Number(plan_amount)),
+                investAmount: Number(Number(quantity) * Number(plan_amount)),
+                boughtLong: (product_type === 'vip' ? 1 : 0),
+                boughtShort: (product_type === '' ? 1 : 0),
+                user_id: localStorage.getItem('uid'),
+                parent_id: userDetails.parent_id,
+                grand_parent_id: userDetails.grand_parent_id,
+                great_grand_parent_id: userDetails.great_grand_parent_id,
+                plan_price: plan_amount,
+                plans_purchased: {
+                    product_type, plan_name, plan_type, plan_amount, plan_daily_earning, plan_cycle,
+                    quantity: quantity,
+                    date_purchased: new Date(),
+                    date_till_rewarded: new Date(),
+                    time: new Date().toDateString(),
+                    ddmmyy: new Date().getMilliseconds(),
+                    fullTime: new Date().addDays(plan_cycle)
+                }
+            }
+
+            navigate('/productdetail', { state: { data, product_image, pre_sale, product_type, plan_name, plan_type, plan_amount, plan_daily_earning, plan_cycle, quantity } })
+
+
+
         }
 
     }
@@ -168,7 +197,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                                         <tr className='text-[10px]' >
                                             <td>Amount</td>
                                             <td>Daily Income</td>
-                                            <td>Work Dayes</td>
+                                            <td>Work Days</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -185,7 +214,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                                     <span></span>
                                 </a>
                                 {!pre_sale ?
-                                    <button onClick={handelInvest} className="btn btn-primary border border-solid border-[#3b7ddd] text-sm text-white px-3 py-1 rounded-lg" >Buy Now</button>
+                                    <button onClick={handelClick} className="btn btn-primary border border-solid border-[#3b7ddd] text-sm text-white px-3 py-1 rounded-lg" >Buy Now</button>
                                     :
                                     <button disabled className="btn btn-primary border border-solid border-[gray] text-sm text-white px-3 py-1 rounded-lg" style={{ background: 'gray', borderColor: 'gray' }} >Pre Sale</button>
                                 }

@@ -21,7 +21,6 @@ export const getuserearn = async () => {
     var plans_purchased = []
     var earn = 0;
     const today = new Date();
-    today.setHours(0, 0, 0, 0)
 
     await axios.post(`/get_user`, { user_id: localStorage.getItem('uid') }).then(async (responce) => {
         plans_purchased = responce.data.plans_purchased;
@@ -29,12 +28,12 @@ export const getuserearn = async () => {
 
             if (today < new Date(plans.fullTime)) {
 
-                if (plans.plan_cycle === 45 && today > new Date(plans.date_till_rewarded)) {
+                if (plans.plan_cycle === 35 && today > new Date(plans.date_till_rewarded)) {
                     earn += plans.plan_daily_earning
                 }
 
                 return {
-                    ...plans, date_till_rewarded: today.toDateString()
+                    ...plans, date_till_rewarded: today
                 }
             }
 
@@ -44,7 +43,7 @@ export const getuserearn = async () => {
 
             if (DateDifference(today, new Date(plans.fullTime)) === 0 && today > new Date(plans.date_till_rewarded)) {
 
-                if (plans.plan_cycle === 45) {
+                if (plans.plan_cycle === 35) {
                     earn += plans.plan_daily_earning
                 }
                 else {
@@ -53,13 +52,13 @@ export const getuserearn = async () => {
 
                 return {
                     ...plans,
-                    date_till_rewarded: today.toDateString()
+                    date_till_rewarded: today
                 }
             }
 
             return {
                 ...plans,
-                date_till_rewarded: today.toDateString()
+                date_till_rewarded: today
             }
 
 
