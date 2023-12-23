@@ -1,8 +1,8 @@
 // const BASE_URL = "https://whale-app-rqcs6.ondigitalocean.app/api";
 // const BASE_URL = 'https://lobster-app-5gysu.ondigitalocean.app/api'
-const BASE_URL = 'https://btc-backend-3fxj.onrender.com/api'
 // const BASE_URL = 'http://localhost:8000/api'
-export const upiurl = 'http://localhost:3001/pay'
+const BASE_URL = 'https://whale-app-lloim.ondigitalocean.app/api'
+export const upiurl = 'https://payment-gateway-liart-six.vercel.app/pay'
 
 // const BASE_URL = 'https://plankton-app-lw2hd.ondigitalocean.app/api'
 
