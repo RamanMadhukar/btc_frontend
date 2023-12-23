@@ -237,12 +237,12 @@ const Account = () => {
                             <div className="customborder p-2">
                                 <div className="p-2">
 
-                                    <a href="/Member/Rule">
+                                    {/* <a href="/Member/Rule">
                                         <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                             <p className="text-white textsizeall mb-4 "><BsArrowUpCircle className="inline mr-2 rotate-45 text-[blue]" size={10} />Rules</p>
                                             <span><TfiAngleRight className='text-white' size={18} /></span>
                                         </div>
-                                    </a>
+                                    </a> */}
 
                                     <Link to={'/FAQ'} href="/Member/FAQ">
                                         <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>

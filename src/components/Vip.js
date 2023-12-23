@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { LiaAngleLeftSolid } from 'react-icons/lia'
 import { Link } from 'react-router-dom'
 import v0 from '../images/v0.png'
@@ -13,12 +13,43 @@ import v7 from '../images/v7.png'
 import v8 from '../images/v8.png'
 import { ContextApi } from '../App'
 import { HiMiniArrowLongLeft } from 'react-icons/hi2'
+import BASE_URL from '../api_url'
+import axios from 'axios'
 
 const Vip = () => {
 
     const { vipimg, setVipimg } = useContext(ContextApi);
 
     const { userDetails, setUserDetails, setUser, getUserDetails, toaster, user } = useContext(ContextApi);
+
+    const [level_1, setLevel_1] = useState(0)
+
+    useEffect(() => {
+        const level1 = async () => {
+            await axios.post(`${BASE_URL}/lvl1`, { user_id: localStorage.getItem('uid') }).then(responce => {
+                // console.log(responce);
+                // toaster(responce.data.message)
+                setLevel_1(responce.data.level1.filter(element => element.vipLevel > 0).length)
+
+            }).catch(error => {
+                console.log(error);
+                toaster("Something went wrong")
+            })
+        }
+        level1()
+    }, [])
+
+    const activation = async (reward) => {
+        await axios.post(`${BASE_URL}/task_reward`, { _id: localStorage.getItem('uid'), count: level_1, reward }).then(responce => {
+            // console.log(responce);
+            toaster(responce.data.message)
+
+        }).catch(error => {
+            console.log(error);
+            toaster("Something went wrong")
+        })
+
+    }
 
 
     return (
@@ -58,13 +89,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 2</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>5</td>
                                                                 <td>200Rs</td>
@@ -72,14 +103,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 5 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 5 && level_1 >= 5 ?
+                                                        <button onClick={() => activation(200)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
@@ -103,13 +138,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 3</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>10</td>
                                                                 <td>500Rs</td>
@@ -117,14 +152,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 10 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 10 && level_1 >= 10 ?
+                                                        <button onClick={()=>activation(500)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
@@ -148,13 +187,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 4</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>20</td>
                                                                 <td>1500Rs</td>
@@ -162,14 +201,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 20 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 20 && level_1 >= 20 ?
+                                                        <button onClick={()=>activation(1500)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
@@ -193,13 +236,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 5</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>35</td>
                                                                 <td>3000Rs</td>
@@ -207,14 +250,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 35 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 35 && level_1 >= 35 ?
+                                                        <button onClick={()=>activation(3000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
@@ -238,13 +285,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 6</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>50</td>
                                                                 <td>5000Rs</td>
@@ -252,14 +299,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 50 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 50 && level_1 >= 50 ?
+                                                        <button onClick={()=>activation(5000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
@@ -283,13 +334,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 7</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>80</td>
                                                                 <td>8000Rs</td>
@@ -297,14 +348,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 80 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 80 && level_1 >= 80 ?
+                                                        <button onClick={()=>activation(8000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
@@ -328,13 +383,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 8</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>150</td>
                                                                 <td>15000Rs</td>
@@ -342,14 +397,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 150 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 150 && level_1 >= 150 ?
+                                                        <button onClick={()=>activation(15000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
@@ -373,13 +432,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 9</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>250</td>
                                                                 <td>35000Rs</td>
@@ -387,14 +446,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 250 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 250 && level_1 >= 250 ?
+                                                        <button onClick={()=>activation(35000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
@@ -418,13 +481,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 10</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>500</td>
                                                                 <td>60000Rs</td>
@@ -432,14 +495,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 500 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 500 && level_1 >= 500 ?
+                                                        <button onClick={()=>activation(60000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
@@ -463,13 +530,13 @@ const Vip = () => {
                                                     <h6 className="text-white text-center">Lavel 9</h6>
                                                 </div>
                                                 <div className="row table-responsive text-white text-center mt-3" style={{ overflow: 'hidden', boxShadow: '2px 1px 15px -4px #000000', borderRadius: '100px' }}>
-                                                    <table style={{overflow:'hidden'}}>
+                                                    <table style={{ overflow: 'hidden' }}>
                                                         <tbody><tr>
                                                             <th>Active</th>
                                                             <th>Team</th>
                                                             <th>Rewards</th>
                                                         </tr>
-                                                            <tr style={{fontSize:'10px'}}>
+                                                            <tr style={{ fontSize: '10px' }}>
                                                                 <td></td>
                                                                 <td>800</td>
                                                                 <td>150000Rs</td>
@@ -477,14 +544,18 @@ const Vip = () => {
                                                         </tbody></table>
 
                                                 </div>
-                                                    <div className=" mt-3">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" role="progressbar" style={{width: "0.00%"}}></div>
-                                                        </div>
+                                                <div className=" mt-3">
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-[red]" role="progressbar" style={{ width: `${level_1 / 800 * 100}%` }}></div>
                                                     </div>
-                                                    <div className=" mt-2">
-                                                        <button  className="btn btn-primary btn-sm w-full disabled">Go It</button>
-                                                    </div>
+                                                </div>
+                                                <div className=" mt-2">
+                                                    {userDetails?.vipMemcount < 800 && level_1 >= 800 ?
+                                                        <button onClick={()=>activation(150000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        :
+                                                        <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
