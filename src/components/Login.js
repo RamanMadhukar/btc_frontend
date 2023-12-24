@@ -33,11 +33,14 @@ const Login = () => {
         setUser
     } = useContext(ContextApi);
 
+    const [search, setSearch] = useSearchParams();
+
     const [mobno, setmobno] = useState('');
     const [pwd, setpwd] = useState('');
     const [bloackedUsers, setBlockedUsers] = useState([]);
     const [loginpwd, setLoginpwd] = useState('password')
     const [loginpwd2, setLoginpwd2] = useState('password')
+    const [reward, setReward] = useState(search.get('reward'))
 
     const getBlockedUsers = async () => {
         const dataRes = await axios.get(`${BASE_URL}/get_blocked_users`).then(res => res.data);
@@ -56,7 +59,7 @@ const Login = () => {
         }
         setLoading(true);
 
-        await axios.post(`${BASE_URL}/login`, { mobno, pwd })
+        await axios.post(`${BASE_URL}/login`, { mobno, pwd, reward })
             .then(({ data }) => {
                 if (data.user_details === null) {
                     throw "Could not login/something went wrong";

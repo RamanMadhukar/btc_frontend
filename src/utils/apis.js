@@ -28,7 +28,7 @@ export const getuserearn = async () => {
 
             if (today < new Date(plans.fullTime)) {
 
-                if (plans.plan_cycle === 35 && today > new Date(plans.date_till_rewarded)) {
+                if (plans.plan_cycle === 35 && today > new Date(plans.date_till_rewarded) && today.getDate() !== new Date(plans.date_till_rewarded).getDate()) {
                     earn += plans.plan_daily_earning
                 }
 
@@ -41,7 +41,7 @@ export const getuserearn = async () => {
                 return { ...plans }
             }
 
-            if (DateDifference(today, new Date(plans.fullTime)) === 0 && today > new Date(plans.date_till_rewarded)) {
+            if (DateDifference(today, new Date(plans.fullTime)) === 0 && today > new Date(plans.date_till_rewarded) && today.getDate() !== new Date(plans.date_till_rewarded).getDate()) {
 
                 if (plans.plan_cycle === 35) {
                     earn += plans.plan_daily_earning
