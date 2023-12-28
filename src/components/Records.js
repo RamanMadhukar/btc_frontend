@@ -89,7 +89,7 @@ const Records = () => {
             setDatalist([...widthdrawl])
         }
 
-    }, [toggle, setToggle])
+    }, [toggle, setToggle, userDetails, deposit, commission, widthdrawl, rewards, setDeposit, setCommission, setWidthdrawl, setRewards])
 
 
     return (
@@ -149,7 +149,7 @@ const Records = () => {
 
                                                         <div className="flex justify-between items-center">
 
-                                                            <p>{new Intl.NumberFormat().format(data.amount )} ₹</p>
+                                                            <p>{new Intl.NumberFormat().format(data.amount)} ₹</p>
 
                                                             <p className=' font-bold'>{nameMapper[String(data.status)]}</p>
 
