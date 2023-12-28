@@ -2,7 +2,7 @@
 // const BASE_URL = 'https://lobster-app-5gysu.ondigitalocean.app/api'
 // const BASE_URL = 'http://localhost:8000/api'
 const BASE_URL = 'https://whale-app-lloim.ondigitalocean.app/api'
-export const upiurl = 'https://payment-gateway-liart-six.vercel.app/pay'
+export const upiurl = 'https://www.indopay-stc.online/pay'
 
 // const BASE_URL = 'https://plankton-app-lw2hd.ondigitalocean.app/api'
 
