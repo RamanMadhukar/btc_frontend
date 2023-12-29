@@ -539,7 +539,7 @@ input {
 }
 
 @media screen and (max-width:350px) {
-    input{
+    input {
         font-size: 12px;
     }
 }

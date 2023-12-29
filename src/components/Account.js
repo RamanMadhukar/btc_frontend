@@ -81,7 +81,7 @@ const Account = () => {
 
                                         <img className="rounded-circle rounded mt-2 mb-2 " style={{ border: '1px solid blue' }} src={accountImg} alt="Placeholder" width="50" height="50" />
 
-                                        <b className="text-white fs-4">{userDetails?.mobno} &nbsp;<span className="text-red-900">L{userDetails?.vipLevel}</span></b>
+                                        <b className="text-white fs-4">{userDetails?.mobno} &nbsp;<span className="text-red-900">L{userDetails?.vipLevel + 1}</span></b>
 
                                     </div>
 
@@ -91,7 +91,7 @@ const Account = () => {
                             </div>
                             <div className=" flex text-center items-center">
                                 <span className="text-white   p-1 fs-4" style={{ borderRadius: '5px', backgroundColor: '#07184f', border: '1px solid blue' }}>
-                                    Score: 60
+                                    Score: {(userDetails?.vipLevel ) * 10}
                                     <FaRegGem className='mx-auto' />
                                 </span>
                             </div>
