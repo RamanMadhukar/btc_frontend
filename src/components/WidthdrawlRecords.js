@@ -103,7 +103,7 @@ const WidthdrawlRecords = () => {
 
                                                         <div className="flex justify-between items-center">
 
-                                                            <p>{new Intl.NumberFormat().format(data.withdrawalAmount * 0.9)} ₹</p>
+                                                            <p>{new Intl.NumberFormat().format(data.withdrawalAmount)} ₹</p>
 
                                                             <p className=' font-bold'>{nameMapper[String(data.status)]}</p>
 

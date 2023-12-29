@@ -65,7 +65,7 @@ const Popup = () => {
 
                     <p className=" text-center">
 
-                        <button onClick={() => setPopOpen('hidden')} className='inline-block w-11/12 leading-3 rounded-full h-6 text-white text-center font-bold px-5 btn btn-primary' style={{ borderRadius: '100px' }} >Cancel</button>
+                        <button onClick={() => setPopOpen('hidden')} className='inline-block w-11/12 leading-3 rounded-full h-10 text-white text-center align-middle font-bold px-5 btn btn-primary' style={{ borderRadius: '100px' }} >Cancel</button>
 
                     </p>
 

@@ -35,7 +35,7 @@ const ProductBuy = () => {
             return
         }
 
-        if (wallet === 'rechange' && (Number(quantity) * Number(plan_amount)) > Number(userDetails.recharge_amount)) {
+        if (wallet === 'recharge' && (Number(quantity) * Number(plan_amount)) > Number(userDetails.recharge_amount)) {
             toaster("The available rechange amount is insufficient, please recharge");
             return
         }

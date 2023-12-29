@@ -66,7 +66,7 @@ const Records = () => {
             querySnapshot?.map(data => {
                 // setDatalist([...datalist, { type: 'Withdraw', amount: data.afterDeduction, date: data.time, status: data.status }])
                 // console.log('withdraw', datalist);
-                dataw.push({ type: 'Withdraw', amount: data.afterDeduction, date: data.time, status: data.status })
+                dataw.push({ type: 'Withdraw', amount: data.withdrawalAmount, date: data.time, status: data.status })
             })
             setWidthdrawl([...dataw])
         }

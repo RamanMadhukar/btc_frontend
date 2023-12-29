@@ -103,13 +103,13 @@ const Order = () => {
                                                                     <div className="p-2 text-white">
                                                                         <div className="row">
                                                                             <div className="mb-3">
-                                                                                <p className="text-lg mb-4">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
-                                                                                <p className="text-lg mb-4">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
-                                                                                <p className="text-lg mb-4">time: {element.date_purchased}</p>
-                                                                                <p className="text-lg mb-4">Plan Cycle: {element.plan_cycle}</p>
-                                                                                <p className="text-lg mb-4">Plan Daily Earning: &#8377;{element.plan_daily_earning}</p>
-                                                                                <p className="text-lg mb-4">Plan Cycle: {element.plan_cycle}</p>
-                                                                                <p className="text-lg mb-4">full time: {element.fullTime}</p>
+                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
+                                                                                <p className="text-base mb-1">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
+                                                                                <p className="text-base mb-1">time: {new Date(element.date_purchased).toDateString()}</p>
+                                                                                <p className="text-base mb-1">Plan Cycle: {element.plan_cycle}</p>
+                                                                                <p className="text-base mb-1">Plan Daily Earning: &#8377;{element.plan_daily_earning}</p>
+                                                                                {/* <p className="text-base mb-1">Plan Cycle: {element.plan_cycle}</p> */}
+                                                                                <p className="text-base mb-1">full time: {new Date(element.fullTime).toDateString()}</p>
                                                                             </div>
 
                                                                         </div>
@@ -149,16 +149,16 @@ const Order = () => {
                                                         <div className="w-full">
                                                             <div className="p-2 customborder">
                                                                 <div className="">
-                                                                    <div className="p-2 text-white">
+                                                                    <div className="px-2 text-white">
                                                                         <div className="row">
-                                                                            <div className="mb-3">
-                                                                                <p className="text-lg mb-4">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
-                                                                                <p className="text-lg mb-4">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
-                                                                                <p className="text-lg mb-4">time: {element.date_purchased}</p>
-                                                                                <p className="text-lg mb-4">Plan Cycle: {element.plan_cycle}</p>
-                                                                                <p className="text-lg mb-4">Plan Daily Earning: &#8377;{element.plan_daily_earning}</p>
-                                                                                <p className="text-lg mb-4">Plan Cycle: {element.plan_cycle}</p>
-                                                                                <p className="text-lg mb-4">full time: {element.fullTime}</p>
+                                                                            <div className="mb-2">
+                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
+                                                                                <p className="text-base mb-1">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
+                                                                                <p className="text-base mb-1">time: {new Date(element.date_purchased).toDateString()}</p>
+                                                                                <p className="text-base mb-1">Plan Cycle: {element.plan_cycle}</p>
+                                                                                <p className="text-base mb-1">Plan Daily Earning: &#8377;{element.plan_daily_earning}</p>
+                                                                                {/* <p className="text-base mb-1">Plan Cycle: {element.plan_cycle}</p> */}
+                                                                                <p className="text-base mb-1">full time: {new Date(element.fullTime).toDateString()}</p>
                                                                             </div>
 
                                                                         </div>
