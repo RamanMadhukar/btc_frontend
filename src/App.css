@@ -50,7 +50,7 @@
 
 .footer2 a {
     font-size: 12.8px;
-    background: blue;
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -82,7 +82,7 @@
     margin: 0 auto;
     margin-top: 24px;
     bottom: 1rem;
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid white;
     display: inline-block;
     justify-content: center;
     align-items: center;
@@ -91,7 +91,7 @@
 
 .footer a {
     font-size: 12.8px;
-    background: blue;
+    background: white;
     -webkit-background-clip: text;
     background-clip: text;
     font-weight: 700;
@@ -530,6 +530,16 @@ option:focus-visible {
 
 .form-select:focus {
     border-color: #9dbeee;
-    box-shadow: 0 0 0 0.2rem rgba(59,125,221,.25);
+    box-shadow: 0 0 0 0.2rem rgba(59, 125, 221, .25);
     outline: 0;
+}
+
+input {
+    width: 60%;
+}
+
+@media screen and (max-width:350px) {
+    input{
+        font-size: 12px;
+    }
 }

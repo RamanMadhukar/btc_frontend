@@ -125,10 +125,10 @@ const Records = () => {
                             <div className="p-2 customborder">
                                 <div className="">
                                     <div className="p-2 text-white">
-                                        <div className="row">
+                                        {/* <div className="row">
                                             <h6 className="text-white">Withdrawal record</h6>
                                             <hr />
-                                        </div>
+                                        </div> */}
                                         {datalist.length === 0 ?
 
                                             <p className="text-center text-white p-3">No record found</p>

@@ -34,9 +34,9 @@ const Popup = () => {
 
                     </div>
 
-                    <hr className='my-5' />
+                    <hr className='my-1' />
 
-                    <h1 className='text-lg text-white font-bold mb-5 capitalize text-center'>WELCOME</h1>
+                    <h1 className='text-lg text-white font-bold mb-3 capitalize text-center'>WELCOME</h1>
 
                     <div className=" text-white border border-[blue] shadow-[2px_1px_15px_-4px_#000000] px-2 py-5 rounded-lg text-sm">
 
@@ -59,13 +59,13 @@ const Popup = () => {
                         <div className="bg-[#848484] w-7 h-7 flex justify-center items-center rounded-full mx-auto text-white">X</div>
                     </div> */}
 
-                    <div className="text-center px-auto my-8 ">
+                    <div className="text-center px-auto my-2 ">
                         <Link to={'https://t.me/'} className='text-center mx-auto'>https://t.me/</Link>
                     </div>
 
                     <p className=" text-center">
 
-                        <button onClick={() => setPopOpen('hidden')} className='inline-block w-11/12 leading-3 rounded-full h-10 text-white text-center font-bold px-5 btn btn-primary' style={{ borderRadius: '100px' }} >Cancel</button>
+                        <button onClick={() => setPopOpen('hidden')} className='inline-block w-11/12 leading-3 rounded-full h-6 text-white text-center font-bold px-5 btn btn-primary' style={{ borderRadius: '100px' }} >Cancel</button>
 
                     </p>
 

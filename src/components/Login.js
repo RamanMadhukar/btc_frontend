@@ -205,7 +205,7 @@ const Login = () => {
                             </div>
                         </div>
 
-                        <div className='text-center text-[blue]'>
+                        <div className='text-center text-white'>
                             <p class="footer">
                                 <Link to={'/signup'} >Create Account</Link>
                             </p>

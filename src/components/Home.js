@@ -88,9 +88,9 @@ const Home = () => {
 
                 <div className="text-white flex">
 
-                    <div onClick={() => setToogle(true)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${toogle && 'border-b-2'} `}>In Miner</div>
+                    <div onClick={() => setToogle(true)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${toogle && 'border-b-2'} `}>Normal</div>
 
-                    <div onClick={() => setToogle(false)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${!toogle && 'border-b-2'} `}>Staking Token</div>
+                    <div onClick={() => setToogle(false)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${!toogle && 'border-b-2'} `}>Exclusive </div>
 
                 </div>
 
