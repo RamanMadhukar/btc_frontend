@@ -26,7 +26,7 @@ import { BsArrowUpCircle } from "react-icons/bs";
 import { TfiAngleRight } from "react-icons/tfi";
 import { CiCircleQuestion } from "react-icons/ci";
 import { IoPower } from "react-icons/io5";
-
+import dnex from '../images/app-release.apk';
 
 const Account = () => {
 
@@ -91,7 +91,7 @@ const Account = () => {
                             </div>
                             <div className=" flex text-center items-center">
                                 <span className="text-white   p-1 fs-4" style={{ borderRadius: '5px', backgroundColor: '#07184f', border: '1px solid blue' }}>
-                                    Score: {(userDetails?.vipLevel ) * 10}
+                                    Score: {(userDetails?.vipLevel) * 10}
                                     <FaRegGem className='mx-auto' />
                                 </span>
                             </div>
@@ -251,10 +251,15 @@ const Account = () => {
                                         </div>
                                     </Link>
 
-                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
+                                    <a
+                                        href={dnex}
+                                        download="Dnex"
+                                        target="_blank"
+                                        rel="noopener noreferrer" 
+                                        className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <p className="text-white  textsizeall mb-4"><BsArrowUpCircle className=" rotate-180 inline mr-2 text-[blue]" size={10} /> App Download</p>
                                         <span><TfiAngleRight className='text-white' size={18} /></span>
-                                    </div>
+                                    </a>
 
                                     <div onClick={handelSignOut} className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <p href="#" className="text-white textsizeall mb-4"> <IoPower className="inline mr-2 text-[blue]" size={10} /> Sign out</p>
