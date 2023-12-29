@@ -96,7 +96,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>5</td>
                                                                 <td>200Rs</td>
                                                             </tr>
@@ -145,7 +145,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>10</td>
                                                                 <td>500Rs</td>
                                                             </tr>
@@ -194,7 +194,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>20</td>
                                                                 <td>1500Rs</td>
                                                             </tr>
@@ -243,7 +243,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>35</td>
                                                                 <td>3000Rs</td>
                                                             </tr>
@@ -292,7 +292,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>50</td>
                                                                 <td>5000Rs</td>
                                                             </tr>
@@ -341,7 +341,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>80</td>
                                                                 <td>8000Rs</td>
                                                             </tr>
@@ -390,7 +390,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>150</td>
                                                                 <td>15000Rs</td>
                                                             </tr>
@@ -439,7 +439,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>250</td>
                                                                 <td>35000Rs</td>
                                                             </tr>
@@ -488,7 +488,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>500</td>
                                                                 <td>60000Rs</td>
                                                             </tr>
@@ -537,7 +537,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td></td>
+                                                                <td>members</td>
                                                                 <td>800</td>
                                                                 <td>150000Rs</td>
                                                             </tr>
