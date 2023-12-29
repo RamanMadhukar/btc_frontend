@@ -29,7 +29,7 @@ const Vip = () => {
             await axios.post(`${BASE_URL}/lvl1`, { user_id: localStorage.getItem('uid') }).then(responce => {
                 // console.log(responce);
                 // toaster(responce.data.message)
-                setLevel_1(responce.data.level1.filter(element => element.vipLevel > 0).length)
+                setLevel_1(responce.data.level1.filter(element => element.plans_purchased.length > 0).length)
 
             }).catch(error => {
                 console.log(error);
@@ -159,7 +159,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 10 && level_1 >= 10 ?
-                                                        <button onClick={()=>activation(500)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(500)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -208,7 +208,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 20 && level_1 >= 20 ?
-                                                        <button onClick={()=>activation(1500)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(1500)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -257,7 +257,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 35 && level_1 >= 35 ?
-                                                        <button onClick={()=>activation(3000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(3000)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -306,7 +306,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 50 && level_1 >= 50 ?
-                                                        <button onClick={()=>activation(5000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(5000)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -355,7 +355,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 80 && level_1 >= 80 ?
-                                                        <button onClick={()=>activation(8000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(8000)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -404,7 +404,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 150 && level_1 >= 150 ?
-                                                        <button onClick={()=>activation(15000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(15000)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -453,7 +453,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 250 && level_1 >= 250 ?
-                                                        <button onClick={()=>activation(35000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(35000)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -502,7 +502,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 500 && level_1 >= 500 ?
-                                                        <button onClick={()=>activation(60000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(60000)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -551,7 +551,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 800 && level_1 >= 800 ?
-                                                        <button onClick={()=>activation(150000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(150000)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
