@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useEffect, useState } from 'react'
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -191,11 +191,11 @@ function App() {
           } */}
 
           {user &&
-            <span className="btnfix ">
-              <a className="btnfix px-6 py-1 space-x-2 flex z-[99999]" href="">
+            <span  className="btnfix ">
+              <Link to={'/customer'} className="btnfix px-6 py-1 space-x-2 flex z-[99999]" href="">
                 <img width="25" src={customer} className='align-middle' alt="" />
                 contact
-              </a>
+              </Link>
             </span>
           }
           <Routes>
@@ -229,7 +229,7 @@ function App() {
             {/* <Route path='/accountsecurity' element={<AccountSecurity />} /> */}
             <Route path='/aboutus' element={<AboutUs />} />
             <Route path='/productdetail' element={<ProductBuy />} />
-            {/* <Route path='/customer' element={<CustomerCare />} /> */}
+            <Route path='/customer' element={<CustomerCare />} />
             <Route path='/records' element={<Records />} />
 
           </Routes>
