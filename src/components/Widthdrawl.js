@@ -74,7 +74,7 @@ const Widthdrawl = () => {
 
         setnextBtn(true)
 
-        if (userDetails?.vipLevel === 0) {
+        if (userDetails?.plans_purchased?.length === 0) {
             toaster('Atleast buy one plan to withdraw');
             return;
         }
