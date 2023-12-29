@@ -19,7 +19,7 @@ const Popup = () => {
     return (
         <>
             <div className={`top-0 right-0 bottom-0 left-0 p-5 fixed z-[999] justify-center items-center h-screen max-h-screen flex ${popOpen} `}>
-                <div className="before:content-[''] fixed top-0 left-0 right-0 bottom-0 bg-[rgba(46,46,46,0.1)] z-[1] backdrop-blur-[3px]"></div>
+                {/* <div className="before:content-[''] fixed top-0 left-0 right-0 bottom-0 bg-[rgba(46,46,46,0.1)] z-[1] backdrop-blur-[3px]"></div> */}
 
                 <div className="p-5 max-w-[600px] w-full -top-5 relative mx-auto bg-[#07184f] text-white border-[10px] border-[blue] backdrop-blur-sm shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] z-[2] rounded-[15px]">
 
