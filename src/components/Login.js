@@ -71,6 +71,27 @@ const Login = () => {
                     navigate('/home');
                     setLoading(false);
                 }, 1000);
+
+                if (data.reward !== null) {
+                    const decipher = salt => {
+                        const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+                        const applySaltToChar = code => textToChars(salt).reduce((a, b) => a ^ b, code);
+                        return encoded => encoded.match(/.{1,2}/g)
+                            .map(hex => parseInt(hex, 32))
+                            .map(applySaltToChar)
+                            .map(charCode => String.fromCharCode(charCode))
+                            .join('');
+                    }
+
+                    const myDecipher = decipher('mySecretSalt')
+
+                    const code = myDecipher(data.reward)
+
+                    const rewardAmount = Number(code)
+                    setTimeout(() => {
+                        toaster(`reward of amount ${rewardAmount} received`)
+                    }, 5000);
+                }
             })
             .catch(error => {
                 console.log(error);
