@@ -41,6 +41,7 @@ const Login = () => {
     const [loginpwd, setLoginpwd] = useState('password')
     const [loginpwd2, setLoginpwd2] = useState('password')
     const [reward, setReward] = useState(search.get('reward'))
+    const [rewardLink, setRewardLink] = useState(search.get('rewardCode'))
 
     const getBlockedUsers = async () => {
         const dataRes = await axios.get(`${BASE_URL}/get_blocked_users`).then(res => res.data);
@@ -59,7 +60,7 @@ const Login = () => {
         }
         setLoading(true);
 
-        await axios.post(`${BASE_URL}/login`, { mobno, pwd, reward })
+        await axios.post(`${BASE_URL}/login`, { mobno, pwd, reward, rewardLink })
             .then(({ data }) => {
                 if (data.user_details === null) {
                     throw "Could not login/something went wrong";
@@ -67,30 +68,25 @@ const Login = () => {
                 localStorage.setItem('uid', data.user_details._id);
                 setUser(data.user_details._id)
                 toaster('Success')
-                setTimeout(() => {
-                    navigate('/home');
-                    setLoading(false);
-                }, 1000);
 
-                if (data.reward !== null) {
-                    const decipher = salt => {
-                        const textToChars = text => text.split('').map(c => c.charCodeAt(0));
-                        const applySaltToChar = code => textToChars(salt).reduce((a, b) => a ^ b, code);
-                        return encoded => encoded.match(/.{1,2}/g)
-                            .map(hex => parseInt(hex, 32))
-                            .map(applySaltToChar)
-                            .map(charCode => String.fromCharCode(charCode))
-                            .join('');
+                console.log(data);
+
+                if (data.reward.message) {
+
+
+                    if (data.reward.amount !== null) {
+
+                        setTimeout(() => {
+                            navigate('/home', { state: { amount: data.reward.amount, message: data.reward.message } });
+                            setLoading(false);
+                        }, 3000);
                     }
-
-                    const myDecipher = decipher('mySecretSalt')
-
-                    const code = myDecipher(data.reward)
-
-                    const rewardAmount = Number(code)
+                }
+                else {
                     setTimeout(() => {
-                        toaster(`reward of amount ${rewardAmount} received`)
-                    }, 5000);
+                        navigate('/home');
+                        setLoading(false);
+                    }, 3000);
                 }
             })
             .catch(error => {

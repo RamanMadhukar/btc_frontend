@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Popup from './Popup'
 import Navbar from './Navbar'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import inviteBg from '../images/invitebg.png'
 import { RiVipLine } from 'react-icons/ri'
 import splitNotchL from '../images/notch_L.svg'
@@ -39,6 +39,9 @@ import Slider from './Slider'
 const Home = () => {
 
     const navigate = useNavigate();
+    const location = useLocation().state;
+
+    console.log(location);
 
 
     const { userDetails, setUserDetails, getUserDetails, user, toaster, vipimg } = useContext(ContextApi);
@@ -47,6 +50,11 @@ const Home = () => {
     const [wpwd, setWpwd] = useState(localStorage.getItem('wpwd'))
     const [telegramopen, setTelegram] = useState(false)
     const [toogle, setToogle] = useState(true)
+    const [message, setMessage] = useState(location?.message)
+    const [amount, Setamount] = useState(location?.amount)
+    const [show, setShow] = useState(location?.message ? true : false)
+    const [envelope, setEnvelope] = useState('')
+    const [letter, setLetter] = useState('')
 
     // console.log(userDetails);
 
@@ -73,8 +81,42 @@ const Home = () => {
 
     }, [])
 
+
+
+    useEffect(() => {
+        setTimeout(() => {
+            setEnvelope('')
+            setLetter('-translate-y-24 z-[99999]')
+        }, 1000);
+        setTimeout(() => {
+            setEnvelope('')
+            setLetter('translate-y-24')
+        }, 2000);
+        setTimeout(() => {
+            setShow(false)
+        }, 3000);
+    }, [])
+
+
     return (
         <>
+            {show &&
+                <div className={`wrapper z-[9999] ${show ? 'flex' : 'hidden'}`}>
+                    <div className={`envelope ${envelope}`}>
+                        <div className="back"></div>
+                        <div className={`letter ${letter}`}>
+                            <div className="text">
+                                reward recived {amount ? amount : '0'}
+                                <br />
+                                {message === 'success' ? 'reward recived' : message}
+                            </div>
+                        </div>
+                        <div className="front"></div>
+                        <div className="top"></div>
+                        <div className="shadow"></div>
+                    </div>
+                </div>
+            }
             <Navbar />
             <Popup />
 
@@ -155,11 +197,11 @@ const Home = () => {
                         :
                         <>
 
-                            {/* <div class="row mb-3">
-                            <div class="col-span-12">
-                                <div class="p-2 customborder">
-                                    <div class="text-center">
-                                        <h3 class=" text-white">No Device</h3>
+                            {/* <div className="row mb-3">
+                            <div className="col-span-12">
+                                <div className="p-2 customborder">
+                                    <div className="text-center">
+                                        <h3 className=" text-white">No Device</h3>
                                     </div>
                                 </div>
                             </div>
