@@ -85,26 +85,26 @@ const Home = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            setEnvelope('')
-            setLetter('-translate-y-24 z-[99999]')
+            setEnvelope('rotateX(160deg)')
+            setLetter('-translate-y-24 z-[2]')
         }, 1000);
         setTimeout(() => {
             setEnvelope('')
-            setLetter('translate-y-24')
-        }, 2000);
+            setLetter('')
+        }, 3000);
         setTimeout(() => {
             setShow(false)
-        }, 3000);
+        }, 4000);
     }, [])
 
 
     return (
         <>
             {show &&
-                <div className={`wrapper z-[9999] ${show ? 'flex' : 'hidden'}`}>
-                    <div className={`envelope ${envelope}`}>
+                <div className={`wrapper ${show ? 'flex' : 'hidden'}`}>
+                    <div className={`envelope `}>
                         <div className="back"></div>
-                        <div className={`letter ${letter}`}>
+                        <div className={`letter ${letter} `}>
                             <div className="text">
                                 reward recived {amount ? amount : '0'}
                                 <br />
@@ -112,13 +112,16 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="front"></div>
-                        <div className="top"></div>
+                        <div className={`top `} style={{ transform: envelope }}></div>
                         <div className="shadow"></div>
                     </div>
                 </div>
             }
             <Navbar />
-            <Popup />
+
+            {!show &&
+                <Popup />
+            }
 
             <div className="p-5 pb-20">
 

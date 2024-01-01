@@ -550,14 +550,13 @@ input {
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    z-index: 9999;
+    /* z-index: 9999; */
 }
 
 .envelope {
     position: relative;
     cursor: pointer;
-    z-index: 9999;
-
+    /* z-index: 9999; */
 }
 
 .back {
