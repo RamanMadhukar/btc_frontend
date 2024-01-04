@@ -106,9 +106,19 @@ const Home = () => {
                         <div className="back"></div>
                         <div className={`letter ${letter} `}>
                             <div className="text">
-                                reward recived {amount ? amount : '0'}
-                                <br />
-                                {message === 'success' ? 'reward recived' : message}
+                                {/* reward recived {amount ? amount : '0'}
+                                <br /> */}
+                                {message === 'success' ?
+                                    <>
+                                        <p className='text-lg text-[blue]'>Received</p>
+                                        <br />
+                                        <p className='text-lg'>₹{amount}</p>
+                                    </>
+                                    :
+                                    <>
+                                        <p className='text-lg text-[blue]'>Expired</p>
+                                    </>
+                                }
                             </div>
                         </div>
                         <div className="front"></div>
