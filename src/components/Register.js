@@ -43,7 +43,7 @@ const Register = () => {
     const [mobno, setMobno] = useState('')
     const [pwd, setPwd] = useState('')
     const [pwd2, setPwd2] = useState('')
-    const [invt, setInvt] = useState(search.get('invitation_code'));
+    const [invt, setInvt] = useState(search.get('REF'));
     const [loginpwd, setLoginpwd] = useState('password')
     const [loginpwd2, setLoginpwd2] = useState('password')
     const [minutes, setMinutes] = useState(0);
