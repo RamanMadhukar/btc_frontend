@@ -115,7 +115,7 @@ const Home = () => {
                                     </>
                                     :
                                     <>
-                                        <p className=' text-[blue]'>Expired</p>
+                                        <p className='text-6xl text-[blue]'>Expired</p>
                                     </>
                                 }
                             </div>
