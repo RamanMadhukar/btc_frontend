@@ -39,7 +39,7 @@ const AboutUs = () => {
                             <div className="p-3 customborder  rounded-sm ">
 
                                 <div ref={ref} className="">
-                                    <iframe width={dim[0]} height={dim[1]} src="https://www.youtube.com/embed/OYZcFrYfl1I?si=we2w9Apu30jBROsc&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    <iframe width={dim[0]} height={dim[1]} src="https://www.youtube.com/embed/MpcMXUtmV8I?si=ZiVZjJAB68CFLr4t&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
 
                                 <h3 class="text-center text-white mt-4 mb-5 ">Dnex</h3>
