@@ -68,20 +68,27 @@ const Invite = () => {
 
                     <div className="row" style={{ margin: '24px 0' }}>
                         {/* <div className="w-full"> */}
-                            <div className="p-2 customborder">
-                                <div className="">
-                                    <div className="p-2 text-white text-[15px]">
-                                        <div className="row p-3">
-                                            <h6 className="text-white mb-4">Notice</h6>
-                                            <ol className="text-white list-decimal">
-                                                <li>Copy your exclusive invitation link or invitation code to invite your friends to join your team.</li>
-                                                <li>Invite your friends to join your team and you will get team commission.</li>
-                                                <li> After your members join your team, you can get the daily revenue share of all device of your team members: 10%, 4%, 2%.</li>
-                                            </ol>
-                                        </div>
+                        <div className="p-2 customborder">
+                            <div className="">
+                                <div className="p-2 text-white text-[15px]">
+                                    <div className="row p-3">
+                                        <h6 className="text-white mb-4">Notice</h6>
+                                        <ol className="text-white list-decimal">
+                                            <li>Copy your exclusive invitation link or invitation code to invite your friends to join your team.</li>
+                                            <li>Invite your friends to join your team and you will get team commission.</li>
+                                            <li> After your members join your team, you can get the daily revenue share of all device of your team members:
+                                                <br />
+                                                If you invite A to get 10%
+                                                <br />
+                                                A invites B to get 3%.
+                                                <br />
+                                                B invites C to get 2%.
+                                            </li>
+                                        </ol>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         {/* </div> */}
                     </div>
 
