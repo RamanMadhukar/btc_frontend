@@ -105,7 +105,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
 
         const plan = userDetails?.plans_purchased?.filter((e) => e.plan_amount === plan_amount)
 
-        if (plan?.length !== 0 && product_type === 1) {
+        if (plan?.length !== 0) {
             toaster('You can buy this plan only once')
             return
         }
