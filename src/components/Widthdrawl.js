@@ -324,7 +324,7 @@ const Widthdrawl = () => {
                                             <p className="text-white mb-4">IFSC:  &nbsp; {userDetails?.bank_details?.ifsc} </p>
                                             <p className="text-white mb-4">Bank account:  &nbsp; {userDetails?.bank_details?.bankAccount}</p>
                                             <div className="text-center mb-3">
-                                                {isBetween() ?
+                                                {true?
                                                     <button disabled={nextBtn} onClick={handleWithdrawal} style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn btn-primary w-fit" >Withdrawal</button>
                                                     :
                                                     <button onClick={() => { toaster('You can withdraw only between 09:00:00 to 21:00:00 ') }} style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn btn-primary w-fit" >Withdrawal</button>
