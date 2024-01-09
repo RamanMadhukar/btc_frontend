@@ -5,6 +5,7 @@ import { LiaAngleLeftSolid } from 'react-icons/lia';
 import Navbar from './Navbar';
 import YouTube from 'react-youtube';
 import aboutimg from '../images/btc/aboutimg.jpg'
+import aboutimg2 from '../images/btc/aboutimg2.jpg'
 
 const AboutUs = () => {
 
@@ -50,6 +51,8 @@ const AboutUs = () => {
                                     <br />
                                     We are continuously innovating to bring leading-edge semiconductor solutions that will transform the world
                                     <br /><br />
+
+                                    <img src={aboutimg2} className='mb-5' alt="" />
 
                                     Globally ranked 17th by IC Insights in the category of pure-play foundries in 2021, SilTerra strives to provide outstanding technologies and services to our customers.
                                     <br /><br />
