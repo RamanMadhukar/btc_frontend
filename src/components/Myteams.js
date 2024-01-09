@@ -204,7 +204,7 @@ const Myteams = () => {
 																	<div className="customborder p-2">
 																		<div>
 																			<div className="flex justify-between items-center mb-0 pb-0">
-																				<p className="text-white textsizeall"> {`${element?.mobno?.slice(0, 2)}***${element?.mobno?.slice(-3)}`} </p>
+																				<p className="text-white textsizeall"> {`${element?.mobno?.slice(0, 2)}******${element?.mobno?.slice(-2)}`} </p>
 																				{/* <span className="text-white">₹
 																					{
 																						element.plans_purchased.reduce(function (max, obj) {
