@@ -534,9 +534,9 @@ option:focus-visible {
     outline: 0;
 }
 
-input {
+/* input {
     width: 60%;
-}
+} */
 
 @media screen and (max-width:350px) {
     input {
