@@ -142,7 +142,7 @@ const Home = () => {
 
                 <div className="text-white flex">
 
-                    <div onClick={() => setToogle(true)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${toogle && 'border-b-2'} `}>Normal</div>
+                    <div onClick={() => setToogle(true)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${toogle && 'border-b-2'} `}>Ordinary</div>
 
                     <div onClick={() => setToogle(false)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${!toogle && 'border-b-2'} `}>Exclusive </div>
 
@@ -155,8 +155,8 @@ const Home = () => {
                                 product_image={b1}
                                 product_type={0}
                                 plan_cycle={35}
-                                plan_amount={800}
-                                plan_daily_earning={50}
+                                plan_amount={500}
+                                plan_daily_earning={30}
                                 pre_sale={false}
                             />
 

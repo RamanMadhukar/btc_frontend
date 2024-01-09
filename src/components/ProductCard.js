@@ -181,7 +181,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                                             <span>Revnu Type</span>
                                         </div>
                                         <div className=" pl-3">
-                                            <span className="text-red-600">Daily income</span>
+                                            <span className="text-red-400">Daily income</span>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                         <div className="flex mt-5 ">
                             <a >
                                 <div className="">
-                                    <span className="text-center text-red-700">{plan_amount.toFixed(2)}</span>
+                                    <span className="text-center text-red-400">{plan_amount.toFixed(2)}</span>
                                 </div>
                             </a>
                             <div className=" mx-auto block ">

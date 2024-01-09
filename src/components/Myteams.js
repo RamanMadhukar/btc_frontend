@@ -93,15 +93,18 @@ const Myteams = () => {
 			}
 		}
 
-		console.log(data);
 
-
-	}, [toogle, setToogle, toogle2, setToogle2])
+	}, [toogle, setToogle, toogle2, setToogle2, getUserDetails])
 
 	useEffect(() => {
 		const data2 = lvl1.filter(e => e.plans_purchased.length !== 0)
 		setData(data2)
 	}, [lvl1, setLvl1])
+
+
+	const prefix = userDetails?.mobno?.slice(0, 2);
+
+	const suffix = userDetails?.mobno?.slice(-3);
 
 
 
@@ -186,10 +189,10 @@ const Myteams = () => {
 
 														<div className="flex justify-between">
 															<div className="w-1/2 flex-[0_0_auto] p-5">
-																<a onClick={() => setToogle2('valid')} className={`btn btn-outline-primary w-full ${toogle2 === 'valid' && 'text-white bg-[#3b7ddd] border-[#3b7ddd] shadow-[0_0_0_0.2rem_rgba(59,125,221,0.5)]'}`}>Valid</a>
+																<a onClick={() => setToogle2('valid')} className={`btn btn-outline-primary w-full `} style={{ color: toogle2 === 'valid' && 'black', background: toogle2 === 'valid' && 'white' }} > Valid</a>
 															</div>
 															<div className="w-1/2 flex-[0_0_auto] p-5">
-																<a onClick={() => setToogle2('invalid')} className={`btn btn-outline-primary w-full ${toogle2 === 'invalid' && 'text-white bg-[#3b7ddd] border-[#3b7ddd] shadow-[0_0_0_0.2rem_rgba(59,125,221,0.5)]'}`} >InValid</a>
+																<a onClick={() => setToogle2('invalid')} className={`btn btn-outline-primary w-full `} style={{ color: toogle2 === 'invalid' && 'black', background: toogle2 === 'invalid' && 'white' }} >InValid</a>
 															</div>
 														</div>
 													</div>
@@ -201,18 +204,18 @@ const Myteams = () => {
 																	<div className="customborder p-2">
 																		<div>
 																			<div className="flex justify-between items-center mb-0 pb-0">
-																				<p className="text-white textsizeall"> {element.mobno} </p>
-																				<span className="text-white">₹
+																				<p className="text-white textsizeall"> {`${element?.mobno?.slice(0, 2)}***${element?.mobno?.slice(-3)}`} </p>
+																				{/* <span className="text-white">₹
 																					{
 																						element.plans_purchased.reduce(function (max, obj) {
-																							return obj.plan_amount > max.plan_amount ? obj : max;
-																						}, element.plans_purchased[0]).plan_amount
+																							return obj?.plan_amount > max?.plan_amount ? obj : max;
+																						}, element.plans_purchased[0])?.plan_amount || 0
 																					}
-																				</span>
+																				</span> */}
 																			</div>
 																			<div className="flex justify-between items-center mt-0 pt-0">
-																				<span className="text-white textsizeall" > 12/15/2023 </span>
-																				<span className="text-white" >Max Price Device</span>
+																				<span className="text-white textsizeall" > {new Date(element?.time)?.toDateString()} </span>
+																				<span className="text-white" >{toogle2 === 'valid' ? 'Active' : 'Inactive'}</span>
 																			</div>
 																			<hr />
 																		</div>
@@ -229,8 +232,8 @@ const Myteams = () => {
 							</div>
 						</div>
 					</section>
-				</div>
-			</div>
+				</div >
+			</div >
 
 		</>
 	)
