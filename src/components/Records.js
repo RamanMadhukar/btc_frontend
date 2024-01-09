@@ -139,7 +139,7 @@ const Records = () => {
 
                                                 {datalist?.map((data, index) =>
 
-                                                    <li key={index} className='my-[5px] p-3 rounded-[7px] border border-[blue]'>
+                                                    <li key={index} className='my-5 p-3 rounded-[7px] border border-[blue]'>
 
                                                         <div className="flex items-center justify-between">
 
@@ -147,7 +147,7 @@ const Records = () => {
 
                                                         </div>
 
-                                                        <div className="border border-[#6b6f78] w-full h-0 my-5"></div>
+                                                        <div className="border border-[#6b6f78] w-full h-0 my-3"></div>
 
                                                         <div className="flex justify-between items-center">
 

@@ -103,7 +103,7 @@ const Order = () => {
                                                                     <div className="p-2 text-white">
                                                                         <div className="row">
                                                                             <div className="mb-3">
-                                                                                <p className="text-base mb-1">earn: &#8377;{element.plan_amount}</p>
+                                                                                <p className="text-base mb-1">plan amount: &#8377;{element.plan_amount}</p>
                                                                                 <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
                                                                                 <p className="text-base mb-1">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
                                                                                 <p className="text-base mb-1">time: {new Date(element.date_purchased).toDateString()}</p>
