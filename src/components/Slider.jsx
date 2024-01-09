@@ -4,6 +4,8 @@ import { Carousel } from 'react-responsive-carousel';
 import s1 from '../images/btc/s1.jpg';
 import s2 from '../images/btc/s2.jpg';
 import s3 from '../images/btc/s3.jpg';
+import s4 from '../images/btc/s4.png';
+import s5 from '../images/btc/s5.jpg';
 
 const Slider = () => {
   return (
@@ -22,6 +24,14 @@ const Slider = () => {
 
         <div>
           <img src={s3} className="h-[190px] rounded-md" alt="img_1" />
+        </div>
+
+        <div>
+          <img src={s4} className="h-[190px] rounded-md" alt="img_1" />
+        </div>
+
+        <div>
+          <img src={s5} className="h-[190px] rounded-md" alt="img_1" />
         </div>
 
         {/* <div>

@@ -11,7 +11,7 @@ import Logoutimg from '../images/LogOut.svg'
 import axios from 'axios'
 import BASE_URL from '../api_url'
 import { ContextApi } from '../App'
-import accountImg from '../images/btc/accountImg.jpg';
+import accountImg from '../images/btc/accountImg.webp';
 import { FaRegGem } from "react-icons/fa";
 import { IoWalletOutline } from "react-icons/io5";
 import { PiDevicesLight } from "react-icons/pi";
@@ -81,7 +81,7 @@ const Account = () => {
 
                                         <img className="rounded-circle rounded mt-2 mb-2 " style={{ border: '1px solid blue' }} src={accountImg} alt="Placeholder" width="50" height="50" />
 
-                                        <b className="text-white fs-4">{userDetails?.mobno} &nbsp;<span className="text-red-900">L{userDetails?.vipLevel + 1}</span></b>
+                                        <b className="text-white fs-4">{userDetails?.mobno} &nbsp;<span className="text-red-400">L{userDetails?.vipLevel + 1}</span></b>
 
                                     </div>
 

@@ -136,7 +136,7 @@ const Myteams = () => {
 										</div>
 										<div className="flex justify-between items-center" style={{ borderBottom: "1px dotted blue" }}>
 											<span className="text-white">Valid Team Size</span>
-											<span className="text-white">{userDetails?.directMember.length + userDetails?.indirectMember.length + userDetails?.in_indirectMember.length} People</span>
+											<span className="text-white">{ lvl1.filter(e => e.plans_purchased.length !== 0).length+ lvl2.filter(e => e.plans_purchased.length !== 0).length + lvl3.filter(e => e.plans_purchased.length !== 0).length} People</span>
 										</div>
 										<div className="row">
 											<table className="table-responsive border-0 text-center text-white" style={{ marginTop: '12px' }}>
@@ -169,13 +169,13 @@ const Myteams = () => {
 											<ul className="nav nav-tabs" role="tablist">
 
 												<li className="nav-item">
-													<a onClick={() => handelTooglle('lvl1')} className={`nav-link ${toogle === 'lvl1' && 'active'} text-white`} >Team-B(1)</a>
+													<a onClick={() => handelTooglle('lvl1')} className={`nav-link ${toogle === 'lvl1' && 'active'} text-white`} >Team-B({lvl1.length})</a>
 												</li>
 												<li className="nav-item">
-													<a onClick={() => handelTooglle('lvl2')} className={`nav-link ${toogle === 'lvl2' && 'active'} text-white`}  >Team-C(0)</a>
+													<a onClick={() => handelTooglle('lvl2')} className={`nav-link ${toogle === 'lvl2' && 'active'} text-white`}  >Team-C({lvl2.length})</a>
 												</li>
 												<li className="nav-item">
-													<a onClick={() => handelTooglle('lvl3')} className={`nav-link ${toogle === 'lvl3' && 'active'} text-white`} >Team-D(0)</a>
+													<a onClick={() => handelTooglle('lvl3')} className={`nav-link ${toogle === 'lvl3' && 'active'} text-white`} >Team-D({lvl3.length})</a>
 												</li>
 											</ul>
 										</div>
