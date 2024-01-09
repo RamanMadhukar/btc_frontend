@@ -128,7 +128,7 @@ const Account = () => {
                                     <div className="col-lg-4 col-4">
                                         <div className="text-center">
                                             <h5 className="text-white">₹ {(userDetails?.earning)?.toFixed(2)}</h5>
-                                            <span className="text-white textsizeall">Total profit</span>
+                                            <span className="text-white textsizeall">Total Revenue</span>
                                         </div>
                                     </div>
                                 </div>
