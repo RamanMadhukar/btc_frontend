@@ -62,7 +62,7 @@ const WidthdrawlRecords = () => {
                         </div>
                     </header>
 
-                    <h6 className="text-center font-bold mt-3" style={{ color: 'red' }}>
+                    <h6 className="text-center font-bold mt-3 text-red-400" >
                         ₹ {userDetails?.balance?.toFixed(2)}
                     </h6>
 

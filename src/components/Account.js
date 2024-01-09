@@ -11,7 +11,7 @@ import Logoutimg from '../images/LogOut.svg'
 import axios from 'axios'
 import BASE_URL from '../api_url'
 import { ContextApi } from '../App'
-import accountImg from '../images/btc/accountImg.webp';
+import accountImg from '../images/btc/accountImg.jpg';
 import { FaRegGem } from "react-icons/fa";
 import { IoWalletOutline } from "react-icons/io5";
 import { PiDevicesLight } from "react-icons/pi";
@@ -91,7 +91,7 @@ const Account = () => {
                             </div>
                             <div className=" flex text-center items-center">
                                 <span className="text-white   p-1 fs-4" style={{ borderRadius: '5px', backgroundColor: '#07184f', border: '1px solid blue' }}>
-                                    Score: {(userDetails?.vipLevel) * 10}
+                                    Score: {(userDetails?.vipLevel) * 20}
                                     <FaRegGem className='mx-auto' />
                                 </span>
                             </div>

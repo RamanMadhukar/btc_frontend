@@ -62,7 +62,7 @@ const ProductBuy = () => {
                 setLoading(false)
                 toaster('Plan purchased!');
                 getUserDetails()
-                navigate('/home')
+                navigate('/Workingdevice')
             }).catch((error) => {
                 console.log('Some error occured', error);
                 setLoading(false)
@@ -110,10 +110,10 @@ const ProductBuy = () => {
 
                                             <div className="flex items-center">
                                                 <div className="w-1/2">
-                                                    <h6 className="text-[red]" style={{ fontSize: '14px !important' }}>Price</h6>
+                                                    <h6 className="text-red-400" style={{ fontSize: '14px !important' }}>Price</h6>
                                                 </div>
                                                 <div className="">
-                                                    <h6 className="text-[red]" style={{ fontSize: '14px !important' }}>{data.plan_amount.toFixed(2)}</h6>
+                                                    <h6 className="text-red-400" style={{ fontSize: '14px !important' }}>{data.plan_amount.toFixed(2)}</h6>
                                                 </div>
                                             </div>
 
@@ -122,10 +122,10 @@ const ProductBuy = () => {
 
                                             <div className="flex items-center">
                                                 <div className="w-1/2">
-                                                    <h6 className="text-[red]" style={{ fontSize: '14px !important' }}>Profit</h6>
+                                                    <h6 className="text-red-400" style={{ fontSize: '14px !important' }}>Profit</h6>
                                                 </div>
                                                 <div className="">
-                                                    <h6 className="text-[red]" style={{ fontSize: '14px !important' }}>{(data.plan_cycle * data.plan_daily_earning) - data.plan_amount.toFixed(2)}</h6>
+                                                    <h6 className="text-red-400" style={{ fontSize: '14px !important' }}>{(data.plan_cycle * data.plan_daily_earning) - data.plan_amount.toFixed(2)}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -188,11 +188,11 @@ const ProductBuy = () => {
                                             <div className="flex">
                                                 <div className="w-1/2" id="rechargeWalletBalance" style={{ display: wallet === 'recharge' ? 'block' : 'none' }}>
                                                     <label>Recharge wallet</label>
-                                                    <p className="text-[red]">{userDetails?.recharge_amount?.toFixed(2)}</p>
+                                                    <p className="text-red-400">{userDetails?.recharge_amount?.toFixed(2)}</p>
                                                 </div>
                                                 <div className="w-1/2" id="balanceWalletBalance" style={{ display: wallet === 'balance' ? 'block' : 'none' }}>
                                                     <label>Balance wallet</label>
-                                                    <p className="text-[red]">{userDetails?.balance?.toFixed(2)}</p>
+                                                    <p className="text-red-400">{userDetails?.balance?.toFixed(2)}</p>
                                                 </div>
                                                 <div className="w-1/2">
                                                     <p className="text-white">Choose a wallet</p>

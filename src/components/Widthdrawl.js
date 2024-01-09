@@ -288,7 +288,7 @@ const Widthdrawl = () => {
                                 <div className="">
                                     <div className="p-5 text-white">
                                         <div className="row">
-                                            <h6 className="text-center mb-2" style={{ color: 'red' }}>
+                                            <h6 className="text-center mb-2 text-red-400" >
                                                 ₹ {userDetails?.balance?.toFixed(2)}
                                             </h6>
                                             <p className="text-center text-white mb-4">Balance ( INR ) </p>
@@ -346,8 +346,8 @@ const Widthdrawl = () => {
                                         <div className="row p-3">
                                             <h6 className="text-white mb-2 px-3 text-sm">Tips</h6>
                                             <ol className="text-white text-sm">
-                                                <li>1. Minimum withdrawal amount is <span className="text-[red]">INR 130</span></li>
-                                                <li>2. Personal income tax is <span className="text-[red]">INR 15 %</span></li>
+                                                <li>1. Minimum withdrawal amount is <span className="text-red-400">INR 130</span></li>
+                                                <li>2. Personal income tax is <span className="text-red-400">INR 15 %</span></li>
                                                 <li>3. Withdrawal time is 10 am to 5 pm</li>
 
                                             </ol>

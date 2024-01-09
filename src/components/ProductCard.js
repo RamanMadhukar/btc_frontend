@@ -178,7 +178,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                                     <h6 className="text-white">{plan_name}</h6>
                                     <div className="flex  ">
                                         <div className="md:col-span-8 col-span-10 ">
-                                            <span>Revnu Type</span>
+                                            <span>Revenue Type</span>
                                         </div>
                                         <div className=" pl-3">
                                             <span className="text-red-400">Daily income</span>

@@ -25,15 +25,7 @@ const Records = () => {
 
     var datac = [];
 
-    userDetails?.comissionData?.map(data => {
-        commission.push({ type: 'commission', amount: data.comissionAmount, date: data.date, status: 'confirmed' })
-
-    })
-
-    userDetails?.rewardData?.map(data => {
-        rewards.push({ type: 'rewards', amount: data.reward, date: data.date, status: 'confirmed' })
-
-    })
+   
 
 
 
@@ -71,6 +63,16 @@ const Records = () => {
             setWidthdrawl([...dataw])
         }
         getWithdrawals_list();
+
+        userDetails?.comissionData?.map(data => {
+            commission.push({ type: 'commission', amount: data.comissionAmount, date: data.date, status: 'confirmed' })
+    
+        })
+    
+        userDetails?.rewardData?.map(data => {
+            rewards.push({ type: 'rewards', amount: data.reward, date: data.date, status: 'confirmed' })
+    
+        })
 
     }, [])
 

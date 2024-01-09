@@ -131,7 +131,7 @@ const Myteams = () => {
 								<div className="customborder p-2">
 									<div>
 										<div className="flex justify-between items-center mb-0 pb-0">
-											<p className="text-white mb-4"> Team Profit </p>
+											<p className="text-white mb-4"> Team Commission </p>
 											<span className="text-white">₹ {(Number(userDetails?.directRecharge + userDetails?.indirectRecharge + userDetails?.in_indirectRecharge)).toFixed(2)}</span>
 										</div>
 										<div className="flex justify-between items-center" style={{ borderBottom: "1px dotted blue" }}>
@@ -217,7 +217,7 @@ const Myteams = () => {
 																				<span className="text-white textsizeall" > {new Date(element?.time)?.toDateString()} </span>
 																				<span className="text-white" >{toogle2 === 'valid' ? 'Active' : 'Inactive'}</span>
 																			</div>
-																			<hr />
+																			{/* <hr /> */}
 																		</div>
 																	</div>
 																</div>
