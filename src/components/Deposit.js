@@ -35,7 +35,7 @@ const Deposit = () => {
     }, [])
 
 
-    const amount = [800,1800,5400,18500,50000,95000]
+    const amount = [500,1800,5400,18500,50000,95000]
 
     const handleRecharge = () => {
         if (parseInt(Deposit)) {

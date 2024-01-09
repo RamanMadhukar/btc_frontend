@@ -52,7 +52,7 @@ const Invite = () => {
                                     </div>
                                     <div className="col-lg-2">
                                         <div className="btn-group">
-                                            <CopyToClipboard text={`${origin}/signup?REF=${userDetails?.user_invite}`} onCopy={() => toaster('copy succeded')}>
+                                            <CopyToClipboard text={`${origin}/signup?REF=${userDetails?.user_invite}`} onCopy={() => toaster('Copy Success')}>
 
                                                 <button type="button" className="btn mb-1 btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i className="fas fa-share"></i> Share &amp; Copy

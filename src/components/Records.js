@@ -115,9 +115,9 @@ const Records = () => {
 
                         <div className="text-white flex mb-5">
 
-                            <div onClick={() => setToggle(true)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${toggle && 'border-b-2'} `}> Rs income</div>
+                            <div onClick={() => setToggle(true)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${toggle && 'border-b-2'} `}> Rs Income</div>
 
-                            <div onClick={() => setToggle(false)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${!toggle && 'border-b-2'} `}>rs expenditure</div>
+                            <div onClick={() => setToggle(false)} className={`IN Miner border-0 border-solid border-white bg-transparent text-white px-4 py-3 ${!toggle && 'border-b-2'} `}>Rs Expenditure</div>
 
                         </div>
                     </div>
@@ -135,7 +135,7 @@ const Records = () => {
 
                                             <p className="text-center text-white p-3">No record found</p>
                                             :
-                                            <ul className='px-5 text-white'>
+                                            <ul className=' text-white'>
 
                                                 {datalist?.map((data, index) =>
 

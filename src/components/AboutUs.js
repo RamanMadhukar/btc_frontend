@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { LiaAngleLeftSolid } from 'react-icons/lia';
 import Navbar from './Navbar';
 import YouTube from 'react-youtube';
+import aboutimg from '../images/btc/aboutimg.jpg'
 
 const AboutUs = () => {
 
@@ -54,6 +55,7 @@ const AboutUs = () => {
                                     <br /><br />
 
 
+                                    <img src={aboutimg} className='mb-5' alt="" />
 
                                     Our leadership in advanced semiconductor wafer processing sets the stage to bring transformation in consumer electronics, next generation data communications networks, industrial, medical technologies and mobility.
                                     <br /><br />
