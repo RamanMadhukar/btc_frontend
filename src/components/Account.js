@@ -81,7 +81,7 @@ const Account = () => {
 
                                         <img className="rounded-circle rounded mt-2 mb-2 " style={{ border: '1px solid blue' }} src={accountImg} alt="Placeholder" width="50" height="50" />
 
-                                        <b className="text-white fs-4">{userDetails?.mobno} &nbsp;<span className="text-red-400">L{userDetails?.vipLevel + 1}</span></b>
+                                        <b className="text-white fs-4">{userDetails?.mobno} &nbsp;<span className="text-red-400">L{userDetails?.vipLevel}</span></b>
 
                                     </div>
 
@@ -128,7 +128,7 @@ const Account = () => {
                                     <div className="col-lg-4 col-4">
                                         <div className="text-center">
                                             <h5 className="text-white">₹ {(userDetails?.earning)?.toFixed(2)}</h5>
-                                            <span className="text-white textsizeall">Total Revenue</span>
+                                            <span className="text-white textsizeall">Total Profit</span>
                                         </div>
                                     </div>
                                 </div>

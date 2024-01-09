@@ -195,7 +195,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                                         <th>{plan_cycle}</th>
                                     </tr>
                                         <tr className='text-[10px]' >
-                                            <td>Amount</td>
+                                            <td>Total Revenue</td>
                                             <td>Daily Income</td>
                                             <td>Work Days</td>
                                         </tr>
