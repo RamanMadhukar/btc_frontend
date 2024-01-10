@@ -20,7 +20,7 @@ const Deposit = () => {
     const [Deposit, setDeposit] = useState('')
     const [selected, setSelected] = useState()
     const [amounts, setAmounsts] = useState({});
-
+    const [upichannel, setUpichannel] = useState('1')
 
     useEffect(() => {
         if (user) {
@@ -35,7 +35,7 @@ const Deposit = () => {
     }, [])
 
 
-    const amount = [500,1800,5400,18500,50000,95000]
+    const amount = [500, 1800, 5400, 18500, 50000, 95000]
 
     const handleRecharge = () => {
         if (parseInt(Deposit)) {
@@ -44,7 +44,7 @@ const Deposit = () => {
                 return;
             }
             // navigate(`/recharge_window/${Deposit}`);
-            window.location.href = `${upiurl}/${localStorage.getItem('uid')}/${Deposit}`
+            window.location.href = `${upiurl}/${localStorage.getItem('uid')}/${Deposit}/${upichannel}`
         } else {
             toaster('Enter a valid recharge amount');
         }
@@ -129,21 +129,21 @@ const Deposit = () => {
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />UPI Channel-1
                                         </label>
-                                        <span><input autoComplete='off' type="radio" className="bankOption" name="bankOption" value="upi" /></span>
+                                        <span><input autoComplete='off' type="radio" defaultChecked className="bankOption" name="bankOption" value="1" onChange={(e) => setUpichannel(e.target.value)} /></span>
 
                                     </div>
                                     <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />UPI Channel-2
                                         </label>
-                                        <span><input autoComplete='off' type="radio" className="bankOption" name="bankOption" value="stripe" /></span>
+                                        <span><input autoComplete='off' type="radio" className="bankOption" name="bankOption" value="2" onChange={(e) => setUpichannel(e.target.value)} /></span>
                                     </div>
 
                                     <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />Pay Using our Crypto Channel-3
                                         </label>
-                                        <span><input autoComplete='off' type="radio" className="bankOption1" name="bankOption" /></span>
+                                        <span><input autoComplete='off' type="radio" className="bankOption1" name="bankOption" value="1" onChange={(e) => setUpichannel(e.target.value)} /></span>
 
                                     </div>
                                 </div>
