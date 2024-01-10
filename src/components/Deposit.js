@@ -46,9 +46,15 @@ const Deposit = () => {
             // navigate(`/recharge_window/${Deposit}`);
             else if (upichannel === '1') {
                 window.location.href = `${upiurl}/${localStorage.getItem('uid')}/${Deposit}/`
+                return
+            }
+            else if (upichannel === '2') {
+                window.location.href = `${upiurl2}/${localStorage.getItem('uid')}/${Deposit}/`
+                return
             }
             else {
-                window.location.href = `${upiurl2}/${localStorage.getItem('uid')}/${Deposit}/`
+                toaster('Server busy. Please try again later.')
+                return
             }
 
         } else {
@@ -149,7 +155,7 @@ const Deposit = () => {
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />Pay Using our Crypto Channel-3
                                         </label>
-                                        <span><input autoComplete='off' type="radio" className="bankOption1" name="bankOption" value="1" onChange={(e) => setUpichannel(e.target.value)} /></span>
+                                        <span><input autoComplete='off' type="radio" className="bankOption1" name="bankOption" value="3" onChange={(e) => setUpichannel(e.target.value)} /></span>
 
                                     </div>
                                 </div>

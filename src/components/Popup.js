@@ -60,7 +60,9 @@ const Popup = () => {
                     </div> */}
 
                     <div className="text-center px-auto my-2 ">
-                        <Link to={'https://telegram.me/DNexOfficialChannal91'} className='text-center mx-auto'>https://telegram.me/DNexOfficialChannal91</Link>
+                        <Link to={'https://telegram.me/DNexOfficialChannal91'} className='text-center mx-auto'>
+                            <p className='text-ellipsis break-words break-all'>https://telegram.me/DNexOfficialChannal91</p>
+                        </Link>
                     </div>
 
                     <p className=" text-center">
