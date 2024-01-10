@@ -39,7 +39,7 @@ const CustomerCare = () => {
                             <IoIosArrowForward className="text-[blue]" />
                         </a>
 
-                        <a href='https://telegram.me/Evergreenofficial656' className="flex items-center border-[blue]	border p-4 rounded-lg my-3 ">
+                        <a href='https://telegram.me/DNexOfficialChannal91' className="flex items-center border-[blue]	border p-4 rounded-lg my-3 ">
                             <img className="w-[45px] pr-[10px] border-r border-[blue]" src={TeleImg} alt="" />
                             <div className="pl-[10px] pr-[10px] ">
                                 <div className="text-white">Telegram</div>
