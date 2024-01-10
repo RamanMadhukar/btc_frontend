@@ -4,7 +4,7 @@ import { LiaAngleLeftSolid } from 'react-icons/lia'
 import { Link, useNavigate } from 'react-router-dom'
 import { ContextApi } from '../App'
 import QuickAmountCard from './QuickAmountCard'
-import BASE_URL, { upiurl } from '../api_url'
+import BASE_URL, { upiurl, upiurl2 } from '../api_url'
 import axios from 'axios'
 import floatings from '../images/galaxysone/g2.png'
 import { BiSolidCoinStack } from 'react-icons/bi'
@@ -44,7 +44,13 @@ const Deposit = () => {
                 return;
             }
             // navigate(`/recharge_window/${Deposit}`);
-            window.location.href = `${upiurl}/${localStorage.getItem('uid')}/${Deposit}/${upichannel}`
+            else if (upichannel === '1') {
+                window.location.href = `${upiurl}/${localStorage.getItem('uid')}/${Deposit}/`
+            }
+            else {
+                window.location.href = `${upiurl2}/${localStorage.getItem('uid')}/${Deposit}/`
+            }
+
         } else {
             toaster('Enter a valid recharge amount');
         }
