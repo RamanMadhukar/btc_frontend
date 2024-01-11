@@ -206,9 +206,9 @@ const Myteams = () => {
 											<table className="table-responsive border-0 text-center text-white" style={{ marginTop: '12px' }}>
 												<tbody>
 													<tr>
-														<th>₹ 0.00</th>
+														<th>₹ {totalRecharge.toFixed(2)}</th>
 
-														<th>₹ 0.00</th>
+														<th>₹ {todayRecharge.toFixed(2)}</th>
 													</tr>
 													<tr>
 														<td>Total Recharge Amount</td>
