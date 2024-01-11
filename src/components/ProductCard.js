@@ -110,6 +110,11 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
             return
         }
 
+        else if (userDetails?.plans_purchased.length === 0 && product_type !== 0){
+            toaster('Buy ordinary plan first')
+            return
+        }
+
         else {
 
             const data = {

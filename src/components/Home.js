@@ -115,7 +115,7 @@ const Home = () => {
                                     </>
                                     :
                                     <>
-                                        <p className='text-6xl text-[blue]'>Expired</p>
+                                        <p className=' text-[blue]'>Expired</p>
                                     </>
                                 }
                             </div>
@@ -221,7 +221,7 @@ const Home = () => {
 
                             <ProductCard
                                 product_image={b5}
-                                product_type={0}
+                                product_type={1}
                                 plan_cycle={5}
                                 plan_amount={350}
                                 plan_daily_earning={95}
