@@ -89,7 +89,7 @@ const WidthdrawlRecords = () => {
                                             :
                                             <ul className='px-5 text-white'>
 
-                                                {withdrawal_list?.map((data, index) =>
+                                                {withdrawal_list.reverse()?.map((data, index) =>
 
                                                     <li key={index} className='my-[5px] p-3 rounded-[7px] border border-[blue]'>
 

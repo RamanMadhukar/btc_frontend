@@ -66,7 +66,7 @@ const DepositRecords = () => {
                         <div className="m-[5px]">
                             <ul className='px-5 text-white'>
 
-                                {recharge_list?.map((data, index) =>
+                                {recharge_list.reverse()?.map((data, index) =>
 
                                     <li key={index} className='my-[5px] p-3 bg-[#212121] rounded-[7px] border-2 border-[#424242]'>
 
