@@ -212,92 +212,100 @@ const Register = () => {
 
                                 <div className="uilist bg-transparent rounded-lg ">
 
-                                    <div className="uilist_div account h-8 px-3 py-5 flex items-center  mb-4 backdrop-blur-sm hello rounded-full">
+                                    <div className="uilist_div account h-8 px-3 py-5 flex items-center  mb-4 backdrop-blur-sm hello rounded-full justify-between">
 
                                         {/* <img className='w-[19px]' src={phoneimg} alt="" /> */}
-                                        <MdPhoneIphone className='text-white' size={19} />
+                                        <div className=" flex items-center">
+                                            <MdPhoneIphone className='text-white' size={19} />
 
-                                        <span className="pre   ml-1 font-medium ">+91</span>
+                                            <span className="pre   ml-1 font-medium ">+91</span>
 
-                                        <input autoComplete='off'
-                                            onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
-                                            type="tel"
-                                            placeholder="Phone Number"
-                                            name="pattern"
-                                            maxlength="10"
-                                            className='bg-transparent border-transparent outline-none  text-white pl-[10px] flex-grow'
+                                            <input autoComplete='off'
+                                                onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
+                                                type="tel"
+                                                placeholder="Phone Number"
+                                                name="pattern"
+                                                maxlength="10"
+                                                className='bg-transparent border-transparent outline-none  text-white pl-[10px]'
 
-                                        />
+                                            />
+                                        </div>
 
                                     </div>
 
-                                    <div className="uilist_div account h-8 px-3 py-5 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+                                    <div className="uilist_div account h-8 px-3 py-5 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full justify-between">
 
-                                        <IoLockClosed className='text-white' size={19} />
-                                        {/* <img className='w-[19px]' src={password} alt="" /> */}
+                                        <div className="flex items-center">
+                                            <IoLockClosed className='text-white' size={19} />
+                                            {/* <img className='w-[19px]' src={password} alt="" /> */}
 
-                                        <input autoComplete='off'
-                                            onChange={e => setPwd(e.target.value)}
-                                            type={loginpwd}
-                                            placeholder="Password"
-                                            name="pattern"
-                                            maxlength="10"
-                                            className='bg-transparent border-transparent outline-none  text-white pl-[10px] flex-grow'
+                                            <input autoComplete='off'
+                                                onChange={e => setPwd(e.target.value)}
+                                                type={loginpwd}
+                                                placeholder="Password"
+                                                name="pattern"
+                                                maxlength="10"
+                                                className='bg-transparent border-transparent outline-none  text-white pl-[10px] '
 
-                                        />
+                                            />
+                                        </div>
 
                                         <div onClick={() => secrethandel('loginpwd')} className="">
                                             {loginpwd === 'password' ?
-                                                <img className="eyeimg w-4" src={eyeclosed} alt="" data-v-380ab766="" />
+                                                <img className="eyeimg" width="16px" src={eyeclosed} alt="" data-v-380ab766="" />
                                                 :
-                                                <img className="eyeimg w-4" src={eyeopened} alt="" data-v-380ab766="" />
+                                                <img className="eyeimg" width="16px" src={eyeopened} alt="" data-v-380ab766="" />
                                             }
                                         </div>
 
                                     </div>
 
-                                    <div className="uilist_div account h-8 px-3 py-5 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+                                    <div className="uilist_div account h-8 px-3 py-5 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full justify-between">
 
-                                        <IoLockClosed className='text-white' size={19} />
-                                        {/* <img className='w-[19px]' src={password} alt="" /> */}
+                                        <div className="flex items-center">
+                                            <IoLockClosed className='text-white' size={19} />
+                                            {/* <img className='w-[19px]' src={password} alt="" /> */}
 
-                                        <input autoComplete='off'
-                                            onChange={e => setPwd2(e.target.value)}
-                                            type={loginpwd2}
-                                            placeholder="Confirm New Password"
-                                            name="pattern"
-                                            maxlength="10"
-                                            className='bg-transparent border-transparent outline-none  text-white pl-[10px] flex-grow'
+                                            <input autoComplete='off'
+                                                onChange={e => setPwd2(e.target.value)}
+                                                type={loginpwd2}
+                                                placeholder="Confirm New Password"
+                                                name="pattern"
+                                                maxlength="10"
+                                                className='bg-transparent border-transparent outline-none  text-white pl-[10px] '
 
-                                        />
+                                            />
+                                        </div>
 
                                         <div onClick={() => secrethandel('loginpwd2')} className="">
                                             {loginpwd2 === 'password' ?
-                                                <img className="eyeimg w-4" src={eyeclosed} alt="" data-v-380ab766="" />
+                                                <img className="eyeimg" width="16px" src={eyeclosed} alt="" data-v-380ab766="" />
                                                 :
-                                                <img className="eyeimg w-4" src={eyeopened} alt="" data-v-380ab766="" />
+                                                <img className="eyeimg" width="16px" src={eyeopened} alt="" data-v-380ab766="" />
                                             }
                                         </div>
 
                                     </div>
 
-                                    <div className="uilist_div account h-8 px-3 py-5 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full">
+                                    <div className="uilist_div account h-8 px-3 py-5 flex items-center bg-[#f6f6f6] mb-4 backdrop-blur-sm hello rounded-full justify-between">
 
-                                        <IoShieldCheckmark className='text-white' size={19} />
-                                        {/* <img className='w-[19px]' src={sms} alt="" /> */}
+                                        <div className="flex items-center w-2/3">
+                                            <IoShieldCheckmark className='text-white' size={19} />
+                                            {/* <img className='w-[19px]' src={sms} alt="" /> */}
 
-                                        <input autoComplete='off'
-                                            onChange={(e) => setOtp(e.target.value)}
-                                            type={'text'}
-                                            placeholder="Verification"
-                                            name="pattern"
-                                            maxlength="10"
-                                            className='bg-transparent border-transparent outline-none  text-white pl-[10px] flex-grow'
+                                            <input autoComplete='off'
+                                                onChange={(e) => setOtp(e.target.value)}
+                                                type={'text'}
+                                                placeholder="Verification"
+                                                name="pattern"
+                                                maxlength="10"
+                                                className='bg-transparent border-transparent outline-none  text-white pl-[10px] '
 
-                                        />
+                                            />
+                                        </div>
 
 
-                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} className="verfy_title ">
+                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} className="verfy_title " style={{minWidth:'51px'}}>
 
                                             {seconds > 0 || minutes > 0 ?
                                                 <>

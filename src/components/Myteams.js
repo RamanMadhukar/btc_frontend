@@ -24,7 +24,9 @@ const Myteams = () => {
 	const [toogle, setToogle] = useState('lvl1')
 	const [toogle2, setToogle2] = useState('valid')
 	const [data, setData] = useState(lvl1.filter(e => e.plans_purchased.length !== 0))
-	var totalProfit
+	var totalRecharge = 0, todayRecharge = 0;
+
+	const today = new Date().toDateString();
 
 	const getUserDetails2 = async () => {
 		// const details = await axios.post(`${BASE_URL}/get_user`, { user_id: localStorage.getItem('uid') }).then(({ data }) => data);
@@ -106,7 +108,69 @@ const Myteams = () => {
 
 	const suffix = userDetails?.mobno?.slice(-3);
 
+	useEffect(() => {
 
+		lvl1?.map(async e => {
+			const querySnapshot = await axios.post(`${BASE_URL}/get_user_recharges`, { user_id: e._id }).then(res => res.data);
+
+			if (querySnapshot) {
+				// const confirmedRechange = querySnapshot?.filter(e => e.status === 'confirmed')
+				// const todayrechangelist = confirmedRechange?.filter(e => new Date(e.time)?.toDateString() === today)
+
+				querySnapshot?.map(e => {
+					if (e.status === 'confirmed') {
+						totalRecharge += e.recharge_value
+					}
+					if (e.status === 'confirmed' && new Date(e.time)?.toDateString() === today) {
+						todayRecharge += e.recharge_value
+					}
+				})
+
+			}
+
+		})
+
+		lvl2?.map(async e => {
+			const querySnapshot = await axios.post(`${BASE_URL}/get_user_recharges`, { user_id: e._id }).then(res => res.data);
+
+			if (querySnapshot) {
+				// const confirmedRechange = querySnapshot?.filter(e => e.status === 'confirmed')
+				// const todayrechangelist = confirmedRechange?.filter(e => new Date(e.time)?.toDateString() === today)
+
+				querySnapshot?.map(e => {
+					if (e.status === 'confirmed') {
+						totalRecharge += e.recharge_value
+					}
+					if (e.status === 'confirmed' && new Date(e.time)?.toDateString() === today) {
+						todayRecharge += e.recharge_value
+					}
+				})
+
+			}
+
+		})
+
+		lvl3?.map(async e => {
+			const querySnapshot = await axios.post(`${BASE_URL}/get_user_recharges`, { user_id: e._id }).then(res => res.data);
+
+			if (querySnapshot) {
+				// const confirmedRechange = querySnapshot?.filter(e => e.status === 'confirmed')
+				// const todayrechangelist = confirmedRechange?.filter(e => new Date(e.time)?.toDateString() === today)
+
+				querySnapshot?.map(e => {
+					if (e.status === 'confirmed') {
+						totalRecharge += e.recharge_value
+					}
+					if (e.status === 'confirmed' && new Date(e.time)?.toDateString() === today) {
+						todayRecharge += e.recharge_value
+					}
+				})
+
+			}
+
+		})
+
+	}, [getUserDetails2, lvl1, lvl2, lvl3, setLvl1, setLvl2, setLvl3])
 
 	return (
 		<>
@@ -136,7 +200,7 @@ const Myteams = () => {
 										</div>
 										<div className="flex justify-between items-center" style={{ borderBottom: "1px dotted blue" }}>
 											<span className="text-white">Valid Team Size</span>
-											<span className="text-white">{ lvl1.filter(e => e.plans_purchased.length !== 0).length+ lvl2.filter(e => e.plans_purchased.length !== 0).length + lvl3.filter(e => e.plans_purchased.length !== 0).length} People</span>
+											<span className="text-white">{lvl1.filter(e => e.plans_purchased.length !== 0).length + lvl2.filter(e => e.plans_purchased.length !== 0).length + lvl3.filter(e => e.plans_purchased.length !== 0).length} People</span>
 										</div>
 										<div className="row">
 											<table className="table-responsive border-0 text-center text-white" style={{ marginTop: '12px' }}>
