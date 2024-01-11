@@ -25,7 +25,7 @@ const Records = () => {
 
     var datac = [];
 
-   
+
 
 
 
@@ -66,12 +66,12 @@ const Records = () => {
 
         userDetails?.comissionData?.map(data => {
             commission.push({ type: 'commission', amount: data.comissionAmount, date: data.date, status: 'confirmed' })
-    
+
         })
-    
+
         userDetails?.rewardData?.map(data => {
             rewards.push({ type: 'rewards', amount: data.reward, date: data.date, status: 'confirmed' })
-    
+
         })
 
     }, [])
@@ -92,6 +92,17 @@ const Records = () => {
         }
 
     }, [toggle, setToggle, userDetails, deposit, commission, widthdrawl, rewards, setDeposit, setCommission, setWidthdrawl, setRewards])
+
+    const compareDates = (a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+
+        return dateB-dateA;
+    };
+
+    useEffect(() => {
+        datalist.sort(compareDates)
+    }, [setDatalist])
 
 
     return (
@@ -137,7 +148,7 @@ const Records = () => {
                                             :
                                             <ul className=' text-white'>
 
-                                                {datalist?.map((data, index) =>
+                                                {datalist.sort(compareDates)?.map((data, index) =>
 
                                                     <li key={index} className='my-5 p-3 rounded-[7px] border border-[blue]'>
 
