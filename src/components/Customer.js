@@ -40,7 +40,18 @@ const CustomerCare = () => {
                             <IoIosArrowForward className="text-[blue]" />
                         </a>
 
-                        <a href="https://wa.me/447578046579" className="flex items-center border-[blue]	border p-4 rounded-lg my-3 ">
+                        <a href='https://telegram.me/DNexOfficial91' className="flex items-center border-[blue]	border p-4 rounded-lg my-3 ">
+                            <img className="w-[45px] pr-[10px] border-r border-[blue]" src={TeleImg} alt="" />
+                            <div className="pl-[10px] pr-[10px] ">
+                                <div className="text-white">Telegram</div>
+                                <p className="text-[grey] text-[15px]">
+                                    Click to join official telegram channel
+                                </p>
+                            </div>
+                            <IoIosArrowForward className="text-[blue]" />
+                        </a>
+
+                        {/* <a href="https://wa.me/447578046579" className="flex items-center border-[blue]	border p-4 rounded-lg my-3 ">
                             <img className="w-[45px] pr-[10px] border-r border-[blue]" src={WpImg} alt="" />
                             <div className="pl-[10px] pr-[10px] ">
                                 <div className="text-white">Whatsapp</div>
@@ -49,7 +60,7 @@ const CustomerCare = () => {
                                 </p>
                             </div>
                             <IoIosArrowForward className="text-[blue]" />
-                        </a>
+                        </a> */}
 
                     </div>
 
