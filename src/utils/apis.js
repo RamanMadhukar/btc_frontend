@@ -30,11 +30,16 @@ export const getuserearn = async () => {
 
                 if (plans.plan_cycle === 35 && today > new Date(plans.date_till_rewarded) && today.getDate() !== new Date(plans.date_till_rewarded).getDate()) {
                     earn += plans.plan_daily_earning
+                    return {
+                        ...plans, date_till_rewarded: today
+                    }
+                }
+                else {
+                    return {
+                        ...plans, date_till_rewarded: today
+                    }
                 }
 
-                return {
-                    ...plans, date_till_rewarded: today
-                }
             }
 
             if (today > new Date(plans.fullTime)) {
