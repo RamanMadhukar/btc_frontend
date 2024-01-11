@@ -110,70 +110,70 @@ const Myteams = () => {
 
 	const suffix = userDetails?.mobno?.slice(-3);
 
-	// useEffect(() => {
+	useEffect(() => {
 
-	// 	lvl1?.forEach(async e => {
-	// 		const querySnapshot = await axios.post(`${BASE_URL}/get_user_recharges`, { user_id: e._id }).then(res => res.data);
+		lvl1?.forEach(async e => {
+			const querySnapshot = await axios.post(`${BASE_URL}/get_user_recharges`, { user_id: e._id }).then(res => res.data);
 
-	// 		if (querySnapshot) {
-	// 			// const confirmedRechange = querySnapshot?.filter(e => e.status === 'confirmed')
-	// 			// const todayrechangelist = confirmedRechange?.filter(e => new Date(e.time)?.toDateString() === today)
+			if (querySnapshot) {
+				// const confirmedRechange = querySnapshot?.filter(e => e.status === 'confirmed')
+				// const todayrechangelist = confirmedRechange?.filter(e => new Date(e.time)?.toDateString() === today)
 
-	// 			querySnapshot?.map(e => {
-	// 				if (e.status === 'confirmed') {
-	// 					setTotalRecharge(totalRecharge + e.recharge_value)
-	// 				}
-	// 				if (e.status === 'confirmed' && new Date(e.time)?.toDateString() === today) {
+				querySnapshot?.map(e => {
+					if (e.status === 'confirmed') {
+						setTotalRecharge(totalRecharge + e.recharge_value)
+					}
+					if (e.status === 'confirmed' && new Date(e.time)?.toDateString() === today) {
 
-	// 					setTodayRecharge(todayRecharge + e.recharge_value)
-	// 				}
-	// 			})
+						setTodayRecharge(todayRecharge + e.recharge_value)
+					}
+				})
 
-	// 		}
+			}
 
-	// 	})
+		})
 
-	// 	lvl2?.forEach(async e => {
-	// 		const querySnapshot = await axios.post(`${BASE_URL}/get_user_recharges`, { user_id: e._id }).then(res => res.data);
+		lvl2?.forEach(async e => {
+			const querySnapshot = await axios.post(`${BASE_URL}/get_user_recharges`, { user_id: e._id }).then(res => res.data);
 
-	// 		if (querySnapshot) {
-	// 			// const confirmedRechange = querySnapshot?.filter(e => e.status === 'confirmed')
-	// 			// const todayrechangelist = confirmedRechange?.filter(e => new Date(e.time)?.toDateString() === today)
+			if (querySnapshot) {
+				// const confirmedRechange = querySnapshot?.filter(e => e.status === 'confirmed')
+				// const todayrechangelist = confirmedRechange?.filter(e => new Date(e.time)?.toDateString() === today)
 
-	// 			querySnapshot?.map(e => {
-	// 				if (e.status === 'confirmed') {
-	// 					setTotalRecharge(totalRecharge + e.recharge_value)
-	// 				}
-	// 				if (e.status === 'confirmed' && new Date(e.time)?.toDateString() === today) {
-	// 					setTodayRecharge(todayRecharge + e.recharge_value)
-	// 				}
-	// 			})
+				querySnapshot?.map(e => {
+					if (e.status === 'confirmed') {
+						setTotalRecharge(totalRecharge + e.recharge_value)
+					}
+					if (e.status === 'confirmed' && new Date(e.time)?.toDateString() === today) {
+						setTodayRecharge(todayRecharge + e.recharge_value)
+					}
+				})
 
-	// 		}
+			}
 
-	// 	})
+		})
 
-	// 	lvl3?.forEach(async e => {
-	// 		const querySnapshot = await axios.post(`${BASE_URL}/get_user_recharges`, { user_id: e._id }).then(res => res.data);
+		lvl3?.forEach(async e => {
+			const querySnapshot = await axios.post(`${BASE_URL}/get_user_recharges`, { user_id: e._id }).then(res => res.data);
 
-	// 		if (querySnapshot) {
-	// 			// const confirmedRechange = querySnapshot?.filter(e => e.status === 'confirmed')
-	// 			// const todayrechangelist = confirmedRechange?.filter(e => new Date(e.time)?.toDateString() === today)
+			if (querySnapshot) {
+				// const confirmedRechange = querySnapshot?.filter(e => e.status === 'confirmed')
+				// const todayrechangelist = confirmedRechange?.filter(e => new Date(e.time)?.toDateString() === today)
 
-	// 			querySnapshot?.map(e => {
-	// 				if (e.status === 'confirmed') {
-	// 					setTotalRecharge(totalRecharge + e.recharge_value)
-	// 				}
-	// 				if (e.status === 'confirmed' && new Date(e.time)?.toDateString() === today) {
-	// 					setTodayRecharge(todayRecharge + e.recharge_value)
-	// 				}
-	// 			})
+				querySnapshot?.map(e => {
+					if (e.status === 'confirmed') {
+						setTotalRecharge(totalRecharge + e.recharge_value)
+					}
+					if (e.status === 'confirmed' && new Date(e.time)?.toDateString() === today) {
+						setTodayRecharge(todayRecharge + e.recharge_value)
+					}
+				})
 
-	// 		}
+			}
 
-	// 	})
+		})
 
-	// }, [getUserDetails2, lvl1, lvl2, lvl3, setLvl1, setLvl2, setLvl3])
+	}, [lvl1, lvl2, lvl3])
 
 	return (
 		<>
@@ -201,11 +201,11 @@ const Myteams = () => {
 											<p className="text-white mb-4"> Team Commission </p>
 											<span className="text-white">₹ {(Number(userDetails?.directRecharge + userDetails?.indirectRecharge + userDetails?.in_indirectRecharge)).toFixed(2)}</span>
 										</div>
-										<div className="flex justify-between items-center" style={{ borderBottom: "0px dotted blue" }}>
+										<div className="flex justify-between items-center" style={{ borderBottom: "1px dotted blue" }}>
 											<span className="text-white">Valid Team Size</span>
 											<span className="text-white">{lvl1.filter(e => e.plans_purchased.length !== 0).length + lvl2.filter(e => e.plans_purchased.length !== 0).length + lvl3.filter(e => e.plans_purchased.length !== 0).length} People</span>
 										</div>
-										{/* <div className="row">
+										<div className="row">
 											<table className="table-responsive border-0 text-center text-white" style={{ marginTop: '12px' }}>
 												<tbody>
 													<tr>
@@ -219,7 +219,7 @@ const Myteams = () => {
 														<td>Today Recharge Amount</td>
 													</tr>
 												</tbody></table>
-										</div> */}
+										</div>
 									</div>
 								</div>
 							</div>
@@ -299,8 +299,8 @@ const Myteams = () => {
 							</div>
 						</div>
 					</section>
-				</div >
-			</div >
+				</div>
+			</div>
 
 		</>
 	)
