@@ -28,10 +28,11 @@ const CustomerCare = () => {
                     </header>
 
                     <div>
-                        <a href="https://wa.me/447578046579" className="flex items-center border-[blue]	border p-4 rounded-lg my-3 ">
-                            <img className="w-[45px] pr-[10px] border-r border-[blue]" src={WpImg} alt="" />
+
+                        <a href='https://telegram.me/Johny_Thomas' className="flex items-center border-[blue]	border p-4 rounded-lg my-3 ">
+                            <img className="w-[45px] pr-[10px] border-r border-[blue]" src={TeleImg} alt="" />
                             <div className="pl-[10px] pr-[10px] ">
-                                <div className="text-white">Whatsapp</div>
+                                <div className="text-white">Telegram</div>
                                 <p className="text-[grey] text-[15px]">
                                     Click to contact customer service
                                 </p>
@@ -39,10 +40,10 @@ const CustomerCare = () => {
                             <IoIosArrowForward className="text-[blue]" />
                         </a>
 
-                        <a href='https://telegram.me/Johny_Thomas' className="flex items-center border-[blue]	border p-4 rounded-lg my-3 ">
-                            <img className="w-[45px] pr-[10px] border-r border-[blue]" src={TeleImg} alt="" />
+                        <a href="https://wa.me/447578046579" className="flex items-center border-[blue]	border p-4 rounded-lg my-3 ">
+                            <img className="w-[45px] pr-[10px] border-r border-[blue]" src={WpImg} alt="" />
                             <div className="pl-[10px] pr-[10px] ">
-                                <div className="text-white">Telegram</div>
+                                <div className="text-white">Whatsapp</div>
                                 <p className="text-[grey] text-[15px]">
                                     Click to contact customer service
                                 </p>

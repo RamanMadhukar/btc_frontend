@@ -22,7 +22,8 @@ const BankCardAdd = () => {
             fullName: '',
             bankAccount: '',
             ifsc: '',
-            bankName: ''
+            bankName: '',
+            phoneNo:''
         }
     );
     const [pop, setpop] = useState(false);
@@ -119,6 +120,17 @@ const BankCardAdd = () => {
                                                     id="AccountHolderName"
                                                     className="form-control p-3 colorinput"
                                                     placeholder="Name"
+
+                                                />
+                                            </div>
+                                            <div className="input-group mb-3">
+                                                <input
+                                                    onChange={handleChange}
+                                                    type='text'
+                                                    name='phoneNo'
+                                                    id="AccountHolderName"
+                                                    className="form-control p-3 colorinput"
+                                                    placeholder="Mobile Number"
 
                                                 />
                                             </div>

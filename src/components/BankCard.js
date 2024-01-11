@@ -59,6 +59,7 @@ const BankCard = () => {
                                                 <div className="mb-3">
 
                                                     <p className="text-lg mb-4">Name: &nbsp;  {userDetails?.bank_details?.fullName}</p>
+                                                    <p className="text-lg mb-4">Mobile Number: &nbsp; {userDetails?.bank_details?.phoneNo}</p>
                                                     <p className="text-lg mb-4">Bank Name: &nbsp; {userDetails?.bank_details?.bankName}</p>
                                                     <p className="text-lg mb-4">IfSC:&nbsp; {userDetails?.bank_details?.ifsc} </p>
                                                     <p className="text-lg mb-4">Account: &nbsp; {userDetails?.bank_details?.bankAccount}</p>
