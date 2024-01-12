@@ -172,7 +172,7 @@ const ChangePassword = () => {
                                                     onChange={e => setNewPwd2(e.target.value)}
                                                     type="password"
                                                     className="form-control p-1 colorinput"
-                                                    placeholder="Confiram Password"
+                                                    placeholder="Confirm New Password"
                                                     id="ConfirmPassword" name="ConfirmPassword"
                                                 />
                                                 <span className="text-danger field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>

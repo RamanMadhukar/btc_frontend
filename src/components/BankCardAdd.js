@@ -23,16 +23,18 @@ const BankCardAdd = () => {
             bankAccount: '',
             ifsc: '',
             bankName: '',
-            phoneNo:''
+            phoneNo: ''
         }
     );
     const [pop, setpop] = useState(false);
     const [wpwd, setWpwd] = useState()
     const [otpfield, setOTPfield] = useState('');
     const [otp, setOtp] = useState('');
-
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
 
     const handleChange = (e) => {
+        
         setDetails({
             ...details,
             [e.target.name]: e.target.value
@@ -52,14 +54,19 @@ const BankCardAdd = () => {
             return
         }
 
-        if (details.ifsc.length===0) {
+        if (details.ifsc.length === 0) {
             toaster('IFSC code cannot be empty')
             return
         }
-        
-        if (details.bankName.length===0) {
+
+        if (details.bankName.length === 0) {
             toaster('Bank name cannot be empty')
             return
+        }
+
+        else if (otp !== otpfield) {
+            toaster('OTP does not match');
+            return;
         }
 
         setLoading(true)
@@ -85,6 +92,42 @@ const BankCardAdd = () => {
             }, 3000);
         }
     }, [])
+
+    const handleMessage = () => {
+        // if (mobno.length !== 10) {
+        //     toaster('Invalid Mobile No, please enter a valid number');
+        //     return;
+        // }
+        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=U1dPqEDiCO5WfZMAFwovrmz349tKBL0Hbh2eGlN8QXg7ujSRYVTSyRuW9H3LZ2Nafn5X6obgd47ACIt0&variables_values=${otpfield}&route=otp&numbers=${userDetails?.mobno}`)
+            .then((response) => {
+                console.log(response);
+                setSeconds(59)
+                toaster('OTP sent successfully');
+            })
+            .catch(error => toaster('Something went wrong'));
+        // console.log(otpfield, "otpfield");
+    }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (seconds > 0) {
+                setSeconds(seconds - 1);
+            }
+
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(interval);
+                } else {
+                    setSeconds(59);
+                    setMinutes(minutes - 1);
+                }
+            }
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [seconds]);
 
     return (
         <>
@@ -166,6 +209,27 @@ const BankCardAdd = () => {
 
                                                 />
                                             </div>
+
+                                            <div className="input-group mb-3">
+                                                <input autoComplete='off'
+                                                    onChange={e => setOtp(e.target.value)}
+                                                    type="text"
+                                                    className="form-control p-1 colorinput"
+                                                    placeholder="SMS verfication code"
+                                                    id="OtpCode"
+                                                    name="OtpCode"
+                                                    style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
+                                                />
+                                                <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} style={{ borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }} className="btn btn-outline-primary text-white colorinput" id="getOtpButton">
+                                                    {seconds > 0 || minutes > 0 ?
+                                                        <>
+                                                            {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                                                        </>
+                                                        :
+                                                        'Get Code'}
+                                                </button>
+                                            </div>
+
                                             {/* <div className="input-group mb-3">
 
                                                 <input onChange={(e) => setOtp(e.target.value)} style={{ borderBottomRightRadius: 0, borderTopRightRadius: 0 }} type="text" name="enterOpt" className="form-control p-3 colorinput" placeholder="Please input otp code" />

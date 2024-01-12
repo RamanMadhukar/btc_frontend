@@ -45,10 +45,10 @@ const ProductBuy = () => {
             return
         }
 
-        if (product_type > userDetails.vipLevel) {
-            toaster("Insufficient inventory of products availbale for purchase")
-            return
-        }
+        // if (product_type > userDetails.vipLevel) {
+        //     toaster("Insufficient inventory of products availbale for purchase")
+        //     return
+        // }
         else {
 
             setLoading(true)

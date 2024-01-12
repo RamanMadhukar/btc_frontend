@@ -22,28 +22,51 @@ export const getuserearn = async () => {
     var earn = 0;
     const today = new Date();
 
+
     await axios.post(`/get_user`, { user_id: localStorage.getItem('uid') }).then(async (responce) => {
         plans_purchased = responce.data.plans_purchased;
         plans_purchased = plans_purchased.map((plans, index) => {
 
-            if (today < new Date(plans.fullTime) && today > new Date(plans.date_till_rewarded) && today.getDate() !== new Date(plans.date_till_rewarded).getDate()) {
+            console.log(DateDifference(new Date(plans.date_till_rewarded), today), today, new Date(plans.date_till_rewarded));
 
+            console.log(today > new Date(plans.date_till_rewarded));
+
+            if (today < new Date(plans.fullTime) && today > new Date(plans.date_till_rewarded)) {
+                console.log('run1');
                 if (plans.plan_cycle === 35) {
-                    earn += plans.plan_daily_earning
+                    console.log('run2');
+
+                    if (DateDifference(new Date(plans.date_till_rewarded), today) !== 0) {
+
+                        console.log('run3');
+                        earn += plans.plan_daily_earning
+                        return {
+                            ...plans, date_till_rewarded: today
+                        }
+                    }
+
+                    return {
+                        ...plans
+                    }
                 }
-                
-                return {
-                    ...plans, date_till_rewarded: today
+
+                else {
+
+                    console.log('run4');
+                    return {
+                        ...plans, date_till_rewarded: today
+                    }
                 }
 
             }
 
             if (today > new Date(plans.fullTime)) {
+                console.log('run5');
                 return { ...plans }
             }
 
             if (DateDifference(today, new Date(plans.fullTime)) === 0 && today > new Date(plans.date_till_rewarded) && today.getDate() !== new Date(plans.date_till_rewarded).getDate()) {
-
+                console.log('run6');
                 if (plans.plan_cycle === 35) {
                     earn += plans.plan_daily_earning
                 }
@@ -57,6 +80,7 @@ export const getuserearn = async () => {
                 }
             }
 
+            console.log('run7');
             return {
                 ...plans,
                 date_till_rewarded: today
