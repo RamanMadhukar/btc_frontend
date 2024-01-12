@@ -138,9 +138,9 @@ const Widthdrawl = () => {
                     time: new Date(),
                     balance: userDetails.balance,
                     status: 'pending'
-                }).then(() => {
+                }).then(({data}) => {
                     setLoading(false)
-                    toaster('Withdrawal request placed successfully!');
+                    toaster(data.message);
                     setOTPfield('')
                     setOtp('')
                     setTimeout(() => {

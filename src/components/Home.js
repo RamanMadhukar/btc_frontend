@@ -41,8 +41,6 @@ const Home = () => {
     const navigate = useNavigate();
     const location = useLocation().state;
 
-    console.log(location);
-
 
     const { userDetails, setUserDetails, getUserDetails, user, toaster, vipimg } = useContext(ContextApi);
 
