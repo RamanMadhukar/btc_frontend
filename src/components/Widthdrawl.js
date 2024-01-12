@@ -327,7 +327,7 @@ const Widthdrawl = () => {
                                                 {isBetween() ?
                                                     <button disabled={nextBtn} onClick={handleWithdrawal} style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn btn-primary w-fit" >Withdrawal</button>
                                                     :
-                                                    <button onClick={() => { toaster('You can withdraw only between 09:00:00 to 21:00:00 ') }} style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn btn-primary w-fit" >Withdrawal</button>
+                                                    <button onClick={() => { toaster('You can withdraw only between 10am to 5pm ') }} style={{ fontSize: '.75rem', padding: '0.15rem 0.5rem', borderRadius: '5px' }} className="btn btn-primary w-fit" >Withdrawal</button>
                                                 }
                                             </div>
 
