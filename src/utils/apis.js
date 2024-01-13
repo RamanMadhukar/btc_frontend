@@ -27,53 +27,78 @@ export const getuserearn = async () => {
         plans_purchased = responce.data.plans_purchased;
         plans_purchased = plans_purchased.map((plans, index) => {
 
-            if (today < new Date(plans.fullTime) && today > new Date(plans.date_till_rewarded) && today.getDate() !== new Date(plans.date_till_rewarded).getDate()) {
+            // if (today < new Date(plans.fullTime) && today > new Date(plans.date_till_rewarded) && today.getDate() !== new Date(plans.date_till_rewarded).getDate()) {
+            //     if (plans.plan_cycle === 35) {
+
+            //         if (DateDifference(new Date(plans.date_till_rewarded), today) !== 0) {
+
+            //             earn += plans.plan_daily_earning
+            //             return {
+            //                 ...plans, date_till_rewarded: today
+            //             }
+            //         }
+
+            //         return {
+            //             ...plans
+            //         }
+            //     }
+
+            //     else {
+
+            //         return {
+            //             ...plans, date_till_rewarded: today
+            //         }
+            //     }
+
+            // }
+
+            // if (today > new Date(plans.fullTime)) {
+            //     return { ...plans }
+            // }
+
+            // if (DateDifference(today, new Date(plans.fullTime)) === 0 && today > new Date(plans.date_till_rewarded) && today.getDate() !== new Date(plans.date_till_rewarded).getDate()) {
+            //     if (plans.plan_cycle === 35) {
+            //         earn += plans.plan_daily_earning
+            //     }
+            //     else {
+            //         earn += plans.plan_daily_earning * plans.plan_cycle * plans.quantity;
+            //     }
+
+            //     return {
+            //         ...plans,
+            //         date_till_rewarded: today
+            //     }
+            // }
+
+            // return {
+            //     ...plans,
+            //     date_till_rewarded: today
+            // }
+
+            if (today < new Date(plans.fullTime)) {
                 if (plans.plan_cycle === 35) {
 
-                    if (DateDifference(new Date(plans.date_till_rewarded), today) !== 0) {
-
+                    if (new Date(plans.fullTime).getHours() !== new Date(plans.date_till_rewarded).getHours() &&
+                        new Date(plans.fullTime).getMinutes() !== new Date(plans.date_till_rewarded).getMinutes() &&
+                        new Date(plans.fullTime).getSeconds() !== new Date(plans.date_till_rewarded).getSeconds()
+                    ) {
                         earn += plans.plan_daily_earning
+                        console.log('run');
                         return {
-                            ...plans, date_till_rewarded: today
+                            ...plans, date_till_rewarded: today.setHours(new Date(plans.fullTime).getHours(), new Date(plans.fullTime).getMinutes(), new Date(plans.fullTime).getSeconds())
                         }
                     }
 
-                    return {
-                        ...plans
-                    }
-                }
-
-                else {
-
-                    return {
-                        ...plans, date_till_rewarded: today
-                    }
-                }
-
-            }
-
-            if (today > new Date(plans.fullTime)) {
-                return { ...plans }
-            }
-
-            if (DateDifference(today, new Date(plans.fullTime)) === 0 && today > new Date(plans.date_till_rewarded) && today.getDate() !== new Date(plans.date_till_rewarded).getDate()) {
-                if (plans.plan_cycle === 35) {
-                    earn += plans.plan_daily_earning
-                }
-                else {
-                    earn += plans.plan_daily_earning * plans.plan_cycle * plans.quantity;
-                }
-
-                return {
-                    ...plans,
-                    date_till_rewarded: today
                 }
             }
-
+            // console.log(new Date(plans.fullTime).getHours());
+            // console.log(new Date(plans.fullTime).getMinutes());
+            // console.log(new Date(plans.fullTime).getSeconds());
             return {
                 ...plans,
-                date_till_rewarded: today
+                date_till_rewarded: today.setHours(new Date(plans.fullTime).getHours(), new Date(plans.fullTime).getMinutes(), new Date(plans.fullTime).getSeconds())
             }
+
 
 
         })
