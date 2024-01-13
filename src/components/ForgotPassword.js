@@ -45,6 +45,7 @@ const ForgotPassword = () => {
     const [loginpwd2, setLoginpwd2] = useState('password')
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
+    const [token, setToken] = useState('')
 
     const secrethandel = type => {
 
@@ -68,28 +69,41 @@ const ForgotPassword = () => {
         }
     }
 
-    const handleMessage = () => {
+    const handleMessage = async () => {
         if (mobno.length !== 10) {
             toaster('Invalid Mobile No, please enter a valid number');
             return;
         }
-        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=U1dPqEDiCO5WfZMAFwovrmz349tKBL0Hbh2eGlN8QXg7ujSRYVTSyRuW9H3LZ2Nafn5X6obgd47ACIt0&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
-            .then((response) => {
-                console.log(response);
-                setSeconds(59)
-                toaster('OTP sent successfully');
-            })
-            .catch(error => toaster('Something went wrong'));
+        // fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=U1dPqEDiCO5WfZMAFwovrmz349tKBL0Hbh2eGlN8QXg7ujSRYVTSyRuW9H3LZ2Nafn5X6obgd47ACIt0&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
+        //     .then((response) => {
+        //         console.log(response);
+        //         setSeconds(59)
+        //         toaster('OTP sent successfully');
+        //     })
+        //     .catch(error => toaster('Something went wrong'));
         // console.log(otpfield, "otpfield");
+        await axios.post(`${BASE_URL}/get-otp`, { phoneNumber: mobno }).then(response => {
+            if (response.status === 201) {
+                setToken(response.data.activationToken)
+                toaster("OTP sent successfully")
+            }
+            else {
+                toaster('Something went wrong')
+                console.log(response);
+            }
+        }).catch(error => {
+            console.log(error);
+            toaster('Something went wrong')
+        });
     }
 
     const validatePassword = password => /[a-zA-Z]/.test(password) && /[0-9!@#$%^&*(),.?":{}|<>]/.test(password);
 
     const handleRegister = async () => {
 
-        if (otp !== otpfield) {
-            toaster('Otp does not match')
-        }
+        // if (otp !== otpfield) {
+        //     toaster('Otp does not match')
+        // }
 
         if (pwd.length < 6) {
             toaster('Password must contain at least 6 characters!');
@@ -109,7 +123,7 @@ const ForgotPassword = () => {
         else {
 
             await axios.post(`${BASE_URL}/forgot_password`,
-                { new_pwd: newPwd, mobno }).then(() => {
+                { new_pwd: newPwd, mobno, token, otp }).then(() => {
                     // setOtp('');
                     // setOTPfield('');
                     setMobno('');
@@ -121,7 +135,7 @@ const ForgotPassword = () => {
                         navigate('/login')
                     }, 3000);
                 })
-                .catch(error => toaster('Some Error Occured'));
+                .catch(error => toaster(error.response.data.message));
         }
 
     }
