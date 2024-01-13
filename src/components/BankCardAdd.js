@@ -32,9 +32,10 @@ const BankCardAdd = () => {
     const [otp, setOtp] = useState('');
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
+    const [token, setToken] = useState('')
 
     const handleChange = (e) => {
-        
+
         setDetails({
             ...details,
             [e.target.name]: e.target.value
@@ -64,19 +65,19 @@ const BankCardAdd = () => {
             return
         }
 
-        else if (otp !== otpfield) {
-            toaster('OTP does not match');
-            return;
-        }
+        // else if (otp !== otpfield) {
+        //     toaster('OTP does not match');
+        //     return;
+        // }
 
         setLoading(true)
-        await axios.post(`${BASE_URL}/bank_details`, { user_id: localStorage.getItem('uid'), bank_details: details })
+        await axios.post(`${BASE_URL}/bank_details`, { user_id: localStorage.getItem('uid'), bank_details: details, otp, token })
             .then(() => {
                 setLoading(false)
                 toaster('Account has been added');
                 navigate('/bankcard')
             })
-            .catch(() => { setLoading(false); toaster('Some error Occured') }
+            .catch((error) => { setLoading(false); toaster(error.response.data.message) }
             );
 
     }
@@ -93,19 +94,33 @@ const BankCardAdd = () => {
         }
     }, [])
 
-    const handleMessage = () => {
+    const handleMessage = async () => {
         // if (mobno.length !== 10) {
         //     toaster('Invalid Mobile No, please enter a valid number');
         //     return;
         // }
-        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=U1dPqEDiCO5WfZMAFwovrmz349tKBL0Hbh2eGlN8QXg7ujSRYVTSyRuW9H3LZ2Nafn5X6obgd47ACIt0&variables_values=${otpfield}&route=otp&numbers=${userDetails?.mobno}`)
-            .then((response) => {
-                console.log(response);
-                setSeconds(59)
-                toaster('OTP sent successfully');
-            })
-            .catch(error => toaster('Something went wrong'));
+        // fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=U1dPqEDiCO5WfZMAFwovrmz349tKBL0Hbh2eGlN8QXg7ujSRYVTSyRuW9H3LZ2Nafn5X6obgd47ACIt0&variables_values=${otpfield}&route=otp&numbers=${userDetails?.mobno}`)
+        //     .then((response) => {
+        //         console.log(response);
+        //         setSeconds(59)
+        //         toaster('OTP sent successfully');
+        //     })
+        //     .catch(error => toaster('Something went wrong'));
         // console.log(otpfield, "otpfield");
+
+        await axios.post(`${BASE_URL}/get-otp`, { phoneNumber: userDetails?.mobno }).then(response => {
+            if (response.status === 201) {
+                setToken(response.data.activationToken)
+                toaster("OTP sent successfully")
+            }
+            else {
+                toaster('Something went wrong')
+                console.log(response);
+            }
+        }).catch(error => {
+            console.log(error);
+            toaster('Something went wrong')
+        });
     }
 
     useEffect(() => {
