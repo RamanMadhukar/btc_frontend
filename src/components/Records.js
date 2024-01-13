@@ -23,8 +23,6 @@ const Records = () => {
     const [rewards, setRewards] = useState([])
     const [commission, setCommission] = useState([])
 
-    var datac = [];
-
 
 
 
@@ -64,17 +62,25 @@ const Records = () => {
         }
         getWithdrawals_list();
 
-        userDetails?.comissionData?.map(data => {
-            commission.push({ type: 'commission', amount: data.comissionAmount, date: data.date, status: 'confirmed' })
+        var datac = [];
+
+        userDetails?.comissionData?.forEach(data => {
+            datac.push({ type: 'commission', amount: data.comissionAmount, date: data.date, status: 'confirmed' })
 
         })
 
-        userDetails?.rewardData?.map(data => {
-            rewards.push({ type: 'rewards', amount: data.reward, date: data.date, status: 'confirmed' })
+        setCommission(datac)
+
+        var datar = [];
+
+        userDetails?.rewardData?.forEach(data => {
+            datar.push({ type: 'rewards', amount: data.reward, date: data.date, status: 'confirmed' })
 
         })
 
-    }, [])
+        setRewards(datar)
+
+    }, [getUserDetails])
 
     const nameMapper = {
         confirmed: 'success',
@@ -97,7 +103,7 @@ const Records = () => {
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
 
-        return dateB-dateA;
+        return dateB - dateA;
     };
 
     useEffect(() => {

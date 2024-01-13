@@ -39,8 +39,8 @@ const Vip = () => {
         level1()
     }, [])
 
-    const activation = async (reward) => {
-        await axios.post(`${BASE_URL}/task_reward`, { _id: localStorage.getItem('uid'), count: level_1, reward }).then(responce => {
+    const activation = async (reward, mem) => {
+        await axios.post(`${BASE_URL}/task_reward`, { _id: localStorage.getItem('uid'), count: mem, reward: reward }).then(responce => {
             // console.log(responce);
             toaster(responce.data.message)
 
@@ -50,6 +50,11 @@ const Vip = () => {
         })
 
     }
+
+
+    useEffect(() => {
+        getUserDetails()
+    }, [toaster])
 
 
     return (
@@ -96,7 +101,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>5?'5':level_1}</td>
+                                                                <td>{level_1 > 5 ? '5' : level_1}</td>
                                                                 <td>5</td>
                                                                 <td>200Rs</td>
                                                             </tr>
@@ -110,7 +115,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 5 && level_1 >= 5 ?
-                                                        <button onClick={() => activation(200)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(200, 5)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -145,7 +150,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>10?'10':level_1}</td>
+                                                                <td>{level_1 > 10 ? '10' : level_1}</td>
                                                                 <td>10</td>
                                                                 <td>500Rs</td>
                                                             </tr>
@@ -159,7 +164,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 10 && level_1 >= 10 ?
-                                                        <button onClick={() => activation(500)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(500, 10)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -194,7 +199,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>20?'20':level_1}</td>
+                                                                <td>{level_1 > 20 ? '20' : level_1}</td>
                                                                 <td>20</td>
                                                                 <td>1500Rs</td>
                                                             </tr>
@@ -208,7 +213,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 20 && level_1 >= 20 ?
-                                                        <button onClick={() => activation(1500)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(1500, 20)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -243,7 +248,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>35?'35':level_1}</td>
+                                                                <td>{level_1 > 35 ? '35' : level_1}</td>
                                                                 <td>35</td>
                                                                 <td>3000Rs</td>
                                                             </tr>
@@ -257,7 +262,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 35 && level_1 >= 35 ?
-                                                        <button onClick={() => activation(3000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(3000, 35)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -292,7 +297,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>50?'50':level_1}</td>
+                                                                <td>{level_1 > 50 ? '50' : level_1}</td>
                                                                 <td>50</td>
                                                                 <td>5000Rs</td>
                                                             </tr>
@@ -306,7 +311,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 50 && level_1 >= 50 ?
-                                                        <button onClick={() => activation(5000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(5000, 50)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -341,7 +346,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>80?'80':level_1}</td>
+                                                                <td>{level_1 > 80 ? '80' : level_1}</td>
                                                                 <td>80</td>
                                                                 <td>8000Rs</td>
                                                             </tr>
@@ -355,7 +360,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 80 && level_1 >= 80 ?
-                                                        <button onClick={() => activation(8000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(8000, 80)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -390,7 +395,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>150?'150':level_1}</td>
+                                                                <td>{level_1 > 150 ? '150' : level_1}</td>
                                                                 <td>150</td>
                                                                 <td>15000Rs</td>
                                                             </tr>
@@ -404,7 +409,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 150 && level_1 >= 150 ?
-                                                        <button onClick={() => activation(15000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(15000, 150)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -439,7 +444,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>250?'250':level_1}</td>
+                                                                <td>{level_1 > 250 ? '250' : level_1}</td>
                                                                 <td>250</td>
                                                                 <td>35000Rs</td>
                                                             </tr>
@@ -453,7 +458,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 250 && level_1 >= 250 ?
-                                                        <button onClick={() => activation(35000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(35000, 250)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -488,7 +493,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>500?'500':level_1}</td>
+                                                                <td>{level_1 > 500 ? '500' : level_1}</td>
                                                                 <td>500</td>
                                                                 <td>60000Rs</td>
                                                             </tr>
@@ -502,7 +507,7 @@ const Vip = () => {
                                                 </div>
                                                 <div className=" mt-2">
                                                     {userDetails?.vipMemcount < 500 && level_1 >= 500 ?
-                                                        <button onClick={() => activation(60000)} className="btn btn-primary btn-sm w-full ">Go It</button>
+                                                        <button onClick={() => activation(60000, 500)} className="btn btn-primary btn-sm w-full ">Go It</button>
                                                         :
                                                         <button disabled className="btn btn-primary btn-sm w-full " style={{ background: 'gray', border: 'gray' }}>Go It</button>
                                                     }
@@ -537,7 +542,7 @@ const Vip = () => {
                                                             <th>Rewards</th>
                                                         </tr>
                                                             <tr style={{ fontSize: '10px' }}>
-                                                                <td>{level_1>800?'800':level_1}</td>
+                                                                <td>{level_1 > 800 ? '800' : level_1}</td>
                                                                 <td>800</td>
                                                                 <td>150000Rs</td>
                                                             </tr>
