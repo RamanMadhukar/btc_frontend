@@ -39,8 +39,8 @@ const Deposit = () => {
 
     const handleRecharge = () => {
         if (parseInt(Deposit)) {
-            if (Number(amounts.amount) > Number(Deposit)) {
-                toaster(`Amount should be greater than ₹${amounts.amount}`);
+            if (Number(350) > Number(Deposit)) {
+                toaster(`Amount should be greater than ₹${350}`);
                 return;
             }
             // navigate(`/recharge_window/${Deposit}`);
@@ -151,13 +151,13 @@ const Deposit = () => {
                                         <span><input autoComplete='off' type="radio" className="bankOption" name="bankOption" value="2" onChange={(e) => setUpichannel(e.target.value)} /></span>
                                     </div>
 
-                                    <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
+                                    {/* <div className="flex justify-between items-center mb-2" style={{ borderBottom: '1px solid blue' }}>
                                         <label className="text-white text-[15px] flex items-center">
                                             <PiArrowCircleUpRightLight size={15} className='mx-2' />Pay Using our Crypto Channel-3
                                         </label>
                                         <span><input autoComplete='off' type="radio" className="bankOption1" name="bankOption" value="3" onChange={(e) => setUpichannel(e.target.value)} /></span>
 
-                                    </div>
+                                    </div> */}
                                 </div>
                                 {/* <div id="crypto-details" className="mb-1" style="display: none;">
                                     <div className="row justify-content-center">
@@ -185,7 +185,7 @@ const Deposit = () => {
                         </div>
                     </div>
 
-                    <p className="text-white text-center mt-3 mb-4"><small>The minimum recharge amount is  300Rs</small></p>
+                    <p className="text-white text-center mt-3 mb-4"><small>The minimum recharge amount is  350Rs</small></p>
 
                     <div className="text-center mb-5">
                         <button onClick={handleRecharge} className="btn btn-primary">Recharge</button>

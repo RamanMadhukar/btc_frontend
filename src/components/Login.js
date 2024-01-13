@@ -69,7 +69,7 @@ const Login = () => {
                 setUser(data.user_details._id)
                 toaster('Success')
 
-                console.log(data);
+                // console.log(data);
 
                 if (data.reward.message) {
 
@@ -104,7 +104,7 @@ const Login = () => {
 
     const secrethandel = type => {
 
-        console.log(type);
+        // console.log(type);
 
         if (type === 'loginpwd') {
             if (loginpwd === 'password') {
@@ -176,7 +176,7 @@ const Login = () => {
                                                 type="tel"
                                                 placeholder="Phone Number"
                                                 name="pattern"
-                                                maxlength="10"
+                                                maxLength="10"
                                                 className='bg-transparent border-transparent outline-none  text-white pl-[10px] flex-grow'
                                                 autoComplete='off'
                                             />
@@ -195,7 +195,7 @@ const Login = () => {
                                                 type={loginpwd}
                                                 placeholder="Password"
                                                 name="pattern"
-                                                maxlength="10"
+                                                maxLength="10"
                                                 className='bg-transparent border-transparent outline-none  text-white pl-[10px] flex-grow'
 
                                             />
@@ -227,7 +227,7 @@ const Login = () => {
                         </div>
 
                         <div className='text-center text-white'>
-                            <p class="footer">
+                            <p className="footer">
                                 <Link to={'/signup'} >Create Account</Link>
                             </p>
                         </div>
