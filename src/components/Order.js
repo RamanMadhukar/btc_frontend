@@ -21,6 +21,8 @@ const Order = () => {
 
     const navigate = useNavigate();
 
+    const today = new Date()
+
 
     const { userDetails, setUserDetails, setUser, getUserDetails, toaster, user } = useContext(ContextApi);
 
@@ -104,7 +106,7 @@ const Order = () => {
                                                                         <div className="row">
                                                                             <div className="mb-3">
                                                                                 <p className="text-base mb-1">plan amount: &#8377;{element.plan_amount}</p>
-                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
+                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), today) * element.quantity * element.plan_daily_earning}</p>
                                                                                 <p className="text-base mb-1">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
                                                                                 <p className="text-base mb-1">time: {new Date(element.date_purchased).toDateString()}</p>
                                                                                 <p className="text-base mb-1">Plan Cycle: {element.plan_cycle}</p>
@@ -154,7 +156,7 @@ const Order = () => {
                                                                         <div className="row">
                                                                             <div className="mb-2 capitalize">
                                                                                 <p className="text-base mb-1">plan amount: &#8377;{element.plan_amount}</p>
-                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
+                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), today) * element.quantity * element.plan_daily_earning}</p>
                                                                                 <p className="text-base mb-1">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
                                                                                 <p className="text-base mb-1">time: {new Date(element.date_purchased).toDateString()}</p>
                                                                                 <p className="text-base mb-1">Plan Cycle: {element.plan_cycle}</p>
