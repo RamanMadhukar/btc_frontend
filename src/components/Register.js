@@ -48,7 +48,7 @@ const Register = () => {
     const [loginpwd2, setLoginpwd2] = useState('password')
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
-
+    const [token, setToken] = useState('')
 
     const secrethandel = type => {
 
@@ -76,10 +76,10 @@ const Register = () => {
 
     const handleRegister = async () => {
 
-        if (otp !== otpfield) {
-            toaster('Wrong otp');
-            return;
-        }
+        // if (otp !== otpfield) {
+        //     toaster('Wrong otp');
+        //     return;
+        // }
 
         if (mobno.length !== 10) {
             toaster('Invalid Mobile Number');
@@ -103,7 +103,7 @@ const Register = () => {
 
         setLoading(true);
 
-        await axios.post(`${BASE_URL}/register`, { mobno, pwd, invt })
+        await axios.post(`${BASE_URL}/register`, { mobno, pwd, invt, token, otp })
             .then(({ data }) => {
                 if (data.message === 'Mobile Number already registered!') {
                     toaster('Mobile Number already registered!');
@@ -130,25 +130,38 @@ const Register = () => {
                 }
             })
             .catch((error) => {
-                toaster('Something went wrong');
+                toaster(error.response.data.message);
                 setLoading(false)
-                console.error(error);
+                console.log(error);
             });
     }
 
-    const handleMessage = () => {
+    const handleMessage = async () => {
         if (mobno.length !== 10) {
             toaster('Invalid Mobile No, please enter a valid number');
             return;
         }
-        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=U1dPqEDiCO5WfZMAFwovrmz349tKBL0Hbh2eGlN8QXg7ujSRYVTSyRuW9H3LZ2Nafn5X6obgd47ACIt0&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
-            .then((response) => {
+        // fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=U1dPqEDiCO5WfZMAFwovrmz349tKBL0Hbh2eGlN8QXg7ujSRYVTSyRuW9H3LZ2Nafn5X6obgd47ACIt0&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
+        //     .then((response) => {
+        //         console.log(response);
+        //         setSeconds(59)
+        //         toaster('OTP sent successfully');
+        //     })
+        //     .catch(error => toaster('Something went wrong'));
+        // // console.log(otpfield, "otpfield");
+        await axios.post(`${BASE_URL}/get-otp`, { phoneNumber: mobno }).then(response => {
+            if (response.status === 201) {
+                setToken(response.data.activationToken)
+                toaster("OTP sent successfully")
+            }
+            else {
+                toaster('Something went wrong')
                 console.log(response);
-                setSeconds(59)
-                toaster('OTP sent successfully');
-            })
-            .catch(error => toaster('Something went wrong'));
-        // console.log(otpfield, "otpfield");
+            }
+        }).catch(error => {
+            console.log(error);
+            toaster('Something went wrong')
+        });
     }
 
     useEffect(() => {
@@ -305,7 +318,7 @@ const Register = () => {
                                         </div>
 
 
-                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} className="verfy_title " style={{minWidth:'51px'}}>
+                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} className="verfy_title " style={{ minWidth: '51px' }}>
 
                                             {seconds > 0 || minutes > 0 ?
                                                 <>
