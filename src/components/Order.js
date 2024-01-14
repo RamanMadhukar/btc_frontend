@@ -6,7 +6,8 @@ import { HiMiniArrowLongLeft } from 'react-icons/hi2';
 
 const DateDifference = (date1, date2) => {
 
-
+    date1.setHours(0, 0, 0, 0)
+    date2.setHours(0, 0, 0, 0)
     //console.log(date1, date2);    
     var Difference_In_Time = date2.getTime() - date1.getTime();
     //console.log(Difference_In_Time);
@@ -106,7 +107,7 @@ const Order = () => {
                                                                         <div className="row">
                                                                             <div className="mb-3">
                                                                                 <p className="text-base mb-1">plan amount: &#8377;{element.plan_amount}</p>
-                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), today) * element.quantity * element.plan_daily_earning}</p>
+                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
                                                                                 <p className="text-base mb-1">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
                                                                                 <p className="text-base mb-1">time: {new Date(element.date_purchased).toDateString()}</p>
                                                                                 <p className="text-base mb-1">Plan Cycle: {element.plan_cycle}</p>
@@ -156,7 +157,7 @@ const Order = () => {
                                                                         <div className="row">
                                                                             <div className="mb-2 capitalize">
                                                                                 <p className="text-base mb-1">plan amount: &#8377;{element.plan_amount}</p>
-                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), today) * element.quantity * element.plan_daily_earning}</p>
+                                                                                <p className="text-base mb-1">earn: &#8377;{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}</p>
                                                                                 <p className="text-base mb-1">total revenue: {element.plan_daily_earning * element.plan_cycle}</p>
                                                                                 <p className="text-base mb-1">time: {new Date(element.date_purchased).toDateString()}</p>
                                                                                 <p className="text-base mb-1">Plan Cycle: {element.plan_cycle}</p>
