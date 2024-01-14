@@ -79,10 +79,10 @@ const Widthdrawl = () => {
             return;
         }
 
-        if (new Date().getDay() === 0) {
-            toaster('widthdrawl is off on sunday');
-            return;
-        }
+        // if (new Date().getDay() === 0) {
+        //     toaster('widthdrawl is off on sunday');
+        //     return;
+        // }
 
         // if (otp !== otpfield) {
         //     toaster('Wrong otp');
