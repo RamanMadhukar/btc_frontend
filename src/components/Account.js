@@ -125,12 +125,12 @@ const Account = () => {
                                             <span className="text-white textsizeall">Today profit</span>
                                         </div>
                                     </div> */}
-                                    <div className="col-lg-4 col-4">
+                                    {/* <div className="col-lg-4 col-4">
                                         <div className="text-center">
                                             <h5 className="text-white">₹ {(userDetails?.earning)?.toFixed(2)}</h5>
                                             <span className="text-white textsizeall">Total Profit</span>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                             <div className="row justify-between">
