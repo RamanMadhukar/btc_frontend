@@ -105,15 +105,15 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
 
         const plan = userDetails?.plans_purchased?.filter((e) => e.plan_amount === plan_amount)
 
-        if (plan?.length !== 0) {
+        if (plan?.length !== 0 && product_type !== 0) {
             toaster('You can buy this plan only once')
             return
         }
 
-        else if (userDetails?.plans_purchased.length === 0 && product_type !== 0){
-            toaster('Buy ordinary plan first')
-            return
-        }
+        // else if (userDetails?.plans_purchased.length === 0 && product_type !== 0){
+        //     toaster('Buy ordinary plan first')
+        //     return
+        // }
 
         else {
 
