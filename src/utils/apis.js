@@ -25,25 +25,34 @@ export const getuserearn = async () => {
 
     await axios.post(`/get_user`, { user_id: localStorage.getItem('uid') }).then(async (responce) => {
         plans_purchased = responce.data.plans_purchased;
+
         plans_purchased = plans_purchased.map((plans, index) => {
 
+            const fullTime = new Date(plans.fullTime).toDateString();
+            // console.log(new Date(fullTime));
+            // console.log(DateDifference(today, new Date(fullTime)));
 
-            if (today < new Date(plans.fullTime)) {
+            if (today < new Date(fullTime)) {
 
                 if (plans.plan_cycle === 35 && today > new Date(plans.date_till_rewarded)) {
                     earn += plans.plan_daily_earning
+                    return {
+                        ...plans, date_till_rewarded: today.toDateString()
+                    }
                 }
-
+                // console.log('run1',plans.plan_cycle,earn);
                 return {
-                    ...plans, date_till_rewarded: today.toDateString()
+                    ...plans
                 }
             }
 
-            if (today > new Date(plans.fullTime)) {
-                return { ...plans }
-            }
+            // if (today > new Date(fullTime)) {
+            //     console.log('run2');
+            //     return { ...plans }
+            // }
 
-            if (DateDifference(today, new Date(plans.fullTime)) === 0 && today > new Date(plans.date_till_rewarded)) {
+
+            if ((DateDifference(today, new Date(fullTime)) === 0 && plans.date_till_rewarded !== 'true') || (DateDifference(today, new Date(fullTime)) === -1 && plans.date_till_rewarded !== 'true')) {
 
                 if (plans.plan_cycle === 35) {
                     earn += plans.plan_daily_earning
@@ -52,15 +61,17 @@ export const getuserearn = async () => {
                     earn += plans.plan_daily_earning * plans.plan_cycle * plans.quantity;
                 }
 
+                // console.log('run',plans.plan_cycle,earn);
                 return {
                     ...plans,
-                    date_till_rewarded: today.toDateString()
+                    date_till_rewarded: 'true'
                 }
             }
 
-            return {
+                // console.log('run3',plans.plan_cycle,earn);
+                return {
                 ...plans,
-                date_till_rewarded: today.toDateString()
+                // date_till_rewarded: today.toDateString()
             }
 
 
