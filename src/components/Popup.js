@@ -45,9 +45,13 @@ const Popup = () => {
                             <p className='text-[#787b8a] py-5'><img src={calender} alt="" className='w-5 inline-block' /> Launch date: November 19, 2023</p> */}
 
                         <div className="text-[white]">
-                            Set up in 1970, DNeX is a global technology company operating in three business segments namely, Technology, Energy, and Information Technology (“IT”).
-                            <br /><br />
-                            Our businesses strive to provide customised services, solutions and infrastructures. Each service offered is meticulously engineered and led by industry experts.
+                            ✅Dear Dnex Users Daily New Update Join Our Official Telegram Channel. <br />
+                            🎁EveryDay Free Lifafa 3 <br /><br />
+
+                            ✅ Ordinary Plan Daily withdrawal Available. <br />
+                            ✅ invite 3 Level Commission 10% 3% 2% Invite friends Get Commission . <br />
+                            ✅ Withdrawal time 10Am to 5Pm Minimum withdrawal Amount 130rs <br />
+                            👑Vaild Members Vip upgrade Extra Reward 200₹ to 150₹ 🏆
                         </div>
 
 
