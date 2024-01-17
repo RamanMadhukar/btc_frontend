@@ -46,12 +46,11 @@ const Popup = () => {
 
                         <div className="text-[white]">
                             ✅Dear Dnex Users Daily New Update Join Our Official Telegram Channel. <br />
-                            🎁EveryDay Free Lifafa 3 <br /><br />
-
+                            🎁EveryDay Free Lifafa 3₹. <br />
                             ✅ Ordinary Plan Daily withdrawal Available. <br />
-                            ✅ invite 3 Level Commission 10% 3% 2% Invite friends Get Commission . <br />
-                            ✅ Withdrawal time 10Am to 5Pm Minimum withdrawal Amount 130rs <br />
-                            👑Vaild Members Vip upgrade Extra Reward 200₹ to 150₹ 🏆
+                            ✅ invite 3 Level Commission 10% 3% 2% Invite friends Get Commission. <br /> 
+                            ✅ Withdrawal time 10Am to 5Pm Minimum withdrawal Amount 130rs. <br />
+                            👑Vaild Members Vip upgrade Extra Reward 200₹ to 150000₹ 🏆 <br />
                         </div>
 
 
