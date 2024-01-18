@@ -218,6 +218,15 @@ const Home = () => {
                         </div> */}
 
                             <ProductCard
+                                product_image={b3}
+                                product_type={1}
+                                plan_cycle={10}
+                                plan_amount={1100}
+                                plan_daily_earning={160}
+                                pre_sale={false}
+                            />
+
+                            <ProductCard
                                 product_image={b5}
                                 product_type={1}
                                 plan_cycle={5}
@@ -226,14 +235,6 @@ const Home = () => {
                                 pre_sale={false}
                             />
 
-                            <ProductCard
-                                product_image={b3}
-                                product_type={1}
-                                plan_cycle={10}
-                                plan_amount={1100}
-                                plan_daily_earning={160}
-                                pre_sale={false}
-                            />
                         </>
 
                     }
