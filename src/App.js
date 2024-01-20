@@ -166,7 +166,7 @@ function App() {
           toaster, getUserDetails,
           amounts, setAmounsts,
           earning, setEarning,
-          vipimg, setVipimg
+          vipimg, setVipimg,getData
         }
       }>
         <BrowserRouter>

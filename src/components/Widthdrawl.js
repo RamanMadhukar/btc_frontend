@@ -17,7 +17,7 @@ const Widthdrawl = () => {
     const navigate = useNavigate();
 
 
-    const { userDetails, setLoading, setUserDetails, getUserDetails, user, toaster, amounts, setAmounsts } = useContext(ContextApi);
+    const { userDetails, setLoading, setUserDetails, getUserDetails, user, toaster, amounts, setAmounsts, getData } = useContext(ContextApi);
     const [loginpwd, setLoginpwd] = useState('password')
     const [loginpwd2, setLoginpwd2] = useState('password')
     const [nextBtn, setnextBtn] = useState(false)
@@ -25,6 +25,11 @@ const Widthdrawl = () => {
     const [seconds, setSeconds] = useState(0);
     const [otpfield, setOTPfield] = useState('');
     const [otp, setOtp] = useState('');
+
+    useEffect(() => {
+        getData()
+    }, [])
+
 
 
     // console.log(amounts);
@@ -96,7 +101,7 @@ const Widthdrawl = () => {
             return;
         }
 
-        if ((Number(deposit)) < Number(250)) {
+        if ((Number(deposit)) < Number(amounts.mwamount)) {
             //console.log((Number(deposit)+Number(amounts.withdrawal_fee)), Number(amounts.mwamount));
             toaster(`Amount should be greater than ${250}`);
             //console.log(deposit, amounts.amount);
@@ -138,7 +143,7 @@ const Widthdrawl = () => {
                     time: new Date(),
                     balance: userDetails.balance,
                     status: 'pending'
-                }).then(({data}) => {
+                }).then(({ data }) => {
                     setLoading(false)
                     toaster(data.message);
                     setOTPfield('')
