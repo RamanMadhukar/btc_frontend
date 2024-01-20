@@ -96,9 +96,9 @@ const Widthdrawl = () => {
             return;
         }
 
-        if ((Number(deposit)) < Number(amounts.mwamount)) {
+        if ((Number(deposit)) < Number(250)) {
             //console.log((Number(deposit)+Number(amounts.withdrawal_fee)), Number(amounts.mwamount));
-            toaster(`Amount should be greater than ${amounts.mwamount}`);
+            toaster(`Amount should be greater than ${250}`);
             //console.log(deposit, amounts.amount);
             setnextBtn(false)
             return;
@@ -346,7 +346,7 @@ const Widthdrawl = () => {
                                         <div className="row p-3">
                                             <h6 className="text-white mb-2 px-3 text-sm">Tips</h6>
                                             <ol className="text-white text-sm">
-                                                <li>1. Minimum withdrawal amount is <span className="text-red-400">INR 130</span></li>
+                                                <li>1. Minimum withdrawal amount is <span className="text-red-400">INR 250</span></li>
                                                 <li>2. Personal income tax is <span className="text-red-400">INR 15 %</span></li>
                                                 <li>3. Withdrawal time is 10 am to 5 pm</li>
 
