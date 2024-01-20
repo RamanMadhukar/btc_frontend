@@ -153,12 +153,14 @@ const Widthdrawl = () => {
                     }, 3000);
                 }).catch(e => {
                     setLoading(false)
-                    toaster("some error occured")
+                    setnextBtn(false)
+                    toaster(e.response.data.message)
                     console.log(e);
                 })
 
             } catch (e) {
                 setLoading(false)
+                setnextBtn(false)
                 toaster('error adding document')
                 console.error("Error adding document: ", e);
 
