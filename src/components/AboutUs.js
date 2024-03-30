@@ -39,34 +39,29 @@ const AboutUs = () => {
                     <div className="row ">
                         <div className="col-span-12">
                             <div className="p-3 customborder  rounded-sm ">
-
+{/* 
                                 <div ref={ref} className="">
                                     <iframe width={dim[0]} height={dim[1]} src="https://www.youtube.com/embed/MpcMXUtmV8I?si=ZiVZjJAB68CFLr4t&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                </div>
+                                </div> */}
 
-                                <h3 class="text-center text-white mt-4 mb-5 ">Dnex</h3>
+                                <h3 class="text-center text-white mt-4 mb-5 ">DHL</h3>
 
                                 <p className='text-white'>
-                                    We are a Global Semiconductor Foundry
                                     <br />
-                                    We are continuously innovating to bring leading-edge semiconductor solutions that will transform the world
-                                    <br /><br />
+                                    Today, DHL is the world's leading logistics company. Our 600,000 people in over 220 countries and territories work every day to help you cross borders, reach new markets and grow your business. Or simply send a letter to your loved ones.                                       <br /><br />
 
                                     <img src={aboutimg2} className='mb-5' alt="" />
 
-                                    Globally ranked 17th by IC Insights in the category of pure-play foundries in 2021, SilTerra strives to provide outstanding technologies and services to our customers.
-                                    <br /><br />
+                                    DHL Group is the world's leading logistic company. The Group connects people and markets and is an enabler of global trade. It aspires to be the first choice for customers, employees and investors worldwide.                                    <br /><br />
 
 
                                     <img src={aboutimg} className='mb-5' alt="" />
 
-                                    Our leadership in advanced semiconductor wafer processing sets the stage to bring transformation in consumer electronics, next generation data communications networks, industrial, medical technologies and mobility.
-                                    <br /><br />
+                                    In summary, I am drawn to DHL because of its strong reputation, innovative approach, global exposure, opportunities for career growth, and positive work culture. I am confident that working at DHL will not only be a fulfilling professional experience but also a great opportunity to contribute to the company's success.                                    <br /><br />
 
 
 
-                                    SilTerra is a strategic investment of Dagang NeXchange Berhad (“DNeX”) and Beijing Integrated Circuit Advanced Manufacturing and High-End Equity Investment Fund Center (Limited Partnership) (“CGP Fund”).
-                                </p>
+                                    Deutsche Post began to acquire shares in DHL in 1998, acquiring a controlling interest in 2001. By the end of 2002, Deutsche Post had acquired all of DHL's remaining stock, and absorbed the operation into its Express division. The DHL brand was expanded to other Deutsche Post divisions, business units and subsidiaries.                                </p>
                             </div>
                         </div>
                     </div>

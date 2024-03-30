@@ -25,7 +25,7 @@ import { AiFillWallet } from 'react-icons/ai'
 import { IoWallet } from 'react-icons/io5'
 import { FaListAlt } from 'react-icons/fa'
 import ProductCard from './ProductCard'
-import homeLogo from '../images/btc/phoneLogo.png'
+import homeLogo from '../images/btc/login.png'
 import b1 from '../images/btc/b1.jpg';
 import b2 from '../images/btc/b2.jpg';
 import b3 from '../images/btc/b3.jpg';
@@ -152,17 +152,17 @@ const Home = () => {
                             <ProductCard
                                 product_image={b1}
                                 product_type={0}
-                                plan_cycle={35}
-                                plan_amount={500}
-                                plan_daily_earning={30}
+                                plan_cycle={1}
+                                plan_amount={250}
+                                plan_daily_earning={350}
                                 pre_sale={false}
                             />
 
                             <ProductCard
                                 product_image={b2}
                                 product_type={0}
-                                plan_cycle={35}
-                                plan_amount={1800}
+                                plan_cycle={40}
+                                plan_amount={499}
                                 plan_daily_earning={110}
                                 pre_sale={false}
                             />
@@ -170,38 +170,38 @@ const Home = () => {
                             <ProductCard
                                 product_image={b3}
                                 product_type={0}
-                                plan_cycle={35}
-                                plan_amount={5400}
-                                plan_daily_earning={315}
+                                plan_cycle={40}
+                                plan_amount={1400}
+                                plan_daily_earning={300}
                                 pre_sale={false}
                             />
 
                             <ProductCard
                                 product_image={b4}
                                 product_type={0}
-                                plan_cycle={35}
-                                plan_amount={18500}
-                                plan_daily_earning={1015}
+                                plan_cycle={40}
+                                plan_amount={4000}
+                                plan_daily_earning={900}
                                 pre_sale={false}
                             />
 
                             <ProductCard
                                 product_image={b5}
                                 product_type={0}
-                                plan_cycle={35}
-                                plan_amount={50000}
-                                plan_daily_earning={2754}
+                                plan_cycle={40}
+                                plan_amount={12000}
+                                plan_daily_earning={3000}
                                 pre_sale={true}
                             />
 
-                            <ProductCard
+                            {/* <ProductCard
                                 product_image={b5}
                                 product_type={0}
                                 plan_cycle={35}
                                 plan_amount={95000}
                                 plan_daily_earning={5780}
                                 pre_sale={true}
-                            />
+                            /> */}
                         </>
 
                         :
@@ -217,7 +217,7 @@ const Home = () => {
                             </div>
                         </div> */}
 
-                            <ProductCard
+                            {/* <ProductCard
                                 product_image={b3}
                                 product_type={1}
                                 plan_cycle={10}
@@ -233,7 +233,7 @@ const Home = () => {
                                 plan_amount={350}
                                 plan_daily_earning={95}
                                 pre_sale={false}
-                            />
+                            /> */}
 
                         </>
 

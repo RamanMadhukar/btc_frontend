@@ -5,7 +5,7 @@ import applogo from '../images/appLogo.png'
 import telegram from '../images/telegram.svg'
 import { toast } from 'react-toastify'
 import kraft from '../images/app-release.apk'
-import navlogo from '../images/btc/phoneLogo.png'
+import navlogo from '../images/btc/login.png'
 import calender from '../images/galaxysone/calender.png'
 import { FaGift } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";

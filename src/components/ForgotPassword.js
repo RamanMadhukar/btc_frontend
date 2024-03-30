@@ -18,7 +18,7 @@ import eyeclosed from '../images/btc/eyeclosed.png'
 import eyeopened from '../images/btc/eyeopend.png'
 // import ReCAPTCHA from "react-google-recaptcha";
 import RCG from 'react-captcha-generator';
-import loginimg from '../images/btc/login.jpg'
+import loginimg from '../images/btc/login.png'
 import phoneimg from '../images/btc/phone.png'
 import { MdPhoneIphone } from 'react-icons/md';
 import { IoLockClosed, IoShieldCheckmark } from 'react-icons/io5';

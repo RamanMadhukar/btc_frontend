@@ -39,8 +39,8 @@ const Deposit = () => {
 
     const handleRecharge = () => {
         if (parseInt(Deposit)) {
-            if (Number(350) > Number(Deposit)) {
-                toaster(`Amount should be greater than ₹${350}`);
+            if (Number(250) > Number(Deposit)) {
+                toaster(`Amount should be greater than ₹${250}`);
                 return;
             }
             // navigate(`/recharge_window/${Deposit}`);
